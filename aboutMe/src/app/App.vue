@@ -26,6 +26,12 @@ import HeaderWidget from "@/widgets/Header/HeaderWidget.vue";
     color: var(--main-text-color);
   }
 
+  .bodyPage {
+    width: 50%;
+    text-align: justify;
+    word-wrap: normal;
+  }
+
   .bodyApp {
     width: 100%;
     margin: auto;
