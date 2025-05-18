@@ -8,16 +8,7 @@ import HeaderWidget from "@/widgets/Header/HeaderWidget.vue";
 <template>
   <HeaderWidget />
   <div class="bodyApp">
-    <Anchor :anchor-link="[
-      {
-        href: 'th1',
-        title: 'Краткий обзор'
-      },
-      {
-        href: 'th2',
-        title: 'Тд, тп'
-      }
-    ]"/>
+    <Anchor />
     <div class="page">
       <RouterView />
     </div>
@@ -25,6 +16,10 @@ import HeaderWidget from "@/widgets/Header/HeaderWidget.vue";
 </template>
 
 <style>
+
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
     background-color: var(--main-color);

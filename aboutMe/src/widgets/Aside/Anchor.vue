@@ -1,17 +1,14 @@
 <script setup lang="ts">
-  import {defineProps, onBeforeUnmount, onMounted, ref} from 'vue';
+  import {onBeforeUnmount, onMounted, ref} from 'vue';
   import {useRoute, useRouter} from "vue-router";
+
+  import {useMainStore} from "@/shared/store";
 
   const anchorLink = ref();
   const route = useRoute();
   const router = useRouter();
 
-  const props: {
-    anchorLink: Array<{
-      href: string;
-      title: string;
-    }>
-  } = defineProps(["anchorLink"]);
+  const store = useMainStore();
 
   function selectedAnchorLink(keyLink: string) {
     router.push(route.path +"#"+keyLink);
@@ -35,10 +32,10 @@
   <a-anchor
     :affix="true"
     :items="[
-      ...props.anchorLink.map((elementLink, index: number) => {
+      ...store.pageLinks.map((elementLink, index: number) => {
         return {
           key: index.toString(),
-          href: elementLink.href,
+          href: '#' + elementLink.href,
           title: elementLink.title
         }
       })

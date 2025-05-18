@@ -1,5 +1,16 @@
 <script setup lang="ts">
+  import {useMainStore} from "@/shared/store";
 
+  const store = useMainStore();
+
+  store.addPagesLink(
+    [
+      {
+        href: "end",
+        title: "Конец"
+      }
+    ]
+  )
 </script>
 
 <template>
