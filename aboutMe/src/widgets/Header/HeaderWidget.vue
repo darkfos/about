@@ -1,29 +1,35 @@
 <script setup lang="ts">
-import { h, ref } from 'vue';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons-vue';
+import { h, ref, watch } from 'vue';
 import { MenuProps } from 'ant-design-vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const current = ref();
 const items = ref<MenuProps['items']>([
   {
-    key: 'home',
-    icon: () => h(MailOutlined),
+    key: '',
     label: 'Главная',
     title: 'Главная страница',
   },
   {
     key: 'projects',
-    icon: () => h(AppstoreOutlined),
     label: 'Проекты',
     title: 'Страница проектов',
   },
   {
-    key: 'sub1',
-    icon: () => h(SettingOutlined),
+    key: 'blog',
     label: 'Блог',
     title: 'Страница блога',
   },
 ]);
+
+watch(current, () => {
+  router.push(
+    {
+      path: `/${current.value[0]}`
+    }
+  )
+});
 
 </script>
 
