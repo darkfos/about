@@ -1,0 +1,12 @@
+@import "./styles.css";
+@import "./fonts.css";
+
+
+#select-text {
+  color:  var(--select-text);
+  font-weight: bold;
+}
+
+* {
+  font-family: "Futura PT";
+}

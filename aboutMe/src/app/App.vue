@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-
-import Anchor from "@/widgets/Aside/Anchor.vue";
-import HeaderWidget from "@/widgets/Header/HeaderWidget.vue";
+import HeaderWidget from "@/widgets/header/HeaderWidget.vue";
 </script>
 
 <template>
-  <HeaderWidget />
   <div class="bodyApp">
-    <Anchor />
-    <div class="page">
-      <RouterView />
-    </div>
+    <HeaderWidget />
   </div>
 </template>
 
@@ -26,22 +19,8 @@ import HeaderWidget from "@/widgets/Header/HeaderWidget.vue";
     color: var(--main-text-color);
   }
 
-  .bodyPage {
-    width: 50%;
-    text-align: justify;
-    word-wrap: normal;
-  }
-
   .bodyApp {
-    width: 100%;
+    width: 80%;
     margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 80px;
   }
-
-  .page {
-    margin-top: 70px;
-  }
-
 </style>
