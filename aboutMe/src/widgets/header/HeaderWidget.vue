@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+  import {RouterLink} from "vue-router";
 </script>
 
 <template>
@@ -9,11 +9,9 @@
     </div>
     <div>
       <nav>
-        <ul>
-          <li>Главная</li>
-          <li>Блог</li>
-          <li>Проекты</li>
-        </ul>
+        <RouterLink to="/">Главная</RouterLink>
+        <RouterLink to="/blog">Блог</RouterLink>
+        <RouterLink to="/projects">Проекты</RouterLink>
       </nav>
     </div>
   </header>
@@ -23,17 +21,25 @@
   header {
     width: 100%;
     display: grid;
+    align-items: center;
     grid-template-columns: 3fr 1fr;
     justify-content: space-between;
   }
 
-  ul {
+  nav {
     display: flex;
     flex-direction: row;
     gap: 15px;
   }
 
-  li {
-    list-style: none;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    color: var(--select-text);
+    font-weight: bold;
+    transition: font-weight 200ms ease-in-out, color 200ms ease-in-out;
   }
 </style>

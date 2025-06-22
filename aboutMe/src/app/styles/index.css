@@ -9,4 +9,11 @@
 
 * {
   font-family: "Futura PT";
+  font-size: 16pt;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }

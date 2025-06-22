@@ -11,4 +11,10 @@
 
   --header-color: #bfbfbf;
   --main-text-color: #fff0f6;
+
+  --link-element-bg-color: #2C283B;
+  --text-on-white-bg-color: #242121;
+  --text-selected: #FAD4BC;
+
+  --addtitional-text: #56b8ff;
 }
