@@ -1,0 +1,20 @@
+:root {
+
+  --main-color: #1f1f1f;
+
+  /*
+    BTN
+  */
+  --main-btn-color: #CA0A9E;
+  --select-text: #CA0A9E;
+  --main-btn-hover-color: #531dab;
+
+  --header-color: #bfbfbf;
+  --main-text-color: #fff0f6;
+
+  --link-element-bg-color: #2C283B;
+  --text-on-white-bg-color: #242121;
+  --text-selected: #FAD4BC;
+
+  --addtitional-text: #56b8ff;
+}
