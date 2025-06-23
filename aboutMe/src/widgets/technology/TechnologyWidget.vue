@@ -83,13 +83,14 @@ const otherTechnologies: Array<Array<string>> = [
 
   .technology {
     background-color: var(--text-selected);
-    border-radius:  100px 100px 0px 0px;
+    border-radius:  100px 100px 100px 100px;
     position: relative;
     width: 100vw;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
+    padding-bottom: 60px;
   }
 
   .technology__body {
@@ -107,7 +108,7 @@ const otherTechnologies: Array<Array<string>> = [
   .my-technology-list {
     display: flex;
     flex-direction: row;
-    gap:  90px;
+    gap:  40px;
   }
 
   .my-technology-list > div {

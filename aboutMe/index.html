@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/app/main.js"></script>
-  </body>
+    <title>Vanta Trunk Example</title>
+    <style>
+        html, body {
+            margin: 0; padding: 0;
+        }
+
+        #app {
+            z-index: 100;
+            position: relative;
+        }
+
+        #vanta-bg {
+            position: fixed;
+            width: 100vw;
+            min-height: 100vh;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+        <div id="vanta-bg"></div>
+        <div id="app"></div>
+<script type="module" src="./src/app/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.trunk.min.js"></script>
+    <script>
+        VANTA.TRUNK({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            backgroundColor: 0x1f1f1f,
+            spacing: 1.00,
+            chaos: 5.00
+        })
+    </script>
+</body>
 </html>
