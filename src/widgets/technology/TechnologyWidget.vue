@@ -55,7 +55,6 @@ const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
     </div>
   </section>
 </template>
-
 <style scoped>
 h2 {
   position: relative;

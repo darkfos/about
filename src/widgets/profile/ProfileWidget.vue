@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
 
-const imageLinks: Array<string> = ['github.png', 'gitlab.png', 'telegram.png']
+const imageLinks: Array<string[]> = [
+  ['github.png', 'https://github.com/darkfos'],
+  ['gitlab.png', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1'],
+  ['telegram.png', 'https://t.me/DarkFos99'],
+]
 </script>
 
 <template>
@@ -13,7 +17,7 @@ const imageLinks: Array<string> = ['github.png', 'gitlab.png', 'telegram.png']
     </div>
     <div class="profile__contacts">
       <div v-for="(el, index) in imageLinks" v-bind:key="index">
-        <LinkElementWidget :img="el" />
+        <LinkElementWidget :img="el[0]" :redirect="el[1]" />
       </div>
     </div>
     <div class="profile__btns">

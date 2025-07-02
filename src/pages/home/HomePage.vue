@@ -3,6 +3,7 @@ import ProfileWidget from '@/widgets/profile/ProfileWidget.vue'
 import AboutMeWidget from '@/widgets/about-me/AboutMeWidget.vue'
 import TechnologyWidget from '@/widgets/technology/TechnologyWidget.vue'
 import MyWayWidget from '@/widgets/my-way/MyWayWidget.vue'
+import { FooterWidget } from '@/widgets/footer'
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import MyWayWidget from '@/widgets/my-way/MyWayWidget.vue'
   <AboutMeWidget />
   <TechnologyWidget />
   <MyWayWidget />
+  <FooterWidget />
 </template>
 
 <style>

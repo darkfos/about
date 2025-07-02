@@ -36,12 +36,14 @@ watch(
       <p id="select-text">darkfos</p>
     </div>
     <div>
-      <nav v-for="(hLink, index) in headerLink" :key="index">
-        <RouterLink
-          :to="hLink.href"
-          :class="mainStore.activePage === hLink.href ? 'active' : null"
-          >{{ hLink.title }}</RouterLink
-        >
+      <nav>
+        <div v-for="(hLink, index) in headerLink" :key="index">
+          <RouterLink
+            :to="hLink.href"
+            :class="mainStore.activePage === hLink.href ? 'active' : null"
+            >{{ hLink.title }}</RouterLink
+          >
+        </div>
       </nav>
     </div>
   </header>

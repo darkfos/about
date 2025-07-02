@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-const { img, title } = defineProps(['img', 'title'])
+const { img, title, redirect } = defineProps(['img', 'title', 'redirect'])
 
-console.log(img, title)
+const redirectPage = () => {
+  window.location.href = redirect
+}
+
+console.log(img)
 </script>
 
 <template>
   <div class="link-element">
-    <img :src="'../../../public/icons/' + img" :alt="title ? title : 'иконка элемента'" />
+    <img
+      :src="'../../../public/icons/' + img"
+      :alt="title ? title : 'иконка элемента'"
+      @click="redirectPage"
+    />
   </div>
 </template>
 
