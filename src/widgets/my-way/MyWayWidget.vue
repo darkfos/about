@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, h, type VNode} from 'vue'
+import { ref, h, type VNode } from 'vue'
 import type { Ref } from 'vue'
 import { FireOutlined } from '@ant-design/icons-vue'
 

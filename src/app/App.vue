@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import HeaderWidget from '@/widgets/header/HeaderWidget.vue'
-import HomePage from '@/pages/home/HomePage.vue'
 </script>
 
 <template>
   <div class="bodyApp">
     <HeaderWidget />
-    <HomePage />
+    <router-view />
   </div>
 </template>
 

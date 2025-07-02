@@ -15,6 +15,7 @@ declare module 'vue' {
     ACarousel: typeof import('ant-design-vue/es')['Carousel']
     AMenu: typeof import('ant-design-vue/es')['Menu']
     APageHeader: typeof import('ant-design-vue/es')['PageHeader']
+    APagination: typeof import('ant-design-vue/es')['Pagination']
     ARadioButton: typeof import('ant-design-vue/es')['RadioButton']
     ASteps: typeof import('ant-design-vue/es')['Steps']
     ATimeline: typeof import('ant-design-vue/es')['Timeline']
