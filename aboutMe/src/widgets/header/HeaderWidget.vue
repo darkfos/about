@@ -6,6 +6,7 @@
 
   const route = useRoute();
   const mainStore = useMainStore();
+
   const headerLink: Array<{href: string; title: string}> = [
     {
       href: '/',
