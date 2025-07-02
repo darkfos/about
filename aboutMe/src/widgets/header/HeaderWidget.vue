@@ -1,5 +1,29 @@
 <script setup lang="ts">
-  import {RouterLink} from "vue-router";
+  import { watch } from "vue";
+  import {RouterLink, useRoute} from "vue-router";
+
+  import {useMainStore} from "@/shared/store";
+
+  const route = useRoute();
+  const mainStore = useMainStore();
+  const headerLink: Array<{href: string; title: string}> = [
+    {
+      href: '/',
+      title: "Главная"
+    },
+    {
+      href: "/blog",
+      title: "Блог"
+    },
+    {
+      href: "/projects",
+      title: "Проекты"
+    }
+  ];
+
+  watch(() => route.path, (newPath: string) => {
+    mainStore.addPagesLink(newPath);
+  });
 </script>
 
 <template>
@@ -8,10 +32,8 @@
       <p id="select-text">darkfos</p>
     </div>
     <div>
-      <nav>
-        <RouterLink to="/">Главная</RouterLink>
-        <RouterLink to="/blog">Блог</RouterLink>
-        <RouterLink to="/projects">Проекты</RouterLink>
+      <nav v-for="hLink in headerLink">
+        <RouterLink :to="hLink.href" :class="mainStore.activePage === hLink.href ? 'active' : null">{{ hLink.title }}</RouterLink>
       </nav>
     </div>
   </header>
@@ -41,5 +63,9 @@
     color: var(--select-text);
     font-weight: bold;
     transition: font-weight 200ms ease-in-out, color 200ms ease-in-out;
+  }
+
+  .active {
+    color: var(--select-text);
   }
 </style>

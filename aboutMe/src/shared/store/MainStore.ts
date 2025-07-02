@@ -4,21 +4,16 @@ import {defineStore} from "pinia";
 export const useMainStore = defineStore("mainStore", {
   state:  () => {
     return {
-      pageLinks: [
-        {
-          href: "",
-          title: ""
-        }
-      ]
+      activePage: "/"
     }
   },
   actions: {
-    getPageLinks() {
-      return this.pageLink;
+    getPageLink() {
+      return this.activePage;
     },
 
-    addPagesLink(links: Array<{href: string, title: string}>) {
-      this.pageLinks.push(...links);
+    addPagesLink(pageLink: string) {
+      this.activePage = pageLink;
     }
   }
 });
