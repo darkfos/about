@@ -1,11 +1,8 @@
 <script setup lang="ts">
-  import {useMainStore} from "@/shared/store";
   import ProfileWidget from "@/widgets/profile/ProfileWidget.vue";
   import AboutMeWidget from "@/widgets/about-me/AboutMeWidget.vue";
   import TechnologyWidget from "@/widgets/technology/TechnologyWidget.vue";
   import MyWayWidget from "@/widgets/my-way/MyWayWidget.vue";
-
-  const store = useMainStore();
 </script>
 
 <template>
