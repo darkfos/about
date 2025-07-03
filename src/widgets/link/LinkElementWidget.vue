@@ -3,8 +3,8 @@ import { defineProps } from 'vue'
 
 const { img, title, redirect } = defineProps(['img', 'title', 'redirect'])
 
-const redirectPage = () => {
-  window.location.href = redirect
+const redirectPage = (): void => {
+  window.location.href = redirect;
 }
 
 console.log(img)

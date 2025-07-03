@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import HeaderWidget from '@/widgets/header/HeaderWidget.vue'
+import { HeaderWidget } from '@/widgets/header';
+import { FooterWidget } from '@/widgets/footer';
 </script>
 
 <template>
   <div class="bodyApp">
     <HeaderWidget />
     <router-view />
+    <FooterWidget />
   </div>
 </template>
 

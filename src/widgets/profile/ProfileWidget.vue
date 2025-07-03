@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
+import { LinkElementWidget } from '@/widgets/link';
 
 const imageLinks: Array<string[]> = [
   ['github.png', 'https://github.com/darkfos'],

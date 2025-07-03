@@ -1,22 +1,9 @@
 <script setup lang="ts">
-import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
+import { LinkElementWidget } from '@/widgets/link';
 
-const backendTechnology: Array<Array<string>> = [
-  ['python.png', 'nodejs.png'],
-  ['django.png', 'fastapi.png', 'express.png'],
-  ['postgres.png', 'mysql.png', 'sqlite.png'],
-  ['mongodb.png', 'redis.png'],
-  ['rabbitmq.png'],
-]
+import { useMainStore } from '@/shared/store';
 
-const frontendTechnology: Array<Array<string>> = [
-  ['javascript.png', 'typescript.png'],
-  ['react.png', 'vue.png'],
-  ['html.png', 'css.png', 'scss.png'],
-  ['nuxt.png', 'next.png'],
-]
-
-const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
+const mainStore = useMainStore();
 </script>
 
 <template>
@@ -28,7 +15,7 @@ const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
         <div class="my-technology-list">
           <div>
             <h4>Backend</h4>
-            <div v-for="(el, index) in backendTechnology" class="tech" :key="index">
+            <div v-for="(el, index) in mainStore.getTechnologies('backend')" class="tech" :key="index">
               <div v-for="item in el" v-bind:key="item">
                 <LinkElementWidget :img="item" :title="item" />
               </div>
@@ -36,7 +23,7 @@ const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
           </div>
           <div>
             <h4>Frontend</h4>
-            <div v-for="(el, index) in frontendTechnology" class="tech" :key="index">
+            <div v-for="(el, index) in mainStore.getTechnologies('frontend')" class="tech" :key="index">
               <div v-for="item in el" :key="item">
                 <LinkElementWidget :img="item" :title="item" />
               </div>
@@ -44,7 +31,7 @@ const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
           </div>
           <div>
             <h4>Other</h4>
-            <div v-for="(el, index) in otherTechnologies" class="tech" :key="index">
+            <div v-for="(el, index) in mainStore.getTechnologies('other')" class="tech" :key="index">
               <div v-for="item in el" :key="item">
                 <LinkElementWidget :img="item" :title="item" />
               </div>

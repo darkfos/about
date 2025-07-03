@@ -2,8 +2,10 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 
+import { useMainStore } from '@/shared/store';
+
+const mainStore = useMainStore();
 const current: Ref<number> = ref(1)
-const themes: Array<string> = ['Фронтенд', 'Бекенд', 'Веб', 'История', 'Спорт']
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const themes: Array<string> = ['Фронтенд', 'Бекенд', 'Веб', 'И
     <div class="blog-themes">
       <h4>Темы</h4>
       <div class="blog-themes__content">
-        <p v-for="theme in themes" :key="theme">{{ theme }}</p>
+        <p v-for="theme in mainStore.getThemes()" :key="theme">{{ theme }}</p>
       </div>
     </div>
     <a-pagination v-model:current="current" :total="85" show-less-items />

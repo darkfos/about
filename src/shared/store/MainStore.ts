@@ -1,18 +1,71 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+
+type flagTechnologies = "backend" | "frontend" | "other";
 
 export const useMainStore = defineStore('mainStore', {
-  state: () => {
+  state: (): {
+    activePage: string;
+    themes: Array<string>;
+    backendTechnologies: Array<Array<string>>;
+    frontendTechnologies: Array<Array<string>>;
+    otherTechnologies: Array<Array<string>>;
+  } => {
     return {
       activePage: '/',
+      themes: ['Фронтенд', 'Бекенд', 'Веб', 'История', 'Спорт'],
+      backendTechnologies: [
+        ['python.png', 'nodejs.png'],
+        ['django.png', 'fastapi.png', 'express.png'],
+        ['postgres.png', 'mysql.png', 'sqlite.png'],
+        ['mongodb.png', 'redis.png'],
+        ['rabbitmq.png'],
+      ],
+      frontendTechnologies: [
+        ['javascript.png', 'typescript.png'],
+        ['react.png', 'vue.png'],
+        ['html.png', 'css.png', 'scss.png'],
+        ['nuxt.png', 'next.png'],
+      ],
+      otherTechnologies: [['docker.png'], ['nginx.png']],
     }
   },
   actions: {
-    getPageLink() {
+    getPageLink(): string {
       return this.activePage
     },
-
-    addPagesLink(pageLink: string) {
+    getThemes(): Array<string> {
+      return this.themes;
+    },
+    getTechnologies(flag: flagTechnologies): Array<Array<string>> {
+      switch (flag) {
+        case "backend": return this.backendTechnologies;
+        case "frontend": return this.frontendTechnologies;
+        case "other": return this.otherTechnologies;
+      }
+    },
+    addThemes(newThemes: Array<string>): void {
+      this.themes = [...this.themes, ...newThemes];
+    },
+    addPagesLink(pageLink: string): void {
       this.activePage = pageLink
     },
+    addTechnologies(newTechnologies: Array<string>, index: number | null = null, flag: flagTechnologies = "backend"): void {
+
+      let technology: Array<string> | Array<Array<string>> = this.backendTechnologies;
+
+      switch (flag) {
+        case 'backend': technology = this.backendTechnologies;
+        break;
+        case 'frontend': technology = this.frontendTechnologies;
+        break;
+        case 'other': technology = this.otherTechnologies;
+      }
+
+      if (index) {
+        technology[index] = [...technology[index], ...newTechnologies];
+      } else {
+        technology.push(newTechnologies);
+      }
+    }
   },
 })

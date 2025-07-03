@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ProfileWidget from '@/widgets/profile/ProfileWidget.vue'
-import AboutMeWidget from '@/widgets/about-me/AboutMeWidget.vue'
-import TechnologyWidget from '@/widgets/technology/TechnologyWidget.vue'
-import MyWayWidget from '@/widgets/my-way/MyWayWidget.vue'
-import { FooterWidget } from '@/widgets/footer'
+import { ProfileWidget } from '@/widgets/profile';
+import { AboutMeWidget } from '@/widgets/about-me';
+import { TechnologyWidget } from '@/widgets/technology';
+import { MyWayWidget } from '@/widgets/my-way';
+import { FooterWidget } from '@/widgets/footer';
 </script>
 
 <template>
