@@ -1,18 +1,19 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
+import type { Theme } from '@/entities/theme'
 
-type flagTechnologies = "backend" | "frontend" | "other";
+type flagTechnologies = 'backend' | 'frontend' | 'other'
 
 export const useMainStore = defineStore('mainStore', {
   state: (): {
-    activePage: string;
-    themes: Array<string>;
-    backendTechnologies: Array<Array<string>>;
-    frontendTechnologies: Array<Array<string>>;
-    otherTechnologies: Array<Array<string>>;
+    activePage: string
+    themes: Array<Theme>
+    backendTechnologies: Array<Array<string>>
+    frontendTechnologies: Array<Array<string>>
+    otherTechnologies: Array<Array<string>>
   } => {
     return {
       activePage: '/',
-      themes: ['Фронтенд', 'Бекенд', 'Веб', 'История', 'Спорт'],
+      themes: [],
       backendTechnologies: [
         ['python.png', 'nodejs.png'],
         ['django.png', 'fastapi.png', 'express.png'],
@@ -33,39 +34,48 @@ export const useMainStore = defineStore('mainStore', {
     getPageLink(): string {
       return this.activePage
     },
-    getThemes(): Array<string> {
-      return this.themes;
+    getThemes() {
+      return this.themes
     },
     getTechnologies(flag: flagTechnologies): Array<Array<string>> {
       switch (flag) {
-        case "backend": return this.backendTechnologies;
-        case "frontend": return this.frontendTechnologies;
-        case "other": return this.otherTechnologies;
+        case 'backend':
+          return this.backendTechnologies
+        case 'frontend':
+          return this.frontendTechnologies
+        case 'other':
+          return this.otherTechnologies
       }
     },
-    addThemes(newThemes: Array<string>): void {
-      this.themes = [...this.themes, ...newThemes];
+    addThemes(newThemes: Array<Theme>): void {
+      this.themes = [...this.themes, ...newThemes]
     },
     addPagesLink(pageLink: string): void {
       this.activePage = pageLink
     },
-    addTechnologies(newTechnologies: Array<string>, index: number | null = null, flag: flagTechnologies = "backend"): void {
-
-      let technology: Array<string> | Array<Array<string>> = this.backendTechnologies;
+    addTechnologies(
+      newTechnologies: Array<string>,
+      index: number | null = null,
+      flag: flagTechnologies = 'backend',
+    ): void {
+      let technology: Array<string> | Array<Array<string>> = this.backendTechnologies
 
       switch (flag) {
-        case 'backend': technology = this.backendTechnologies;
-        break;
-        case 'frontend': technology = this.frontendTechnologies;
-        break;
-        case 'other': technology = this.otherTechnologies;
+        case 'backend':
+          technology = this.backendTechnologies
+          break
+        case 'frontend':
+          technology = this.frontendTechnologies
+          break
+        case 'other':
+          technology = this.otherTechnologies
       }
 
       if (index) {
-        technology[index] = [...technology[index], ...newTechnologies];
+        technology[index] = [...technology[index], ...newTechnologies]
       } else {
-        technology.push(newTechnologies);
+        technology.push(newTechnologies)
       }
-    }
+    },
   },
 })

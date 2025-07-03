@@ -2,9 +2,11 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 
-import { useMainStore } from '@/shared/store';
+import { LinkElementWidget } from '@/widgets/link'
 
-const mainStore = useMainStore();
+import { useMainStore } from '@/shared/store'
+
+const mainStore = useMainStore()
 const current: Ref<number> = ref(1)
 </script>
 
@@ -19,14 +21,20 @@ const current: Ref<number> = ref(1)
     <div class="blog-themes">
       <h4>Темы</h4>
       <div class="blog-themes__content">
-        <p v-for="theme in mainStore.getThemes()" :key="theme">{{ theme }}</p>
+        <LinkElementWidget
+          v-for="theme in mainStore.getThemes()"
+          :key="theme.id"
+          :text="theme?.name as string"
+        ></LinkElementWidget>
       </div>
     </div>
-    <a-pagination v-model:current="current" :total="85" show-less-items />
+    <div class="blog-content">
+      <a-pagination v-model:current="current" :total="85" :show-size-changer="false" />
+    </div>
   </div>
 </template>
 
-<style scoped>
+<style>
 .blog {
   width: 90%;
   margin: auto;
@@ -51,14 +59,8 @@ const current: Ref<number> = ref(1)
   display: flex;
   flex-direction: row;
   gap: 10px;
-  margin-top: -35px;
-}
-
-.blog-themes__content p {
-  padding: 5px;
-  background-color: var(--link-element-bg-color);
-  color: var(--select-text);
-  border-radius: 10px;
+  margin-top: -15px;
+  flex-wrap: wrap;
 }
 
 .input-wrapper input {
@@ -78,7 +80,7 @@ const current: Ref<number> = ref(1)
 
 .input-wrapper:before {
   content: '';
-  background: url('../../../public/icons/find.png');
+  background: url('../../../../public/icons/find.png');
   background-color: var(--link-element-bg-color);
   background-repeat: no-repeat;
   background-position: center;
@@ -98,5 +100,32 @@ const current: Ref<number> = ref(1)
 
 .input-wrapper:hover::before {
   background-color: var(--text-selected);
+}
+
+.blog-content {
+  width: 70%;
+  margin: auto;
+}
+
+.ant-pagination {
+  margin: auto !important;
+  text-align: center !important;
+  width: 70%;
+}
+
+.ant-pagination-item a {
+  color: var(--select-text) !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item-active {
+  background-color: var(--main-text-color) !important;
+  border-color: var(--select-text) !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item-link {
+  color: var(--select-text) !important;
+  font-weight: bold;
 }
 </style>

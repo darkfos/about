@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { LinkElementWidget } from '@/widgets/link';
+import { LinkElementWidget } from '@/widgets/link'
 
-import { useMainStore } from '@/shared/store';
+import { useMainStore } from '@/shared/store'
 
-const mainStore = useMainStore();
+const mainStore = useMainStore()
 </script>
 
 <template>
@@ -15,7 +15,11 @@ const mainStore = useMainStore();
         <div class="my-technology-list">
           <div>
             <h4>Backend</h4>
-            <div v-for="(el, index) in mainStore.getTechnologies('backend')" class="tech" :key="index">
+            <div
+              v-for="(el, index) in mainStore.getTechnologies('backend')"
+              class="tech"
+              :key="index"
+            >
               <div v-for="item in el" v-bind:key="item">
                 <LinkElementWidget :img="item" :title="item" />
               </div>
@@ -23,7 +27,11 @@ const mainStore = useMainStore();
           </div>
           <div>
             <h4>Frontend</h4>
-            <div v-for="(el, index) in mainStore.getTechnologies('frontend')" class="tech" :key="index">
+            <div
+              v-for="(el, index) in mainStore.getTechnologies('frontend')"
+              class="tech"
+              :key="index"
+            >
               <div v-for="item in el" :key="item">
                 <LinkElementWidget :img="item" :title="item" />
               </div>
@@ -31,7 +39,11 @@ const mainStore = useMainStore();
           </div>
           <div>
             <h4>Other</h4>
-            <div v-for="(el, index) in mainStore.getTechnologies('other')" class="tech" :key="index">
+            <div
+              v-for="(el, index) in mainStore.getTechnologies('other')"
+              class="tech"
+              :key="index"
+            >
               <div v-for="item in el" :key="item">
                 <LinkElementWidget :img="item" :title="item" />
               </div>

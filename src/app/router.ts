@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import HomePage from '@/entities/home/HomePage.vue'
-import ProjectsPage from '@/entities/projects/ProjectsPage.vue'
-import BlogPage from '@/entities/blog/BlogPage.vue'
+import HomePage from '@/entities/home'
+import BlogPage from '@/entities/blog'
+import ProjectsPage from '@/entities/projects'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

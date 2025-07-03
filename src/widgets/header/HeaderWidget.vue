@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { watch } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 
-import { useMainStore } from '@/shared/store';
+import { useMainStore } from '@/shared/store'
 
-const route = useRoute();
-const mainStore = useMainStore();
+const route = useRoute()
+const mainStore = useMainStore()
 
 const headerLink: Array<{ href: string; title: string }> = [
   {

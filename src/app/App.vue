@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import { HeaderWidget } from '@/widgets/header';
 import { FooterWidget } from '@/widgets/footer';
+
+import { getThemes } from '@/entities/theme';
+import type { Theme } from '@/entities/theme';
+
+import { useMainStore } from '@/shared/store';
+
+const mainStore = useMainStore()
+
+if (!mainStore.getThemes().length) {
+  // Set themes
+  getThemes().then((data) => {
+    mainStore.addThemes(data as Theme[])
+  })
+}
 </script>
 
 <template>

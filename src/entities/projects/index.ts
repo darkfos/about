@@ -1,3 +1,3 @@
-import ProjectsPage from '@/entities/projects/ProjectsPage.vue'
+import ProjectsPage from '@/entities/projects/ui'
 
-export default ProjectsPage;
+export default ProjectsPage

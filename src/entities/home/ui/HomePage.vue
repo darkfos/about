@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ProfileWidget } from '@/widgets/profile';
-import { AboutMeWidget } from '@/widgets/about-me';
-import { TechnologyWidget } from '@/widgets/technology';
-import { MyWayWidget } from '@/widgets/my-way';
-import { FooterWidget } from '@/widgets/footer';
+import { ProfileWidget } from '@/widgets/profile'
+import { AboutMeWidget } from '@/widgets/about-me'
+import { TechnologyWidget } from '@/widgets/technology'
+import { MyWayWidget } from '@/widgets/my-way'
 </script>
 
 <template>
@@ -19,7 +18,6 @@ import { FooterWidget } from '@/widgets/footer';
   <AboutMeWidget />
   <TechnologyWidget />
   <MyWayWidget />
-  <FooterWidget />
 </template>
 
 <style>
@@ -41,7 +39,7 @@ import { FooterWidget } from '@/widgets/footer';
   width: 1920px;
   height: 100%;
   transform: translateX(-50%);
-  background-image: url('../../../public/img/bg-1.png');
+  background-image: url('../../../../public/img/bg-1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
