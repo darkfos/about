@@ -1,3 +1,5 @@
-import BlogPage from './ui/BlogPage.vue'
+import BlogPage from './ui/BlogPage.vue';
 
-export default BlogPage
+export * from "./api";
+export * from "./types";
+export default BlogPage;

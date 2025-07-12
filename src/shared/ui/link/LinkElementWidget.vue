@@ -25,7 +25,7 @@ const redirectPage = (): void => {
 
 <style scoped>
 .link-element-text {
-  font-size: 11pt !important;
+  font-size: 11pt;
   padding-left: 5px;
   padding-right: 5px;
   color: var(--select-text);
@@ -38,7 +38,7 @@ const redirectPage = (): void => {
 }
 
 .link-element-text p {
-  font-size: 11pt !important;
+  font-size: 12pt;
 }
 
 .link-element {

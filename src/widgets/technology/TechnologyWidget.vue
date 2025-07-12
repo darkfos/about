@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkElementWidget } from '@/widgets/link'
+import { LinkElementWidget } from '../../shared/ui/link'
 
 import { useMainStore } from '@/shared/store'
 

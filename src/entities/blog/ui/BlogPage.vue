@@ -2,8 +2,9 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 
-import { LinkElementWidget } from '@/widgets/link'
+import { LinkElementWidget } from '@/shared/ui';
 
+import { FormInput } from "@/shared/ui";
 import { useMainStore } from '@/shared/store'
 
 const mainStore = useMainStore()
@@ -13,12 +14,8 @@ const current: Ref<number> = ref(1)
 <template>
   <div class="blog">
     <h1>Давай-ка поищем...</h1>
-    <form class="blog-form">
-      <div class="input-wrapper">
-        <input type="text" />
-      </div>
-    </form>
     <div class="blog-themes">
+      <FormInput />
       <h4>Темы</h4>
       <div class="blog-themes__content">
         <LinkElementWidget
@@ -42,11 +39,6 @@ const current: Ref<number> = ref(1)
 
 .blog > h1 {
   text-align: center;
-}
-
-.blog-form {
-  margin: auto;
-  width: 50%;
 }
 
 .blog-themes {
@@ -73,38 +65,10 @@ const current: Ref<number> = ref(1)
   color: var(--main-text-color);
 }
 
-.input-wrapper {
-  position: relative;
-  z-index: 1;
-}
-
-.input-wrapper:before {
-  content: '';
-  background: url('../../../../public/icons/find.png');
-  background-color: var(--link-element-bg-color);
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 8px;
-  background-size: 25px 25px;
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  display: inline-block;
-  position: absolute;
-  left: 95%;
-  top: 10px;
-  cursor: pointer;
-  z-index: 4;
-  transition: background-color 0.6s ease;
-}
-
-.input-wrapper:hover::before {
-  background-color: var(--text-selected);
-}
-
 .blog-content {
   width: 70%;
   margin: auto;
+  margin-top: 60px;
 }
 
 .ant-pagination {

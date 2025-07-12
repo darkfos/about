@@ -1,5 +1,11 @@
 <script setup lang="ts">
-import { LinkElementWidget } from '@/widgets/link'
+import { LinkElementWidget } from '../../shared/ui/link'
+
+const goToAboutMeBlock = () => {
+  document.getElementById("my-way")?.scrollIntoView({
+    behavior: "smooth",
+  })
+}
 
 const imageLinks: Array<string[]> = [
   ['github.png', 'https://github.com/darkfos'],
@@ -21,7 +27,7 @@ const imageLinks: Array<string[]> = [
       </div>
     </div>
     <div class="profile__btns">
-      <a-button :size="5" type="primary">Обо мне</a-button>
+      <a-button :size="5" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>
       <a-button :size="20" type="primary">Блог</a-button>
     </div>
   </div>

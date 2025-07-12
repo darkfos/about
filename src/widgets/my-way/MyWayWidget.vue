@@ -33,7 +33,7 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 </script>
 
 <template>
-  <section class="my-way">
+  <section class="my-way" id="my-way">
     <h2>Мой путь</h2>
     <div class="my-way__body">
       <a-steps v-model:current="current" :items="items" class="steps" type="navigation" />
