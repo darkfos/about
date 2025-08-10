@@ -40,7 +40,8 @@ import { LinkElementWidget, TitleText, TypographyText } from '@/shared/ui'
             <TypographyText type="span" id="tech"> историю </TypographyText>,
             <TypographyText type="span" id="tech"> географию </TypographyText>,
             <TypographyText type="span" id="tech"> политологию </TypographyText>,
-            <TypographyText type="span"> аниме </TypographyText>
+            <TypographyText type="span" id="tech"> музыка (я ей живу)</TypographyText>,
+            <TypographyText type="span" id="tech"> аниме. </TypographyText>
           </TypographyText>
           <TypographyText type="p">
             На данный момент активно изучаю направление разработки в сфере веба. Если есть

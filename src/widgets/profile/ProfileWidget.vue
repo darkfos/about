@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { LinkElementWidget } from '../../shared/ui/link'
+import { TypographyText } from '@/shared/ui'
 
 const goToAboutMeBlock = () => {
   document.getElementById('my-way')?.scrollIntoView({
@@ -18,8 +19,8 @@ const imageLinks: Array<string[]> = [
   <section class="profile" id="profile">
     <img src="/img/darkfos_profile.png" alt="Иконка darkfos" />
     <div class="profile__desc">
-      <p>darkfos</p>
-      <h3>Full Stack dev.</h3>
+      <TypographyText type="p">darkfos</TypographyText>
+      <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
     </div>
     <div class="profile__contacts">
       <div v-for="(el, index) in imageLinks" v-bind:key="index">

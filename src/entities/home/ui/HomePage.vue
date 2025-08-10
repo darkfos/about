@@ -39,7 +39,7 @@ import { TypographyText } from '@/shared/ui'
   position: absolute;
   left: 50%;
   top: 0;
-  width: 1920px;
+  width: 100%;
   height: 100%;
   transform: translateX(-50%);
   background-image: url('../../../../public/img/bg-2.png');
@@ -63,5 +63,40 @@ import { TypographyText } from '@/shared/ui'
   position: relative;
   top: 50px;
   left: 0px;
+}
+
+@media screen and (max-width: 1768px) {
+  #content {
+    margin-top: 30%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  #content {
+    margin-top: 35%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  #content {
+    margin-top: 45%;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #content {
+    margin-top: 55%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #content {
+    margin-top: 60%;
+  }
+
+  #bg {
+    width: 800px;
+    margin: auto;
+  }
 }
 </style>

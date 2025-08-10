@@ -31,12 +31,14 @@ if (!mainStore.getThemes().length) {
 body {
   background-color: var(--main-color);
   color: var(--main-text-color);
+  width: 100%;
 }
 
 .bodyApp {
+  max-width: 80%;
   width: 80%;
   display: grid;
-  grid-template-rows: auto;
+  border: 1px solid red;
   gap: 100px;
   margin: auto;
 }
