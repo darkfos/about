@@ -28,18 +28,19 @@ import { MyWayWidget } from '@/widgets/my-way'
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  min-height: 900px;
-  overflow: hidden;
+  min-height: 1000px;
+  z-index: 10;
 }
 
 #bg {
+  z-index: 1000;
   position: absolute;
   left: 50%;
   top: 0;
   width: 1920px;
   height: 100%;
   transform: translateX(-50%);
-  background-image: url('../../../../public/img/bg-1.png');
+  background-image: url('../../../../public/img/bg-2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -50,7 +51,7 @@ import { MyWayWidget } from '@/widgets/my-way'
   text-wrap: wrap;
   width: calc(100vw - 20px);
   margin: auto;
-  margin-top: 30%;
+  margin-top: 25%;
   color: var(--text-on-white-bg-color);
   font-weight: bold;
 }

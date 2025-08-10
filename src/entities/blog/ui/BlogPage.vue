@@ -2,9 +2,9 @@
 import { ref } from 'vue'
 import type { Ref } from 'vue'
 
-import { LinkElementWidget } from '@/shared/ui';
+import { LinkElementWidget } from '@/shared/ui'
 
-import { FormInput } from "@/shared/ui";
+import { FormInput } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
 
 const mainStore = useMainStore()

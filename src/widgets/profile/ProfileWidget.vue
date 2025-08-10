@@ -2,8 +2,8 @@
 import { LinkElementWidget } from '../../shared/ui/link'
 
 const goToAboutMeBlock = () => {
-  document.getElementById("my-way")?.scrollIntoView({
-    behavior: "smooth",
+  document.getElementById('my-way')?.scrollIntoView({
+    behavior: 'smooth',
   })
 }
 

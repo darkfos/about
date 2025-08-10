@@ -25,7 +25,7 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
   },
   {
     key: 'Текущий момент',
-    title: 'Сегодня - сейчас',
+    title: 'Сегодня',
     text: 'На данный момент я работаю в компании WorkSolutions, продолжаю совершенствовать свои навыки, учиться и развиваться.',
     icon: h(FireOutlined),
   },

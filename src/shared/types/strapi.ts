@@ -13,15 +13,15 @@ export interface StrapiData<T> {
 }
 
 export interface Entity {
-  id: number;
-  documentId?: string;
-  createdAt: string;
-  updatedAt: string;
-  locale?: string | null;
+  id: number
+  documentId?: string
+  createdAt: string
+  updatedAt: string
+  locale?: string | null
 }
 
 export interface Author {
-  id: number;
-  documentId: string;
-  username: string;
+  id: number
+  documentId: string
+  username: string
 }

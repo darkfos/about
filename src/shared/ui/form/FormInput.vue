@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <form class="form">
@@ -10,7 +9,6 @@
 </template>
 
 <style scoped>
-
 .form {
   margin: auto;
   width: 100%;

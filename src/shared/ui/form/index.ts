@@ -1,2 +1,2 @@
-import FormInput from './FormInput.vue';
-export { FormInput };
+import FormInput from './FormInput.vue'
+export { FormInput }
