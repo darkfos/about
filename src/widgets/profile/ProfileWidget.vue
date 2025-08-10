@@ -15,22 +15,22 @@ const imageLinks: Array<string[]> = [
 </script>
 
 <template>
-  <div class="profile">
-    <img src="../../../public/img/darkfos_profile.png" alt="Иконка darkfos" />
+  <section class="profile">
+    <img src="/img/darkfos_profile.png" alt="Иконка darkfos" />
     <div class="profile__desc">
       <p>darkfos</p>
       <h3>Full Stack dev.</h3>
     </div>
     <div class="profile__contacts">
       <div v-for="(el, index) in imageLinks" v-bind:key="index">
-        <LinkElementWidget :img="el[0]" :redirect="el[1]" />
+        <LinkElementWidget :img="el[0]" :redirect="el[1]" is-png="true" :alt="el[0]" />
       </div>
     </div>
     <div class="profile__btns">
-      <a-button :size="5" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>
+      <a-button :size="20" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>
       <a-button :size="20" type="primary">Блог</a-button>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -75,5 +75,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16pt;
 }
 </style>

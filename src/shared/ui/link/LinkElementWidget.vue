@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-const { img, redirect, text } = defineProps(['img', 'title', 'redirect', 'text'])
+const { img, redirect, text, isPng, alt } = defineProps([
+  'img',
+  'title',
+  'redirect',
+  'text',
+  'isPng',
+  'alt',
+])
 
 const redirectPage = (): void => {
   window.location.href = redirect
@@ -14,6 +21,9 @@ const redirectPage = (): void => {
       <p>{{ text }}</p>
     </template>
     <template v-else>
+      <template v-if="isPng">
+        <img :src="`/img/${img}`" :alt="alt" @click="redirectPage" />
+      </template>
       <component :is="img" @click="redirectPage"></component>
     </template>
   </div>
@@ -51,6 +61,11 @@ const redirectPage = (): void => {
   transition:
     transform 0.3s ease-in-out,
     box-shadow 0.3s ease-in-out;
+}
+
+img {
+  width: 22px;
+  height: 22px;
 }
 
 svg {

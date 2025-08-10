@@ -4,7 +4,7 @@ import type { Ref } from 'vue'
 
 import { LinkElementWidget } from '@/shared/ui'
 
-import { FormInput } from '@/shared/ui'
+import { FormInput, TitleText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
 
 const mainStore = useMainStore()
@@ -13,10 +13,10 @@ const current: Ref<number> = ref(1)
 
 <template>
   <div class="blog">
-    <h1>Давай-ка поищем...</h1>
+    <TitleText align="center" title="Давай-ка поищем..." type-title="h3" :single="true" />
     <div class="blog-themes">
       <FormInput />
-      <h4>Темы</h4>
+      <TitleText align="left" title="Темы" type-title="h5" style="margin-top: 20px" />
       <div class="blog-themes__content">
         <LinkElementWidget
           v-for="theme in mainStore.getThemes()"

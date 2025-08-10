@@ -3,15 +3,25 @@ interface TitleProps {
   title: string
   align: 'left' | 'right' | 'center'
   typeTitle: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  single?: boolean
 }
 
 defineProps<TitleProps>()
 </script>
 
 <template>
-  <component :is="typeTitle" :style="`text-align: ${align}`">
-    {{ title }}
-  </component>
+  <template v-if="single">
+    <component :is="typeTitle" :style="`text-align: ${align}`" id="single-header">
+      {{ title }}
+      <slot />
+    </component>
+  </template>
+  <template v-else>
+    <component :is="typeTitle" :style="`text-align: ${align}`">
+      {{ title }}
+      <slot />
+    </component>
+  </template>
 </template>
 
 <style scoped>
@@ -58,5 +68,9 @@ h3::before {
   position: absolute;
   z-index: -3;
   bottom: 3px;
+}
+
+#single-header::before {
+  display: none;
 }
 </style>

@@ -1,14 +1,15 @@
-<script setup lang="ts"></script>
-
+<script setup lang="ts">
+import { Input } from 'ant-design-vue'
+</script>
 <template>
   <form class="form">
     <div class="input-wrapper">
-      <input type="text" />
+      <Input.Search type="text" size="large" variant="outlined"> </Input.Search>
     </div>
   </form>
 </template>
 
-<style scoped>
+<style>
 .form {
   margin: auto;
   width: 100%;
@@ -19,27 +20,33 @@
   z-index: 1;
 }
 
-.input-wrapper:before {
-  content: '';
-  background: url('../../../../public/img/find.png');
-  background-color: var(--link-element-bg-color);
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 8px;
-  background-size: 25px 25px;
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-  display: inline-block;
-  position: absolute;
-  left: 95%;
-  top: 10px;
-  cursor: pointer;
-  z-index: 4;
-  transition: background-color 0.6s ease;
-}
-
 .input-wrapper:hover::before {
   background-color: var(--text-selected);
+}
+
+.ant-input-group-addon svg {
+  fill: #bb0591;
+  transition: fill 0.2s ease-in-out;
+}
+
+.ant-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-input-group-addon > button {
+  background-color: #fad4bc !important;
+  border-color: #fad4bc !important;
+}
+
+.ant-input-group-addon > button:hover {
+  border-color: #bb0591 !important;
+}
+
+.ant-input-group-addon > button:hover svg {
+  fill: #56b8ff;
 }
 </style>

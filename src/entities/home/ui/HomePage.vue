@@ -3,16 +3,18 @@ import { ProfileWidget } from '@/widgets/profile'
 import { AboutMeWidget } from '@/widgets/about-me'
 import { TechnologyWidget } from '@/widgets/technology'
 import { MyWayWidget } from '@/widgets/my-way'
+
+import { TypographyText } from '@/shared/ui'
 </script>
 
 <template>
   <ProfileWidget />
   <div class="quote">
     <div id="bg">
-      <div id="content">
+      <TypographyText type="p" id="content">
         “Аналогично тому, как написание картины является искусством для души, так и написание
         программы является искусством для разума.”
-      </div>
+      </TypographyText>
     </div>
   </div>
   <AboutMeWidget />

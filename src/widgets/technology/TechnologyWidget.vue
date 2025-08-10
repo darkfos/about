@@ -11,10 +11,10 @@ const mainStore = useMainStore()
     <div class="technology__body">
       <TitleText title="Технологии" align="left" type-title="h1" />
       <div>
-        <h3>Список используемых мною технологий</h3>
+        <TitleText align="left" title="Список используемых мною технологий" type-title="h4" />
         <div class="my-technology-list">
           <div>
-            <h4>Backend</h4>
+            <TitleText align="left" title="Backend" type-title="h5" />
             <VerticalCard>
               <div
                 v-for="(groupEl, idGroup) in mainStore.getTechnologies('backend')"
@@ -28,7 +28,7 @@ const mainStore = useMainStore()
             </VerticalCard>
           </div>
           <div>
-            <h4>Frontend</h4>
+            <TitleText align="left" title="Frontend" type-title="h5" />
             <VerticalCard>
               <div
                 v-for="(groupEl, idGroup) in mainStore.getTechnologies('frontend')"
@@ -42,7 +42,7 @@ const mainStore = useMainStore()
             </VerticalCard>
           </div>
           <div>
-            <h4>Other</h4>
+            <TitleText align="left" title="Other" type-title="h5" />
             <VerticalCard>
               <div
                 v-for="(groupEl, idGroup) in mainStore.getTechnologies('other')"
@@ -62,15 +62,15 @@ const mainStore = useMainStore()
 </template>
 <style scoped>
 .technology {
-  background-color: var(--text-selected);
-  border-radius: 100px 100px 100px 100px;
+  background-color: #fad4bc;
   position: relative;
+  height: 100vh;
   width: 100vw;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  padding-bottom: 60px;
+  padding-bottom: 0px;
 }
 
 .technology__body {

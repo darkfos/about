@@ -2,6 +2,7 @@
 import { watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
+import { TypographyText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
 
 const route = useRoute()
@@ -32,9 +33,7 @@ watch(
 
 <template>
   <header>
-    <div>
-      <p id="select-text">darkfos</p>
-    </div>
+    <TypographyText type="p" id="select-text">darkfos</TypographyText>
     <div>
       <nav>
         <div v-for="(hLink, index) in headerLink" :key="index">
@@ -67,6 +66,7 @@ nav {
 a {
   text-decoration: none;
   color: white;
+  font-size: var(--font-size);
 }
 
 a:hover {
