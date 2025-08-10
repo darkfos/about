@@ -28,3 +28,6 @@ export { default as PostgresIcon } from './utils/PostgresIcon.vue'
 export { default as RabbitMQIcon } from './utils/RabbitMQIcon.vue'
 export { default as SqliteIcon } from './utils/SqliteIcon.vue'
 export { default as RedisIcon } from './utils/RedisIcon.vue'
+
+// Other icons
+export { default as ArrowIconIcon } from './other/ArrowIcon.vue'

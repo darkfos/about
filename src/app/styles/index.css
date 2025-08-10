@@ -1,6 +1,6 @@
 @import 'styles.css';
 @import 'fonts.css';
-@import "reset.css";
+@import 'reset.css';
 @import './variables/size.css';
 
 #select-text {

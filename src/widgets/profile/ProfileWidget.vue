@@ -15,7 +15,7 @@ const imageLinks: Array<string[]> = [
 </script>
 
 <template>
-  <section class="profile">
+  <section class="profile" id="profile">
     <img src="/img/darkfos_profile.png" alt="Иконка darkfos" />
     <div class="profile__desc">
       <p>darkfos</p>

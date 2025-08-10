@@ -6,6 +6,7 @@ import { getThemes } from '@/entities/theme'
 import type { Theme } from '@/entities/theme'
 
 import { useMainStore } from '@/shared/store'
+import { ToTop } from '@/shared/ui'
 
 const mainStore = useMainStore()
 
@@ -22,6 +23,7 @@ if (!mainStore.getThemes().length) {
     <HeaderWidget />
     <router-view />
     <FooterWidget />
+    <ToTop />
   </div>
 </template>
 

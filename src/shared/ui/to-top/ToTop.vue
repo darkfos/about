@@ -1,0 +1,59 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import { ArrowIconIcon } from '@/shared/ui'
+
+const styles = ref('')
+const toScroll = ref(1920)
+
+onMounted(() => {
+  document.addEventListener('scroll', () => {
+    if (window.scrollY > 550) {
+      styles.value = 'transform: rotate(135deg)'
+      toScroll.value = 0
+    } else {
+      styles.value = 'transform: rotate(-45deg)'
+      toScroll.value = document.documentElement.scrollHeight
+    }
+  })
+})
+
+const handleClick = () => {
+  window.scrollTo({ top: toScroll.value, behavior: 'smooth' })
+}
+</script>
+<template>
+  <div id="top">
+    <ArrowIconIcon :style="styles" @click="handleClick" />
+  </div>
+</template>
+
+<style scoped>
+#top {
+  content: '';
+  position: fixed;
+  z-index: 99999;
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
+  background-color: #bb0591;
+  right: 35px;
+  top: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+#top:hover {
+  background-color: #2c283b;
+}
+
+#top svg {
+  fill: white;
+  width: 28px;
+  height: 28px;
+  transform: rotate(-45deg);
+  transition: transform 0.6s ease;
+}
+</style>
