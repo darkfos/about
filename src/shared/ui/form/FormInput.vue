@@ -21,7 +21,7 @@
 
 .input-wrapper:before {
   content: '';
-  background: url('../../../../public/icons/find.png');
+  background: url('../../../../public/img/find.png');
   background-color: var(--link-element-bg-color);
   background-repeat: no-repeat;
   background-position: center;

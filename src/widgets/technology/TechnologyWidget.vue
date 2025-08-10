@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkElementWidget } from '../../shared/ui/link'
+import { LinkElementWidget, VerticalCard } from '@/shared/ui'
 
 import { useMainStore } from '@/shared/store'
 
@@ -15,39 +15,45 @@ const mainStore = useMainStore()
         <div class="my-technology-list">
           <div>
             <h4>Backend</h4>
-            <div
-              v-for="(el, index) in mainStore.getTechnologies('backend')"
-              class="tech"
-              :key="index"
-            >
-              <div v-for="item in el" v-bind:key="item">
-                <LinkElementWidget :img="item" :title="item" />
+            <VerticalCard>
+              <div
+                v-for="(groupEl, idGroup) in mainStore.getTechnologies('backend')"
+                :key="idGroup + 10"
+                class="groupIcons"
+              >
+                <template v-for="(icon, idIcon) in groupEl" :key="idIcon + idGroup + 1">
+                  <LinkElementWidget :img="icon" />
+                </template>
               </div>
-            </div>
+            </VerticalCard>
           </div>
           <div>
             <h4>Frontend</h4>
-            <div
-              v-for="(el, index) in mainStore.getTechnologies('frontend')"
-              class="tech"
-              :key="index"
-            >
-              <div v-for="item in el" :key="item">
-                <LinkElementWidget :img="item" :title="item" />
+            <VerticalCard>
+              <div
+                v-for="(groupEl, idGroup) in mainStore.getTechnologies('frontend')"
+                :key="idGroup + 20"
+                class="groupIcons"
+              >
+                <template v-for="(icon, idIcon) in groupEl" :key="idGroup + idIcon + 2">
+                  <LinkElementWidget :img="icon" />
+                </template>
               </div>
-            </div>
+            </VerticalCard>
           </div>
           <div>
             <h4>Other</h4>
-            <div
-              v-for="(el, index) in mainStore.getTechnologies('other')"
-              class="tech"
-              :key="index"
-            >
-              <div v-for="item in el" :key="item">
-                <LinkElementWidget :img="item" :title="item" />
+            <VerticalCard>
+              <div
+                v-for="(groupEl, idGroup) in mainStore.getTechnologies('other')"
+                :key="idGroup + 30"
+                class="groupIcons"
+              >
+                <template v-for="(icon, idIcon) in groupEl" :key="idGroup + idIcon + 3">
+                  <LinkElementWidget :img="icon" />
+                </template>
               </div>
-            </div>
+            </VerticalCard>
           </div>
         </div>
       </div>
@@ -100,19 +106,14 @@ h3 {
 .my-technology-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 40px;
 }
 
-.my-technology-list > div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.tech {
+.groupIcons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  row-gap: 20px;
 }
 </style>

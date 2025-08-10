@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-const { img, title, redirect, text } = defineProps(['img', 'title', 'redirect', 'text'])
+const { img, redirect, text } = defineProps(['img', 'title', 'redirect', 'text'])
 
 const redirectPage = (): void => {
   window.location.href = redirect
@@ -14,11 +14,7 @@ const redirectPage = (): void => {
       <p>{{ text }}</p>
     </template>
     <template v-else>
-      <img
-        :src="'../../../public/icons/' + img"
-        :alt="title ? title : 'иконка элемента'"
-        @click="redirectPage"
-      />
+      <component :is="img" @click="redirectPage"></component>
     </template>
   </div>
 </template>
@@ -42,9 +38,13 @@ const redirectPage = (): void => {
 }
 
 .link-element {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  width: 71px;
-  height: 29px;
+  width: 82px;
+  height: 35px;
   border-radius: 10px;
   background-color: var(--link-element-bg-color);
   cursor: pointer;
@@ -53,8 +53,8 @@ const redirectPage = (): void => {
     box-shadow 0.3s ease-in-out;
 }
 
-img {
-  width: 23px;
+svg {
+  width: 40px;
   height: 22px;
 }
 

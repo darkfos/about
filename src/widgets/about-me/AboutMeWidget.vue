@@ -13,7 +13,7 @@ import { LinkElementWidget } from '../../shared/ui/link'
         <h4 style="display: flex; align-items: center; gap: 20px">
           Меня зовут Владимир
           <span>
-            <img src="../../../public/icons/hand.png" width="33" height="33" />
+            <img src="../../../public/img/hand.png" width="33" height="33" />
           </span>
         </h4>
         <div>

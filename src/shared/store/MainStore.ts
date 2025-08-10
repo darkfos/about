@@ -1,5 +1,36 @@
+/* eslint-disable */
+
 import { defineStore } from 'pinia'
+import type { DefineComponent } from 'vue'
+
 import type { Theme } from '@/entities/theme'
+import {
+  DjangoIcon,
+  ViteIcon,
+  WebpackIcon,
+  MongoDBIcon,
+  CssIcon,
+  DockerIcon,
+  ExpressIcon,
+  NodejsIcon,
+  RedisIcon,
+  ScssIcon,
+  SqliteIcon,
+  MySQLIcon,
+  JsIcon,
+  TsIcon,
+  FastApiIcon,
+  PostgresIcon,
+  ReactIcon,
+  RabbitMQIcon,
+  PoetryIcon,
+  VueIcon,
+  NextIcon,
+  NginxIcon,
+  NuxtIcon,
+  HtmlIcon,
+  PythonIcon,
+} from '@/shared/ui'
 
 type flagTechnologies = 'backend' | 'frontend' | 'other'
 
@@ -7,27 +38,31 @@ export const useMainStore = defineStore('mainStore', {
   state: (): {
     activePage: string
     themes: Array<Theme>
-    backendTechnologies: Array<Array<string>>
-    frontendTechnologies: Array<Array<string>>
-    otherTechnologies: Array<Array<string>>
+    backendTechnologies: Array<Array<DefineComponent<any, any, any>>>
+    frontendTechnologies: Array<Array<DefineComponent<any, any, any>>>
+    otherTechnologies: Array<Array<DefineComponent<any, any, any>>>
   } => {
     return {
       activePage: '/',
       themes: [],
       backendTechnologies: [
-        ['python.png', 'nodejs.png'],
-        ['django.png', 'fastapi.png', 'express.png'],
-        ['postgres.png', 'mysql.png', 'sqlite.png'],
-        ['mongodb.png', 'redis.png'],
-        ['rabbitmq.png'],
+        [PythonIcon, NodejsIcon],
+        [DjangoIcon, FastApiIcon, ExpressIcon],
+        [PoetryIcon],
       ],
       frontendTechnologies: [
-        ['javascript.png', 'typescript.png'],
-        ['react.png', 'vue.png'],
-        ['html.png', 'css.png', 'scss.png'],
-        ['nuxt.png', 'next.png'],
+        [JsIcon, TsIcon],
+        [ReactIcon, VueIcon],
+        [HtmlIcon, CssIcon, ScssIcon],
+        [NuxtIcon, NextIcon],
+        [ViteIcon, WebpackIcon],
       ],
-      otherTechnologies: [['docker.png'], ['nginx.png']],
+      otherTechnologies: [
+        [DockerIcon],
+        [NginxIcon],
+        [PostgresIcon, MySQLIcon, SqliteIcon, MongoDBIcon, RedisIcon],
+        [RabbitMQIcon],
+      ],
     }
   },
   actions: {
@@ -37,7 +72,7 @@ export const useMainStore = defineStore('mainStore', {
     getThemes() {
       return this.themes
     },
-    getTechnologies(flag: flagTechnologies): Array<Array<string>> {
+    getTechnologies(flag: flagTechnologies) {
       switch (flag) {
         case 'backend':
           return this.backendTechnologies
@@ -54,11 +89,13 @@ export const useMainStore = defineStore('mainStore', {
       this.activePage = pageLink
     },
     addTechnologies(
-      newTechnologies: Array<string>,
+      newTechnologies: Array<DefineComponent<any, any, any>>,
       index: number | null = null,
       flag: flagTechnologies = 'backend',
     ): void {
-      let technology: Array<string> | Array<Array<string>> = this.backendTechnologies
+      let technology:
+        | Array<DefineComponent<any, any, any>>
+        | Array<Array<DefineComponent<any, any, any>>> = this.backendTechnologies
 
       switch (flag) {
         case 'backend':
