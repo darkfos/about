@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkElementWidget, VerticalCard } from '@/shared/ui'
+import { LinkElementWidget, VerticalCard, TitleText } from '@/shared/ui'
 
 import { useMainStore } from '@/shared/store'
 
@@ -9,7 +9,7 @@ const mainStore = useMainStore()
 <template>
   <section class="technology">
     <div class="technology__body">
-      <h2>Технологии</h2>
+      <TitleText title="Технологии" align="left" type-title="h1" />
       <div>
         <h3>Список используемых мною технологий</h3>
         <div class="my-technology-list">
@@ -61,24 +61,6 @@ const mainStore = useMainStore()
   </section>
 </template>
 <style scoped>
-h2 {
-  position: relative;
-  z-index: 5;
-}
-
-h2::before {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: var(--main-btn-color);
-  border-radius: 50%;
-  position: absolute;
-  z-index: -3;
-  left: -10px;
-  bottom: 3px;
-}
-
 .technology {
   background-color: var(--text-selected);
   border-radius: 100px 100px 100px 100px;

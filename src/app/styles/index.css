@@ -1,5 +1,6 @@
 @import 'styles.css';
 @import 'fonts.css';
+@import './variables/size.css';
 
 #select-text {
   color: var(--select-text);
@@ -8,7 +9,6 @@
 
 * {
   font-family: 'Futura PT';
-  font-size: 16pt;
 }
 
 html,

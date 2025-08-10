@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { LinkElementWidget } from '../../shared/ui/link'
+import { LinkElementWidget, TitleText } from '@/shared/ui'
 </script>
 
 <template>
   <section class="about-me">
     <div>
-      <img src="../../../public/img/about-me.png" alt="Фотография секции обо мне" />
+      <img src="/img/about-me.png" alt="Фотография секции обо мне" />
     </div>
     <div>
-      <h2>Про меня</h2>
+      <TitleText title="Про меня" :type-title="'h3'" align="left" />
       <div>
         <h4 style="display: flex; align-items: center; gap: 20px">
           Меня зовут Владимир
           <span>
-            <img src="../../../public/img/hand.png" width="33" height="33" />
+            <img src="/img/hand.png" width="33" height="33" />
           </span>
         </h4>
         <div>
