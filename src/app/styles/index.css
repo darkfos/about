@@ -4,7 +4,7 @@
 @import './variables/size.css';
 
 #select-text {
-  color: var(--select-text);
+  color: #bb0591;
   font-weight: bold;
 }
 

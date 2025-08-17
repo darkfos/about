@@ -22,8 +22,8 @@ const handleClick = () => {
 }
 </script>
 <template>
-  <div id="top">
-    <ArrowIconIcon :style="styles" @click="handleClick" />
+  <div id="top" @click="handleClick">
+    <ArrowIconIcon :style="styles" />
   </div>
 </template>
 

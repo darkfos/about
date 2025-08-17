@@ -38,7 +38,6 @@ body {
   max-width: 80%;
   width: 80%;
   display: grid;
-  border: 1px solid red;
   gap: 100px;
   margin: auto;
 }
