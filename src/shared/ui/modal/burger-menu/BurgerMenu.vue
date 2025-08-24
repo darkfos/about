@@ -63,7 +63,7 @@ watch(openBurgerMenu, (newValue) => {
 }
 
 .active {
-  color: #56b8ff;
+  color: #bb0591;
 }
 
 @keyframes burger-animation {
@@ -126,7 +126,8 @@ a {
     right: 0;
     top: 0;
     flex-direction: column;
-    background-color: #bb0591;
+    background-color: var(--hamburger-bg-color);
+    border: 1px solid var(--black-border-color);
     gap: 20px;
     position: fixed;
     border-top-left-radius: 50px;

@@ -42,6 +42,11 @@ img {
   border: 2px solid var(--select-text);
   border-radius: 100%;
 }
+
+#profile > img {
+  animation: breathing-animation 1s linear infinite alternate;
+}
+
 .profile {
   margin: auto;
   width: 40%;
@@ -49,6 +54,8 @@ img {
   grid-template-rows: auto;
   gap: 10px;
   justify-content: center;
+  transition: all 0.1s ease-in-out 250ms;
+  animation: show-object 1s linear;
 }
 
 .profile__btns {
@@ -67,6 +74,8 @@ img {
   display: flex;
   flex-direction: row;
   gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .profile__btns button {
@@ -77,5 +86,11 @@ img {
   justify-content: center;
   align-items: center;
   font-size: 16pt;
+}
+
+@media screen and (max-width: 300px) {
+  .profile__btns {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

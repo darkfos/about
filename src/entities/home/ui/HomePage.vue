@@ -32,17 +32,16 @@ import { TypographyText } from '@/shared/ui'
   margin-right: -50vw;
   min-height: 1000px;
   z-index: 10;
+  overflow: visible;
 }
 
 #bg {
   z-index: 1000;
   position: absolute;
-  left: 50%;
-  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  transform: translateX(-50%);
-  background-image: url('../../../../public/img/bg-2.png');
+  background-image: url('/img/bg-2.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -97,6 +96,18 @@ import { TypographyText } from '@/shared/ui'
   #bg {
     width: 800px;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #content {
+    margin-top: 55%;
+  }
+}
+
+@media screen and (max-width: 230px) {
+  #content {
+    margin-top: 50%;
   }
 }
 </style>

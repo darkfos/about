@@ -36,7 +36,7 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 
 <template>
   <section class="my-way" id="my-way">
-    <TitleText title="Мой путь" type-title="h1" align="center" />
+    <TitleText title="Мой путь" type-title="h1" align="center" :close-figure="true" />
     <div class="my-way__body">
       <a-steps v-model:current="current" :items="items" class="steps" type="navigation" />
       <TypographyText type="p">
@@ -47,19 +47,6 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 </template>
 
 <style>
-h2::before {
-  position: relative;
-  display: inline-block;
-  z-index: -2;
-  left: 20px;
-  top: 5px;
-  content: '';
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #ca0a9e;
-}
-
 .my-way {
   text-align: center;
 }

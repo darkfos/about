@@ -3,6 +3,7 @@ interface TitleProps {
   title: string
   align: 'left' | 'right' | 'center'
   typeTitle: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  closeFigure?: boolean
   single?: boolean
 }
 
@@ -10,6 +11,9 @@ defineProps<TitleProps>()
 </script>
 
 <template>
+  <template v-if="['h1', 'h2', 'h3'].includes(typeTitle) && !closeFigure">
+    <div class="figure" :class="align === 'center' ? 'figure-center' : null" />
+  </template>
   <template v-if="single">
     <component :is="typeTitle" :style="`text-align: ${align}`" id="single-header">
       {{ title }}
@@ -56,18 +60,19 @@ h3 {
   z-index: 5;
 }
 
-h1::before,
-h2::before,
-h3::before {
-  content: '';
-  display: inline-block;
-  width: 5%;
-  height: 90%;
+.figure {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 80px;
+  left: -5px;
   background-color: var(--main-btn-color);
   border-radius: 50%;
-  position: absolute;
-  z-index: -3;
-  bottom: 3px;
+}
+
+.figure-center {
+  left: 41%;
+  top: 65px;
 }
 
 #single-header::before {

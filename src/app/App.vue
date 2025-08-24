@@ -37,7 +37,8 @@ body {
 .bodyApp {
   max-width: 80%;
   width: 80%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 100px;
   margin: auto;
 }

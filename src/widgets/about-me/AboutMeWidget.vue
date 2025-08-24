@@ -4,7 +4,7 @@ import { LinkElementWidget, TitleText, TypographyText } from '@/shared/ui'
 
 <template>
   <section class="about-me">
-    <div>
+    <div class="about-me__image">
       <img src="/img/about-me.png" alt="Фотография секции обо мне" />
     </div>
     <div>
@@ -64,8 +64,8 @@ import { LinkElementWidget, TitleText, TypographyText } from '@/shared/ui'
 
 <style scoped>
 .about-me {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-direction: row;
   gap: 90px;
   justify-content: center;
 }
@@ -93,5 +93,27 @@ h2::before {
 
 #additional-text {
   color: var(--addtitional-text);
+}
+
+@media screen and (max-width: 980px) {
+  .about-me {
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .about-me .about-me__image {
+    margin: auto;
+  }
+
+  .about-me .about-me__image img {
+    width: 100% !important;
+  }
+
+  .about-me div:nth-child(2) {
+    text-align: justify;
+    text-wrap: wrap;
+    width: 100%;
+  }
 }
 </style>

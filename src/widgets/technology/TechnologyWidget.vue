@@ -9,7 +9,7 @@ const mainStore = useMainStore()
 <template>
   <section class="technology">
     <div class="technology__body">
-      <TitleText title="Технологии" align="left" type-title="h1" />
+      <TitleText title="Технологии" align="left" :type-title="'h2'" />
       <div>
         <TitleText align="left" title="Список используемых мною технологий" type-title="h4" />
         <div class="my-technology-list">
@@ -62,15 +62,15 @@ const mainStore = useMainStore()
 </template>
 <style scoped>
 .technology {
-  background-color: #fad4bc;
+  background: url('/img/bg-2.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
-  height: 100vh;
+  display: table-cell;
   width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding-bottom: 0px;
+  height: 100vh;
+  margin: auto;
 }
 
 .technology__body {
@@ -78,6 +78,7 @@ const mainStore = useMainStore()
   margin: auto;
   color: var(--link-element-bg-color);
   margin-top: 40px;
+  word-break: break-all;
 }
 
 h3 {
@@ -91,6 +92,10 @@ h3 {
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: 40px;
+}
+
+.my-technology-list > div {
+  flex: 1;
 }
 
 .groupIcons {

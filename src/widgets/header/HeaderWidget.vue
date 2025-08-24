@@ -53,7 +53,6 @@ watch(
 
 <style>
 #header {
-  width: 100%;
   display: flex;
   align-items: center;
   grid-template-columns: 3fr 1fr;
@@ -86,11 +85,6 @@ a:hover {
 }
 
 @media screen and (max-width: 850px) {
-  #header {
-    max-width: 100%;
-    width: 100%;
-  }
-
   #native-menu {
     display: none;
   }

@@ -1,0 +1,16 @@
+:root {
+  /*
+    BG Colors
+  */
+
+  --hamburger-bg-color: var(--main-color);
+
+  /*
+    Borger Colors
+  */
+  --black-border-color: rgba(63, 62, 62, 0.59);
+
+  /*
+    Colors
+  */
+}

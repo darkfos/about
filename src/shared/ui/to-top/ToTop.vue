@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+
 import { ArrowIconIcon } from '@/shared/ui'
 
 const styles = ref('')

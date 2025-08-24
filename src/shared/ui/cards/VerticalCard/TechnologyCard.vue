@@ -15,14 +15,15 @@
   filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.25));
   width: auto;
   min-height: 350px;
+  flex: 1;
 }
 
 .vertical-card .content {
-  padding: 10px 20px 50px 20px;
+  padding: 50px 20px 50px 20px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  column-gap: 30px;
+  gap: 30px;
 }
 </style>
