@@ -31,3 +31,5 @@ export { default as RedisIcon } from './utils/RedisIcon.vue'
 
 // Other icons
 export { default as ArrowIconIcon } from './other/ArrowIcon.vue'
+export { default as LightIcon } from './other/LightTheme.vue'
+export { default as DarkIcon } from './other/DarkTheme.vue'

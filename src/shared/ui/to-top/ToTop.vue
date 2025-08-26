@@ -36,7 +36,7 @@ const handleClick = () => {
   width: 64px;
   height: 64px;
   border-radius: 15px;
-  background-color: #bb0591;
+  background-color: var(--pink-text-color);
   right: 35px;
   top: 90%;
   display: flex;
@@ -47,11 +47,11 @@ const handleClick = () => {
 }
 
 #top:hover {
-  background-color: #2c283b;
+  background-color: var(--link-element-bg-color);
 }
 
 #top svg {
-  fill: white;
+  fill: var(--white-bg-color);
   width: 28px;
   height: 28px;
   transform: rotate(-45deg);

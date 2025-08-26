@@ -2,7 +2,7 @@
 import { watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
-import { BurgerMenu } from '@/shared/ui'
+import { BurgerMenu, ThemeSwitcher } from '@/shared/ui'
 
 import { TypographyText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
@@ -36,7 +36,8 @@ watch(
 <template>
   <header id="header">
     <TypographyText type="p" id="select-text">darkfos</TypographyText>
-    <div>
+    <div class="header__items">
+      <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
       <nav id="native-menu">
         <div v-for="(hLink, index) in headerLink" :key="index">
@@ -59,6 +60,15 @@ watch(
   justify-content: space-between;
 }
 
+.header__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  gap: 50px;
+}
+
 nav {
   display: flex;
   flex-direction: row;
@@ -73,7 +83,7 @@ a {
 }
 
 a:hover {
-  color: #bb0591;
+  color: var(--pink-text-color);
   font-weight: bold;
   transition:
     font-weight 200ms ease-in-out,
@@ -81,7 +91,7 @@ a:hover {
 }
 
 .active {
-  color: #bb0591;
+  color: var(--pink-text-color);
 }
 
 @media screen and (max-width: 850px) {

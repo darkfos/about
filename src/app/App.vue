@@ -16,6 +16,8 @@ if (!mainStore.getThemes().length) {
     mainStore.addThemes(data as Theme[])
   })
 }
+
+document.body.classList.add(mainStore.appTheme)
 </script>
 
 <template>
@@ -29,8 +31,6 @@ if (!mainStore.getThemes().length) {
 
 <style>
 body {
-  background-color: var(--main-color);
-  color: var(--main-text-color);
   width: 100%;
 }
 
@@ -41,5 +41,6 @@ body {
   flex-direction: column;
   gap: 100px;
   margin: auto;
+  color: var(--main-text-color);
 }
 </style>

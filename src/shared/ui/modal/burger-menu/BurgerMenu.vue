@@ -63,7 +63,7 @@ watch(openBurgerMenu, (newValue) => {
 }
 
 .active {
-  color: #bb0591;
+  color: var(--pink-text-color);
 }
 
 @keyframes burger-animation {
@@ -114,7 +114,7 @@ a {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: #bb0591;
+    background-color: var(--pink-text-color);
     border-radius: 5px;
     top: 10px;
   }

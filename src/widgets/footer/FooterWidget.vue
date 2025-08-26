@@ -31,7 +31,7 @@ import { TitleText } from '@/shared/ui'
   width: 100%;
   height: 100vh;
   transform: translateX(-50%);
-  background-image: url('../../../public/img/bg-1.png');
+  background-image: url('/img/bg-1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

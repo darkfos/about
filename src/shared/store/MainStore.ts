@@ -31,11 +31,12 @@ import {
   HtmlIcon,
   PythonIcon,
 } from '@/shared/ui'
-
-type flagTechnologies = 'backend' | 'frontend' | 'other'
+import type { themeColor, flagTechnologies } from '@/shared/types'
+import { getFromLocalStorage } from '@/shared/utils/storage/localStorage.ts'
 
 export const useMainStore = defineStore('mainStore', {
   state: (): {
+    appTheme: themeColor
     activePage: string
     themes: Array<Theme>
     backendTechnologies: Array<Array<DefineComponent<any, any, any>>>
@@ -43,6 +44,9 @@ export const useMainStore = defineStore('mainStore', {
     otherTechnologies: Array<Array<DefineComponent<any, any, any>>>
   } => {
     return {
+      appTheme: (getFromLocalStorage('theme') as themeColor)
+        ? (getFromLocalStorage('theme') as themeColor)
+        : 'dark',
       activePage: '/',
       themes: [],
       backendTechnologies: [
@@ -66,6 +70,9 @@ export const useMainStore = defineStore('mainStore', {
     }
   },
   actions: {
+    changeColor(themeColor: themeColor) {
+      this.appTheme = themeColor
+    },
     getPageLink(): string {
       return this.activePage
     },

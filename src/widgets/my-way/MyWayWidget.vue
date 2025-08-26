@@ -74,7 +74,7 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 .ant-steps-item-icon {
   padding: 5px;
   border-radius: 7px !important;
-  background-color: #ca0a9e !important;
+  background-color: var(--main-btn-color) !important;
   border: none !important;
   display: flex;
   flex-direction: row;
@@ -84,7 +84,7 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 }
 
 .ant-steps-item-active .ant-steps-icon {
-  color: white !important;
+  color: var(--white-bg-color) !important;
 }
 
 .ant-steps-item-finish .ant-steps-icon {
