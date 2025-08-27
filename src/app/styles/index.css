@@ -7,10 +7,10 @@
 @import './variables/size.css';
 @import './variables/colors.css';
 
-
 * {
   font-family: 'Futura PT';
   color: var(--main-text-color);
+  font-weight: var(--font-weight);
 }
 
 html,
@@ -45,7 +45,6 @@ a:hover {
     font-weight 200ms ease-in-out,
     color 200ms ease-in-out;
 }
-
 
 #app {
   z-index: 100;
