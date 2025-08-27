@@ -41,11 +41,13 @@ watch(
       <BurgerMenu :header-link="headerLink" />
       <nav id="native-menu">
         <div v-for="(hLink, index) in headerLink" :key="index">
-          <RouterLink
-            :to="hLink.href"
-            :class="mainStore.activePage === hLink.href ? 'active' : null"
-            >{{ hLink.title }}</RouterLink
-          >
+          <TypographyText :is-route-link="true">
+            <RouterLink
+              :to="hLink.href"
+              :class="mainStore.getPageLink() === hLink.href ? 'active' : null"
+              >{{ hLink.title }}</RouterLink
+            >
+          </TypographyText>
         </div>
       </nav>
     </div>
@@ -74,20 +76,6 @@ nav {
   flex-direction: row;
   gap: 15px;
   width: 80%;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-  font-size: var(--font-size);
-}
-
-a:hover {
-  color: var(--pink-text-color);
-  font-weight: bold;
-  transition:
-    font-weight 200ms ease-in-out,
-    color 200ms ease-in-out;
 }
 
 .active {
