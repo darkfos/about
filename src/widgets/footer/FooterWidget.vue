@@ -1,9 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { TitleText } from '@/shared/ui'
+</script>
 
 <template>
   <div class="footer">
     <div class="footer-body">
-      <div class="footer-body__content">@darkfos</div>
+      <div class="footer-body__content">
+        <TitleText align="center" title="@darkfos" type-title="h4" />
+      </div>
     </div>
   </div>
 </template>
@@ -27,7 +31,7 @@
   width: 100%;
   height: 100vh;
   transform: translateX(-50%);
-  background-image: url('../../../public/img/bg-1.png');
+  background-image: url('/img/bg-1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

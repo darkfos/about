@@ -1,19 +1,64 @@
-@import 'styles.css';
 @import 'fonts.css';
+@import 'reset.css';
+@import 'animations.css';
+@import 'themes.css';
+@import 'override-styles.css';
 
-#select-text {
-  color: var(--select-text);
-  font-weight: bold;
-}
+@import './variables/size.css';
+@import './variables/colors.css';
 
 * {
   font-family: 'Futura PT';
-  font-size: 16pt;
+  color: var(--main-text-color);
+  font-weight: var(--font-weight);
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: var(--main-color);
+  transition: background-color 0.4s ease-in;
+}
+
+canvas {
+  background-color: var(--main-color) !important;
+}
+
+p,
+span {
+  color: var(--main-text-color);
+  font-size: var(--font-size);
+}
+
+a {
+  color: var(--main-text-color);
+  text-decoration: none;
+  font-size: var(--font-size) !important;
+}
+
+a:hover {
+  color: var(--pink-text-color);
+  font-weight: bold;
+  transition:
+    font-weight 200ms ease-in-out,
+    color 200ms ease-in-out;
+}
+
+#app {
+  z-index: 100;
+  position: relative;
+}
+
+#vanta-bg {
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 23;
+}
+
+#select-text {
+  color: #bb0591;
+  font-weight: bold;
 }

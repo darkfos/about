@@ -1,0 +1,37 @@
+:root {
+  /*
+    BG Colors
+  */
+
+  --hamburger-bg-color: var(--main-color);
+  --link-element-bg-color: #2c283b;
+  --text-on-white-bg-color: #242121;
+  --white-bg-color: #fff;
+
+  /*
+    Border Colors
+  */
+  --black-border-color: rgba(63, 62, 62, 0.59);
+
+  /*
+    Colors
+  */
+  --main-color: #1f1f1f;
+  --header-color: #bfbfbf;
+
+  /*
+    Font colors
+  */
+  --main-text-color: #fff0f6;
+  --button-text-color: #ffffff;
+  --select-text: #2a0221;
+  --text-selected: #fad4bc;
+  --addtitional-text: #56b8ff;
+  --pink-text-color: #bb0591;
+
+  /*
+    BTN
+  */
+  --main-btn-color: #ca0a9e;
+  --main-btn-hover-color: #531dab;
+}

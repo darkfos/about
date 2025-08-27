@@ -1,54 +1,59 @@
 <script setup lang="ts">
-import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
+import { LinkElementWidget, VerticalCard, TitleText } from '@/shared/ui'
 
-const backendTechnology: Array<Array<string>> = [
-  ['python.png', 'nodejs.png'],
-  ['django.png', 'fastapi.png', 'express.png'],
-  ['postgres.png', 'mysql.png', 'sqlite.png'],
-  ['mongodb.png', 'redis.png'],
-  ['rabbitmq.png'],
-]
+import { useMainStore } from '@/shared/store'
 
-const frontendTechnology: Array<Array<string>> = [
-  ['javascript.png', 'typescript.png'],
-  ['react.png', 'vue.png'],
-  ['html.png', 'css.png', 'scss.png'],
-  ['nuxt.png', 'next.png'],
-]
-
-const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
+const mainStore = useMainStore()
 </script>
 
 <template>
   <section class="technology">
     <div class="technology__body">
-      <h2>Технологии</h2>
+      <TitleText title="Технологии" align="left" :type-title="'h2'" />
       <div>
-        <h3>Список используемых мною технологий</h3>
+        <TitleText align="left" title="Список используемых мною технологий" type-title="h4" />
         <div class="my-technology-list">
           <div>
-            <h4>Backend</h4>
-            <div v-for="(el, index) in backendTechnology" class="tech" :key="index">
-              <div v-for="item in el" v-bind:key="item">
-                <LinkElementWidget :img="item" :title="item" />
+            <TitleText align="left" title="Backend" type-title="h5" />
+            <VerticalCard>
+              <div
+                v-for="(groupEl, idGroup) in mainStore.getTechnologies('backend')"
+                :key="idGroup + 10"
+                class="groupIcons"
+              >
+                <template v-for="(icon, idIcon) in groupEl" :key="idIcon + idGroup + 1">
+                  <LinkElementWidget :img="icon" />
+                </template>
               </div>
-            </div>
+            </VerticalCard>
           </div>
           <div>
-            <h4>Frontend</h4>
-            <div v-for="(el, index) in frontendTechnology" class="tech" :key="index">
-              <div v-for="item in el" :key="item">
-                <LinkElementWidget :img="item" :title="item" />
+            <TitleText align="left" title="Frontend" type-title="h5" />
+            <VerticalCard>
+              <div
+                v-for="(groupEl, idGroup) in mainStore.getTechnologies('frontend')"
+                :key="idGroup + 20"
+                class="groupIcons"
+              >
+                <template v-for="(icon, idIcon) in groupEl" :key="idGroup + idIcon + 2">
+                  <LinkElementWidget :img="icon" />
+                </template>
               </div>
-            </div>
+            </VerticalCard>
           </div>
           <div>
-            <h4>Other</h4>
-            <div v-for="(el, index) in otherTechnologies" class="tech" :key="index">
-              <div v-for="item in el" :key="item">
-                <LinkElementWidget :img="item" :title="item" />
+            <TitleText align="left" title="Other" type-title="h5" />
+            <VerticalCard>
+              <div
+                v-for="(groupEl, idGroup) in mainStore.getTechnologies('other')"
+                :key="idGroup + 30"
+                class="groupIcons"
+              >
+                <template v-for="(icon, idIcon) in groupEl" :key="idGroup + idIcon + 3">
+                  <LinkElementWidget :img="icon" />
+                </template>
               </div>
-            </div>
+            </VerticalCard>
           </div>
         </div>
       </div>
@@ -56,34 +61,16 @@ const otherTechnologies: Array<Array<string>> = [['docker.png'], ['nginx.png']]
   </section>
 </template>
 <style scoped>
-h2 {
-  position: relative;
-  z-index: 5;
-}
-
-h2::before {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background-color: var(--main-btn-color);
-  border-radius: 50%;
-  position: absolute;
-  z-index: -3;
-  left: -10px;
-  bottom: 3px;
-}
-
 .technology {
-  background-color: var(--text-selected);
-  border-radius: 100px 100px 100px 100px;
+  background: url('/img/bg-2.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
+  display: table-cell;
   width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding-bottom: 60px;
+  height: 100vh;
+  margin: auto;
 }
 
 .technology__body {
@@ -91,6 +78,7 @@ h2::before {
   margin: auto;
   color: var(--link-element-bg-color);
   margin-top: 40px;
+  word-break: break-all;
 }
 
 h3 {
@@ -101,19 +89,18 @@ h3 {
 .my-technology-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 40px;
 }
 
 .my-technology-list > div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex: 1;
 }
 
-.tech {
+.groupIcons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  row-gap: 20px;
 }
 </style>

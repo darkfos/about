@@ -1,0 +1,16 @@
+.light {
+  /*
+    BG Main color
+  */
+  --main-color: #ffffff;
+
+  /*
+    Text main color's
+  */
+  --main-text-color: #1f1f1f;
+
+  /*
+    Font's
+  */
+  --font-weight: 700;
+}

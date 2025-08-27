@@ -1,41 +1,61 @@
 <script setup lang="ts">
-import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
+import { LinkElementWidget, TitleText, TypographyText } from '@/shared/ui'
 </script>
 
 <template>
   <section class="about-me">
-    <div>
-      <img src="../../../public/img/about-me.png" alt="Фотография секции обо мне" />
+    <div class="about-me__image">
+      <img src="/img/about-me.png" alt="Фотография секции обо мне" />
     </div>
     <div>
-      <h2>Про меня</h2>
+      <TitleText title="Про меня" :type-title="'h2'" align="left" />
       <div>
-        <h4 style="display: flex; align-items: center; gap: 20px">
-          Меня зовут Владимир
+        <TitleText
+          align="left"
+          title="Меня зовут Владимир"
+          type-title="h5"
+          style="display: flex; align-items: center; gap: 20px"
+        >
           <span>
-            <img src="../../../public/icons/hand.png" width="33" height="33" />
+            <img src="/img/hand.png" width="33" height="33" />
           </span>
-        </h4>
+        </TitleText>
         <div>
-          <p>
-            Я <span id="tech">front-end</span> разработчик в компании
-            <span id="additional-text">WorkSolutions</span>. Мне нравится разрабатывать удобные и
-            красивые интерфейсы.
-          </p>
-          <p>Обожаю процесс разработки, изучение нового, выполнение поставленных задач.</p>
-          <p>
-            Увлекаюсь не только <span id="tech">front-end</span> разработкой, но и
-            <span id="tech">back-end</span> К моим хобби также могу отнести
-            <span id="tech">историю</span>, <span id="tech">географию</span>,
-            <span id="tech">политологию</span>, <span id="tech">аниме</span>.
-          </p>
-          <p>
+          <TypographyText type="p">
+            Я
+            <TypographyText type="span" id="tech"> front-end </TypographyText>
+            разработчик в компании
+            <TypographyText type="span" id="additional-text">WorkSolutions</TypographyText>
+            . Мне нравится разрабатывать удобные и красивые интерфейсы.
+          </TypographyText>
+          <TypographyText type="p">
+            Обожаю процесс разработки, изучение нового, выполнение поставленных задач.
+          </TypographyText>
+          <TypographyText type="p">
+            Увлекаюсь не только
+            <TypographyText type="span" id="tech"> front-end </TypographyText>
+            разработкой, но и
+            <TypographyText type="span" id="tech"> back-end </TypographyText>
+            К моим хобби также могу отнести
+            <TypographyText type="span" id="tech"> историю </TypographyText>,
+            <TypographyText type="span" id="tech"> географию </TypographyText>,
+            <TypographyText type="span" id="tech"> политологию </TypographyText>,
+            <TypographyText type="span" id="tech"> музыка (я ей живу)</TypographyText>,
+            <TypographyText type="span" id="tech"> аниме. </TypographyText>
+          </TypographyText>
+          <TypographyText type="p">
             На данный момент активно изучаю направление разработки в сфере веба. Если есть
-            какие-либо вопросы, их можно мне написать в <span id="tech">telegram</span>
-          </p>
+            какие-либо вопросы, их можно мне написать в
+            <TypographyText type="a" href="#" id="tech">Telegram</TypographyText>
+          </TypographyText>
         </div>
         <div>
-          <LinkElementWidget img="telegram.png" title="Телеграм" />
+          <LinkElementWidget
+            img="telegram.png"
+            title="Телеграм"
+            is-png="true"
+            redirect="https://t.me/DarkFos99"
+          />
         </div>
       </div>
     </div>
@@ -44,8 +64,8 @@ import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
 
 <style scoped>
 .about-me {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
+  flex-direction: row;
   gap: 90px;
   justify-content: center;
 }
@@ -73,5 +93,27 @@ h2::before {
 
 #additional-text {
   color: var(--addtitional-text);
+}
+
+@media screen and (max-width: 980px) {
+  .about-me {
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .about-me .about-me__image {
+    margin: auto;
+  }
+
+  .about-me .about-me__image img {
+    width: 100% !important;
+  }
+
+  .about-me div:nth-child(2) {
+    text-align: justify;
+    text-wrap: wrap;
+    width: 100%;
+  }
 }
 </style>

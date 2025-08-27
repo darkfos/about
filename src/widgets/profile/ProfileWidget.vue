@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import LinkElementWidget from '@/widgets/link/LinkElementWidget.vue'
+import { LinkElementWidget } from '../../shared/ui/link'
+import { TypographyText } from '@/shared/ui'
+
+const goToAboutMeBlock = () => {
+  document.getElementById('my-way')?.scrollIntoView({
+    behavior: 'smooth',
+  })
+}
 
 const imageLinks: Array<string[]> = [
   ['github.png', 'https://github.com/darkfos'],
@@ -9,22 +16,22 @@ const imageLinks: Array<string[]> = [
 </script>
 
 <template>
-  <div class="profile">
-    <img src="../../../public/img/darkfos_profile.png" alt="Иконка darkfos" />
+  <section class="profile" id="profile">
+    <img src="/img/darkfos_profile.png" alt="Иконка darkfos" />
     <div class="profile__desc">
-      <p>darkfos</p>
-      <h3>Full Stack dev.</h3>
+      <TypographyText type="p">darkfos</TypographyText>
+      <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
     </div>
     <div class="profile__contacts">
       <div v-for="(el, index) in imageLinks" v-bind:key="index">
-        <LinkElementWidget :img="el[0]" :redirect="el[1]" />
+        <LinkElementWidget :img="el[0]" :redirect="el[1]" is-png="true" :alt="el[0]" />
       </div>
     </div>
     <div class="profile__btns">
-      <a-button :size="5" type="primary">Обо мне</a-button>
+      <a-button :size="20" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>
       <a-button :size="20" type="primary">Блог</a-button>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
@@ -35,6 +42,11 @@ img {
   border: 2px solid var(--select-text);
   border-radius: 100%;
 }
+
+#profile > img {
+  animation: breathing-animation 1s linear infinite alternate;
+}
+
 .profile {
   margin: auto;
   width: 40%;
@@ -42,6 +54,8 @@ img {
   grid-template-rows: auto;
   gap: 10px;
   justify-content: center;
+  transition: all 0.1s ease-in-out 250ms;
+  animation: show-object 1s linear;
 }
 
 .profile__btns {
@@ -60,6 +74,8 @@ img {
   display: flex;
   flex-direction: row;
   gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .profile__btns button {
@@ -69,5 +85,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16pt;
+}
+
+@media screen and (max-width: 300px) {
+  .profile__btns {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

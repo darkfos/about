@@ -2,6 +2,9 @@
 import { watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
+import { BurgerMenu, ThemeSwitcher } from '@/shared/ui'
+
+import { TypographyText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
 
 const route = useRoute()
@@ -31,53 +34,57 @@ watch(
 </script>
 
 <template>
-  <header>
-    <div>
-      <p id="select-text">darkfos</p>
-    </div>
-    <div>
-      <nav>
+  <header id="header">
+    <TypographyText type="p" id="select-text">darkfos</TypographyText>
+    <div class="header__items">
+      <ThemeSwitcher />
+      <BurgerMenu :header-link="headerLink" />
+      <nav id="native-menu">
         <div v-for="(hLink, index) in headerLink" :key="index">
-          <RouterLink
-            :to="hLink.href"
-            :class="mainStore.activePage === hLink.href ? 'active' : null"
-            >{{ hLink.title }}</RouterLink
-          >
+          <TypographyText :is-route-link="true">
+            <RouterLink
+              :to="hLink.href"
+              :class="mainStore.getPageLink() === hLink.href ? 'active' : null"
+              >{{ hLink.title }}</RouterLink
+            >
+          </TypographyText>
         </div>
       </nav>
     </div>
   </header>
 </template>
 
-<style scoped>
-header {
-  width: 100%;
-  display: grid;
+<style>
+#header {
+  display: flex;
   align-items: center;
   grid-template-columns: 3fr 1fr;
   justify-content: space-between;
+}
+
+.header__items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  gap: 50px;
 }
 
 nav {
   display: flex;
   flex-direction: row;
   gap: 15px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover {
-  color: var(--select-text);
-  font-weight: bold;
-  transition:
-    font-weight 200ms ease-in-out,
-    color 200ms ease-in-out;
+  width: 80%;
 }
 
 .active {
-  color: var(--select-text);
+  color: var(--pink-text-color);
+}
+
+@media screen and (max-width: 850px) {
+  #native-menu {
+    display: none;
+  }
 }
 </style>

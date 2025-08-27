@@ -1,0 +1,12 @@
+:root {
+  /* Headers size */
+  --h1-size: 4rem;
+  --h2-size: 3rem;
+  --h3-size: 2rem;
+  --h4-size: 1.5rem;
+  --h5-size: 1.3rem;
+  --h6-size: 0.5rem;
+
+  /* Default text size */
+  --font-size: 18pt;
+}

@@ -3,6 +3,8 @@ import { ref, h, type VNode } from 'vue'
 import type { Ref } from 'vue'
 import { FireOutlined } from '@ant-design/icons-vue'
 
+import { TitleText, TypographyText } from '@/shared/ui'
+
 const current: Ref<number> = ref(0)
 const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode }>> = ref([
   {
@@ -25,7 +27,7 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
   },
   {
     key: 'Текущий момент',
-    title: 'Сегодня - сейчас',
+    title: 'Сегодня',
     text: 'На данный момент я работаю в компании WorkSolutions, продолжаю совершенствовать свои навыки, учиться и развиваться.',
     icon: h(FireOutlined),
   },
@@ -33,31 +35,18 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 </script>
 
 <template>
-  <section class="my-way">
-    <h2>Мой путь</h2>
+  <section class="my-way" id="my-way">
+    <TitleText title="Мой путь" type-title="h1" align="center" :close-figure="true" />
     <div class="my-way__body">
       <a-steps v-model:current="current" :items="items" class="steps" type="navigation" />
-      <div>
+      <TypographyText type="p">
         {{ items[current].text }}
-      </div>
+      </TypographyText>
     </div>
   </section>
 </template>
 
 <style>
-h2::before {
-  position: relative;
-  display: inline-block;
-  z-index: -2;
-  left: 20px;
-  top: 5px;
-  content: '';
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #ca0a9e;
-}
-
 .my-way {
   text-align: center;
 }
@@ -85,7 +74,7 @@ h2::before {
 .ant-steps-item-icon {
   padding: 5px;
   border-radius: 7px !important;
-  background-color: #ca0a9e !important;
+  background-color: var(--main-btn-color) !important;
   border: none !important;
   display: flex;
   flex-direction: row;
@@ -95,7 +84,7 @@ h2::before {
 }
 
 .ant-steps-item-active .ant-steps-icon {
-  color: white !important;
+  color: var(--white-bg-color) !important;
 }
 
 .ant-steps-item-finish .ant-steps-icon {
