@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkElementWidget, TitleText, TypographyText, BackgroundLayoutLayout } from '@/shared/ui'
+import { LinkElementWidget, TitleText, TypographyText, BackgroundLayout } from '@/shared/ui'
 </script>
 
 <template>
@@ -7,7 +7,7 @@ import { LinkElementWidget, TitleText, TypographyText, BackgroundLayoutLayout } 
     <div class="about-me__image">
       <img src="/img/about-me.png" alt="Фотография секции обо мне" />
     </div>
-    <BackgroundLayoutLayout>
+    <BackgroundLayout>
       <div>
         <TitleText title="Про меня" :type-title="'h2'" align="left" />
         <div>
@@ -60,7 +60,7 @@ import { LinkElementWidget, TitleText, TypographyText, BackgroundLayoutLayout } 
           </div>
         </div>
       </div>
-    </BackgroundLayoutLayout>
+    </BackgroundLayout>
   </section>
 </template>
 

@@ -1,1 +1,1 @@
-export { default as BackgroundLayoutLayout } from './BackgroundLayout.vue'
+export { default as BackgroundLayout } from './BackgroundLayout.vue'

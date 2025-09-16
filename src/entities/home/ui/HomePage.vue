@@ -3,6 +3,7 @@ import { ProfileWidget } from '@/widgets/profile'
 import { AboutMeWidget } from '@/widgets/about-me'
 import { TechnologyWidget } from '@/widgets/technology'
 import { MyWayWidget } from '@/widgets/my-way'
+import { SendUserContacts } from '@/features/send-user-contacts'
 
 import { TypographyText } from '@/shared/ui'
 </script>
@@ -20,6 +21,7 @@ import { TypographyText } from '@/shared/ui'
   <AboutMeWidget />
   <TechnologyWidget />
   <MyWayWidget />
+  <SendUserContacts />
 </template>
 
 <style>
