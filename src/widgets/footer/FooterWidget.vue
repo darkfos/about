@@ -29,7 +29,7 @@ import { TitleText } from '@/shared/ui'
   left: 50%;
   top: 0;
   width: 100%;
-  height: 100vh;
+  height: 150vh;
   transform: translateX(-50%);
   background-image: url('/img/bg-1.png');
   background-repeat: no-repeat;
@@ -42,8 +42,14 @@ import { TitleText } from '@/shared/ui'
   text-wrap: wrap;
   width: 100%;
   margin: auto;
-  margin-top: 30%;
-  color: var(--text-on-white-bg-color);
+  top: 40%;
+  position: absolute;
   font-weight: bold;
+  color: var(--pink-text-color)
+}
+
+.footer-body__content h4 {
+  color: var(--pink-text-color);
+  font-weight: var(--font-weight);
 }
 </style>
