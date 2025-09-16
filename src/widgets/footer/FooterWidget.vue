@@ -45,7 +45,7 @@ import { TitleText } from '@/shared/ui'
   top: 40%;
   position: absolute;
   font-weight: bold;
-  color: var(--pink-text-color)
+  color: var(--pink-text-color);
 }
 
 .footer-body__content h4 {

@@ -35,7 +35,7 @@ watch(
 
 <template>
   <header id="header">
-    <TypographyText type="p" id="select-text">darkfos</TypographyText>
+    <TypographyText type="p" id="select-text-header">darkfos</TypographyText>
     <div class="header__items">
       <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
@@ -60,6 +60,11 @@ watch(
   align-items: center;
   grid-template-columns: 3fr 1fr;
   justify-content: space-between;
+}
+
+#select-text-header {
+  color: var(--main-text-color);
+  font-weight: 800;
 }
 
 .header__items {

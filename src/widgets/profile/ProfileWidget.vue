@@ -17,7 +17,8 @@ const imageLinks: Array<string[]> = [
 
 <template>
   <section class="profile" id="profile">
-    <img src="/img/darkfos_profile.png" alt="Иконка darkfos" />
+    <img id="profile__avatar" src="/img/darkfos_profile.png" alt="Иконка darkfos" />
+    <img id="profile__bg-sakura" src="/img/sakura.png" alt="Задний фон сакура" />
     <div class="profile__desc">
       <TypographyText type="p">darkfos</TypographyText>
       <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
@@ -35,7 +36,7 @@ const imageLinks: Array<string[]> = [
 </template>
 
 <style scoped>
-img {
+#profile__avatar {
   box-shadow: #ca0a9e 2px 1px 4px 4px;
   text-align: center;
   margin: auto;
@@ -43,7 +44,15 @@ img {
   border-radius: 100%;
 }
 
-#profile > img {
+#profile__bg-sakura {
+  position: absolute;
+  z-index: -1;
+  top: -450px;
+  left: -100px;
+  transform: scaleX(-1);
+}
+
+#profile > #profile__avatar {
   animation: breathing-animation 1s linear infinite alternate;
 }
 
@@ -56,6 +65,7 @@ img {
   justify-content: center;
   transition: all 0.1s ease-in-out 250ms;
   animation: show-object 1s linear;
+  padding-bottom: 200px;
 }
 
 .profile__btns {
