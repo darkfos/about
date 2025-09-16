@@ -3,7 +3,7 @@ import { ref, h, type VNode } from 'vue'
 import type { Ref } from 'vue'
 import { FireOutlined } from '@ant-design/icons-vue'
 
-import { TitleText, TypographyText } from '@/shared/ui'
+import { TitleText, TypographyText, BackgroundLayoutLayout } from '@/shared/ui'
 
 const current: Ref<number> = ref(0)
 const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode }>> = ref([
@@ -39,9 +39,11 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
     <TitleText title="Мой путь" type-title="h1" align="center" :close-figure="true" />
     <div class="my-way__body">
       <a-steps v-model:current="current" :items="items" class="steps" type="navigation" />
-      <TypographyText type="p">
-        {{ items[current].text }}
-      </TypographyText>
+      <BackgroundLayoutLayout>
+        <TypographyText type="p">
+          {{ items[current].text }}
+        </TypographyText>
+      </BackgroundLayoutLayout>
     </div>
   </section>
 </template>

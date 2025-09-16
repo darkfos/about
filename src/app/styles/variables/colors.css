@@ -34,4 +34,9 @@
   */
   --main-btn-color: #ca0a9e;
   --main-btn-hover-color: #531dab;
+
+  /*
+    Background color
+  */
+  --bg-element-color: rgba(31, 31, 31, 0.7);
 }
