@@ -64,7 +64,6 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
   display: grid;
   grid-template-rows: auto;
   gap: 90px;
-  margin-top: 80px;
   padding-bottom: 80px;
 }
 
