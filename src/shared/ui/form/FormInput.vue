@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import { inject, ref } from 'vue'
 import { Input } from 'ant-design-vue'
+
+import { BLOG_TITLE_SEARCH_KEY } from '@/entities/blog'
+
+const formRef = inject(BLOG_TITLE_SEARCH_KEY, ref())
 </script>
 <template>
   <form class="form">
     <div class="input-wrapper">
-      <Input.Search type="text" size="large" variant="outlined"> </Input.Search>
+      <Input.Search type="text" size="large" variant="outlined" v-model:value="formRef">
+      </Input.Search>
     </div>
   </form>
 </template>

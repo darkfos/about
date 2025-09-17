@@ -7,15 +7,16 @@ export async function getBlogs(
   title: string,
   themes: ThemeFilter,
   pageData: Pagination,
-): Promise<Blog | null> {
-  const req = await instance.get(`/api/findBlog`, {
+): Promise<{ blogs: Array<Blog>; pagination: Pagination }> {
+  const req = await instance.get(`/findBlog`, {
     params: {
       title: title,
-      themes: themes.themes,
+      themes: themes,
       page: pageData.page,
       limit: pageData.pageSize,
     },
   })
-  if (req.status !== 200) return null
-  return await req.data()
+
+  if (req.status !== 200) return { blogs: [], pagination: { page: 1, total: 0, pageSize: 10 } }
+  return await req.data
 }

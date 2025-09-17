@@ -1,3 +1,1 @@
-export interface ThemeFilter {
-  themes: Array<string>
-}
+export type ThemeFilter = Array<string>

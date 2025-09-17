@@ -1,3 +1,13 @@
+export interface FormatImage {
+  name: string
+  hash: string
+  ext: string
+  mime: string
+  path?: string
+  url: string
+  size: number
+}
+
 export interface Pagination {
   page: number
   pageSize: number
@@ -24,4 +34,13 @@ export interface Author {
   id: number
   documentId: string
   username: string
+}
+
+export interface Image extends Entity, FormatImage {
+  caption?: string
+  formats: {
+    small: FormatImage
+    medium: FormatImage
+    large: FormatImage
+  }
 }
