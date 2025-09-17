@@ -1,22 +1,49 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-const { img, redirect, text, isPng, alt } = defineProps([
+import { convertJsonToArray } from '@/shared/utils'
+
+const { img, redirect, text, isPng, alt, active } = defineProps([
   'img',
   'title',
   'redirect',
   'text',
   'isPng',
   'alt',
+  'active',
 ])
+const route = useRoute()
+const router = useRouter()
+const activeThemes = computed(() => convertJsonToArray<string>(route.query?.themes as string))
 
 const redirectPage = (): void => {
   window.location.href = redirect
 }
+
+const handleClick = (): void => {
+  if (active) {
+    let themes: Array<string> = activeThemes.value
+
+    if (themes.includes(text)) {
+      themes = themes.filter((theme) => theme !== text)
+    } else {
+      themes.push(text)
+    }
+
+    router.push({ path: route.path, query: { themes: JSON.stringify(themes) } })
+  }
+}
 </script>
 
 <template>
-  <div :class="text ? 'link-element-text' : 'link-element'">
+  <div
+    :class="[
+      text ? 'link-element-text' : 'link-element',
+      activeThemes.includes(text) ? 'selected-link' : '',
+    ]"
+    @click="handleClick"
+  >
     <template v-if="text">
       <p>{{ text }}</p>
     </template>
@@ -77,5 +104,10 @@ svg {
 .link-element-text:hover {
   box-shadow: #ca0a9e 1px 1px 1px 2px;
   transform: rotate(3deg);
+}
+
+.selected-link {
+  transform: rotate(2deg);
+  box-shadow: #ca0a9e 1px 1px 2px 2px;
 }
 </style>

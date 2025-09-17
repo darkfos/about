@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import type { Ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 import { LinkElementWidget } from '@/shared/ui'
 
@@ -8,7 +9,10 @@ import { FormInput, TitleText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
 
 const mainStore = useMainStore()
-const current: Ref<number> = ref(1)
+const route = useRoute()
+const current: Ref<number> = ref(+(route.query.page ?? 1))
+
+onMounted(async () => {})
 </script>
 
 <template>
@@ -19,6 +23,7 @@ const current: Ref<number> = ref(1)
       <TitleText align="left" title="Темы" type-title="h5" style="margin-top: 20px" />
       <div class="blog-themes__content">
         <LinkElementWidget
+          :active="true"
           v-for="theme in mainStore.getThemes()"
           :key="theme.id"
           :text="theme?.name as string"

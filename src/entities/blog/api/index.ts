@@ -3,7 +3,7 @@ import type { Blog } from '@/entities/blog'
 import { instance } from '@/shared/api'
 import type { Pagination, ThemeFilter } from '@/shared/types'
 
-export async function getBlog(
+export async function getBlogs(
   title: string,
   themes: ThemeFilter,
   pageData: Pagination,

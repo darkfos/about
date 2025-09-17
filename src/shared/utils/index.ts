@@ -1,2 +1,2 @@
 export { saveOnLocalStorage, deleteFromLocalStorage } from './storage/localStorage'
-export { isJson } from './general'
+export { isJson, convertJsonToArray } from './general'
