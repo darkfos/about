@@ -39,6 +39,7 @@
     Background color
   */
   --bg-element-color: rgba(31, 31, 31, 0.7);
+  --bg-element-bold-color: rgba(31, 31, 31, 0.9);
 
   /*
     Form colors

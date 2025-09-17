@@ -1,17 +1,45 @@
 <script setup lang="ts">
-import { BackgroundLayout } from '@/shared/ui'
+import { ref } from 'vue'
+import { message } from 'ant-design-vue'
+
 import { FormContact } from '@/widgets/formContact'
 
-const handleSubmit = () => {
-  console.log(483982943)
+import { type ReviewUserData, sendReview } from '@/entities/review'
+
+import { BackgroundLayout } from '@/shared/ui'
+
+const formData = ref<{
+  formRef: { getFieldsValue: () => ReviewUserData; resetFields: () => void }
+}>()
+const [messageApi, contextHolder] = message.useMessage()
+
+const handleSubmit = async () => {
+  const userdata: ReviewUserData = formData.value?.formRef?.getFieldsValue() as ReviewUserData
+
+  if (userdata?.username?.length <= 4 && userdata?.message?.length <= 1) {
+    messageApi.error('Не удалось отправить отзыв')
+    return
+  }
+
+  const req = await sendReview(userdata as ReviewUserData)
+
+  formData.value?.formRef?.resetFields()
+
+  if (req) {
+    messageApi.info('Отзыв был успешно отправлен')
+    return
+  }
+
+  messageApi.error('Не удалось отправить отзыв')
 }
 </script>
 
 <template>
   <div class="send-user-contacts">
+    <context-holder class="message" />
     <BackgroundLayout>
       <div class="send-user-contacts__content">
-        <FormContact :submit-func="handleSubmit" submit-text="Отправить" />
+        <FormContact :submit-func="handleSubmit" submit-text="Отправить" ref="formData" />
         <img src="/img/contact.png" alt="Лого контакта" />
       </div>
     </BackgroundLayout>

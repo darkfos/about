@@ -30,7 +30,7 @@ const rules = {
   ],
 }
 
-defineExpose({ userData })
+defineExpose({ formRef })
 </script>
 
 <template>
@@ -74,5 +74,13 @@ textarea {
 .form-contact input::placeholder,
 textarea::placeholder {
   color: var(--pink-text-color);
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink-text-color);
 }
 </style>
