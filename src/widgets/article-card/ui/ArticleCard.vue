@@ -23,11 +23,7 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
       </template>
     </a-card-meta>
     <div class="blog-card-footer">
-      <LinkElementWidget
-        v-for="(linkElement, key) in themes"
-        :text="linkElement"
-        :key="key"
-      />
+      <LinkElementWidget v-for="(linkElement, key) in themes" :text="linkElement" :key="key" />
     </div>
   </a-card>
 </template>

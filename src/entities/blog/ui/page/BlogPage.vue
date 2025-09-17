@@ -3,12 +3,13 @@ import { onMounted, ref, provide, computed } from 'vue'
 import type { Ref } from 'vue'
 import { useRoute } from 'vue-router'
 
+import { ArticleCard } from '@/widgets/article-card';
+
 import {
   type Blog,
   getBlogs,
   BLOG_TITLE_SEARCH_VALUE,
   BLOG_TITLE_SEARCH_KEY,
-  BlogCard,
 } from '@/entities/blog'
 
 import { LinkElementWidget, TypographyText } from '@/shared/ui'
@@ -64,7 +65,7 @@ provide(BLOG_TITLE_SEARCH_KEY, BLOG_TITLE_SEARCH_VALUE)
     </div>
     <template v-if="blogs.length">
       <div class="blog-content">
-        <BlogCard
+        <ArticleCard
           :key="blog.id"
           v-for="blog in blogs"
           :title="blog.title"
