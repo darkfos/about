@@ -1,4 +1,4 @@
-import type { Blog } from '@/entities/blog'
+import type { BlogResultRequest } from '@/entities/blog'
 
 import { instance } from '@/shared/api'
 import type { Pagination, ThemeFilter } from '@/shared/types'
@@ -7,8 +7,7 @@ export async function getBlogs(
   title: string,
   themes: ThemeFilter,
   pageData: Pagination,
-): Promise<{ blogs: Array<Blog>; pagination: Pagination }> {
-
+): Promise<BlogResultRequest> {
   const req = await instance.get(`/findBlog`, {
     params: {
       title: title,

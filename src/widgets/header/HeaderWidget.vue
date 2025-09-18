@@ -16,7 +16,7 @@ const headerLink: Array<{ href: string; title: string }> = [
     title: 'Главная',
   },
   {
-    href: '/blog',
+    href: '/blogs',
     title: 'Блог',
   },
   {

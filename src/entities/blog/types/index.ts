@@ -1,6 +1,6 @@
 import type { Theme } from '@/entities/theme'
 
-import type { Entity, Author, Components, Image } from '@/shared/types'
+import type { Entity, Author, Components, Image, Pagination } from '@/shared/types'
 
 export interface Blog extends Entity {
   title?: string
@@ -11,4 +11,9 @@ export interface Blog extends Entity {
   section: Array<Components>
   themes: Array<Theme>
   author: Author
+}
+
+export interface BlogResultRequest {
+  blogs: Array<Blog>
+  pagination: Pagination
 }

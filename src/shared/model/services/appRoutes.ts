@@ -22,7 +22,7 @@ export const appRoutes: Array<AppRoutesItem> = [
     component: ProjectsPage,
   },
   {
-    path: '/blog',
+    path: '/blogs',
     name: 'Блог',
     component: BlogPage,
   },

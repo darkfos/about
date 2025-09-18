@@ -9,7 +9,11 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   'title',
   'shortDescription',
   'themes',
+  'avatarName',
+  'avatarImage'
 ])
+
+const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
 </script>
 
 <template>
@@ -25,8 +29,12 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
         {{ shortDescription }}
       </template>
     </a-card-meta>
-    <div class="blog-card-footer">
+    <div class="blog-card__footer">
       <LinkElementWidget v-for="(linkElement, key) in themes" :text="linkElement" :key="key" />
+    </div>
+    <div class="blog-card__avatar">
+      <p>{{ avatarName }}</p>
+      <a-avatar :src="urlBack + avatarImage" />
     </div>
   </a-card>
 </template>
@@ -58,7 +66,7 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   font-size: 9pt !important;
 }
 
-.blog-card-footer {
+.blog-card__footer {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
@@ -68,7 +76,15 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   padding-bottom: 10px;
 }
 
-.blog-card-footer div {
+.blog-card__footer div {
   width: auto;
+}
+
+.blog-card__avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 20px;
+  align-items: center;
 }
 </style>
