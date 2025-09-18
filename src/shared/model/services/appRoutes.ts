@@ -24,12 +24,12 @@ export const appRoutes: Array<AppRoutesItem> = [
   {
     path: '/projects/:slug',
     name: 'Проект',
-    component: ProjectPage
+    component: ProjectPage,
   },
   {
     path: '/blogs/:slug',
     name: 'Блок',
-    component: BlogPage
+    component: BlogPage,
   },
   {
     path: '/blogs',

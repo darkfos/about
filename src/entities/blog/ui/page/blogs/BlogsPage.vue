@@ -3,9 +3,9 @@ import { provide } from 'vue'
 
 import { SearchComponent } from '@/widgets/search'
 
-import { getBlogs, BLOG_TITLE_SEARCH_VALUE, BLOG_TITLE_SEARCH_KEY } from '@/entities/blog'
+import { getBlogs, SEARCH_TITLE_SEARCH_VALUE, SEARCH_TITLE_SEARCH_KEY } from '@/entities/blog'
 
-provide(BLOG_TITLE_SEARCH_KEY, BLOG_TITLE_SEARCH_VALUE)
+provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
 </script>
 
 <template>
@@ -13,7 +13,7 @@ provide(BLOG_TITLE_SEARCH_KEY, BLOG_TITLE_SEARCH_VALUE)
     title="Давай-ка поищем..."
     not-found-text="Не удалось найти блоги"
     :func-to-find-elements="getBlogs"
-    :key-ref-provide="BLOG_TITLE_SEARCH_KEY"
+    :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
   />
 </template>
 

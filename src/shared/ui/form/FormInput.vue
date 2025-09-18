@@ -2,9 +2,9 @@
 import { inject, ref } from 'vue'
 import { Input } from 'ant-design-vue'
 
-import { BLOG_TITLE_SEARCH_KEY } from '@/entities/blog'
+import { SEARCH_TITLE_SEARCH_KEY } from '@/entities/blog'
 
-const formRef = inject(BLOG_TITLE_SEARCH_KEY, ref())
+const formRef = inject(SEARCH_TITLE_SEARCH_KEY, ref())
 </script>
 <template>
   <form class="form">
