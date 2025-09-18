@@ -10,7 +10,7 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   'shortDescription',
   'themes',
   'avatarName',
-  'avatarImage'
+  'avatarImage',
 ])
 
 const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
