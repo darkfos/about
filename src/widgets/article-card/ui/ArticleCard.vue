@@ -13,12 +13,12 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
 </script>
 
 <template>
-  <a-card hoverable style="width: 370px;" class="blog-card">
+  <a-card hoverable style="width: 370px" class="blog-card">
     <template #cover>
-        <img :src="image" :alt="imageAlt" class="card-avatar"/>
-        <div id="continue-icon">
-          <img src="/img/continue-icon.png" alt="Перейти" />
-        </div>
+      <img :src="image" :alt="imageAlt" class="card-avatar" />
+      <div id="continue-icon">
+        <img src="/img/continue-icon.png" alt="Перейти" />
+      </div>
     </template>
     <a-card-meta :title="title">
       <template #description>

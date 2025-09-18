@@ -88,7 +88,7 @@ provide(BLOG_TITLE_SEARCH_KEY, BLOG_TITLE_SEARCH_VALUE)
   </div>
 </template>
 
-<style>
+<style scoped>
 .blog {
   width: 90%;
   margin: auto;
@@ -126,27 +126,5 @@ provide(BLOG_TITLE_SEARCH_KEY, BLOG_TITLE_SEARCH_VALUE)
   width: 70%;
   margin: auto;
   margin-top: 60px;
-}
-
-.ant-pagination {
-  margin: auto !important;
-  text-align: center !important;
-  width: 70%;
-}
-
-.ant-pagination-item a {
-  color: var(--select-text) !important;
-  font-weight: bold;
-}
-
-.ant-pagination-item-active {
-  background-color: var(--main-text-color) !important;
-  border-color: var(--select-text) !important;
-  font-weight: bold;
-}
-
-.ant-pagination-item-link {
-  color: var(--select-text) !important;
-  font-weight: bold;
 }
 </style>

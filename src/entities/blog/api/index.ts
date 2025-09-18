@@ -8,6 +8,7 @@ export async function getBlogs(
   themes: ThemeFilter,
   pageData: Pagination,
 ): Promise<{ blogs: Array<Blog>; pagination: Pagination }> {
+
   const req = await instance.get(`/findBlog`, {
     params: {
       title: title,

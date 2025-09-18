@@ -19,3 +19,37 @@
 .ant-card-meta-description {
   color: white !important;
 }
+
+
+.ant-pagination {
+  margin: auto !important;
+  text-align: center !important;
+  width: 70%;
+}
+
+.ant-pagination svg {
+  fill: var(--pink-text-color);
+}
+
+.ant-pagination-item a {
+  color: var(--select-text) !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item {
+  background-color: transparent !important;
+  border: 1px solid var(--black-border-color);
+}
+
+.ant-pagination-item a {
+  color: white !important
+}
+
+.ant-pagination-item-active {
+  border-color: var(--pink-text-color) !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item-link {
+  font-weight: bold;
+}
