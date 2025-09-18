@@ -13,9 +13,12 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
 </script>
 
 <template>
-  <a-card hoverable style="width: 370px" class="blog-card">
+  <a-card hoverable style="width: 370px;" class="blog-card">
     <template #cover>
-      <img :src="image" :alt="imageAlt" />
+        <img :src="image" :alt="imageAlt" class="card-avatar"/>
+        <div id="continue-icon">
+          <img src="/img/continue-icon.png" alt="Перейти" />
+        </div>
     </template>
     <a-card-meta :title="title">
       <template #description>
@@ -34,6 +37,21 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   flex-direction: column;
   gap: 10px;
   word-break: break-word;
+  overflow: hidden;
+}
+
+.card-avatar {
+  z-index: 1 !important;
+}
+
+.blog-card:hover .card-avatar {
+  transform: scale(1.1);
+  filter: blur(4px);
+  transition: all 0.4s ease-in-out;
+}
+
+.blog-card:hover #continue-icon {
+  opacity: 1 !important;
 }
 
 .blog-card p {
@@ -44,10 +62,9 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   display: flex;
   flex-direction: row;
   column-gap: 10px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  flex-wrap: nowrap;
-  padding-top: 20px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 40px;
   padding-bottom: 10px;
 }
 

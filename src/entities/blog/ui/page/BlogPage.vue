@@ -3,7 +3,7 @@ import { onMounted, ref, provide, computed } from 'vue'
 import type { Ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { ArticleCard } from '@/widgets/article-card';
+import { ArticleCard } from '@/widgets/article-card'
 
 import {
   type Blog,
