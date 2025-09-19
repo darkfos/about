@@ -35,7 +35,6 @@ const findElements = async () => {
     pageSize: 10,
   })
 
-  console.log(req, 439943)
   elements.value = req[route.path.split('/')[1] as SharedResultKeyElements] as Blog[]
   paginationResult.value = req.pagination
 }
@@ -45,11 +44,12 @@ onMounted(async () => {
 })
 
 watch(
-  () => route.query.page,
+  () => route.query,
   () => {
     findElements()
   },
 )
+
 
 const handleClickPagination = () => {
   router.push({ path: route.path, query: { ...route.query, page: currentPage.value } })

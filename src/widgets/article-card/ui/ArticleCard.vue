@@ -46,6 +46,7 @@ const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
   gap: 10px;
   word-break: break-word;
   overflow: hidden;
+  box-shadow: 2px 4px 4px 3px rgba(244, 247, 249, 0.1);
 }
 
 .card-avatar {
