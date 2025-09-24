@@ -35,7 +35,7 @@ watch(
 
 <template>
   <header id="header">
-    <TypographyText type="p" id="select-text-header">darkfos</TypographyText>
+    <TypographyText type="p" id="select-text-header">darkfos.io</TypographyText>
     <div class="header__items">
       <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
@@ -44,7 +44,7 @@ watch(
           <TypographyText :is-route-link="true">
             <RouterLink
               :to="hLink.href"
-              :class="mainStore.getPageLink() === hLink.href ? 'active' : null"
+              :id="route.path === hLink.href ? 'router-link_active' : 'router-link_default'"
               >{{ hLink.title }}</RouterLink
             >
           </TypographyText>

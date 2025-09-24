@@ -24,9 +24,9 @@ import { LinkElementWidget, TitleText, TypographyText, BackgroundLayout } from '
           <div>
             <TypographyText type="p">
               Я
-              <TypographyText type="span" id="tech"> front-end </TypographyText>
+              <TypographyText type="span" id="select-text"> front-end </TypographyText>
               разработчик в компании
-              <TypographyText type="span" id="additional-text">WorkSolutions</TypographyText>
+              <TypographyText type="span" id="select-text">WorkSolutions</TypographyText>
               . Мне нравится разрабатывать удобные и красивые интерфейсы.
             </TypographyText>
             <TypographyText type="p">
@@ -34,20 +34,20 @@ import { LinkElementWidget, TitleText, TypographyText, BackgroundLayout } from '
             </TypographyText>
             <TypographyText type="p">
               Увлекаюсь не только
-              <TypographyText type="span" id="tech"> front-end </TypographyText>
+              <TypographyText type="span" id="select-text"> front-end </TypographyText>
               разработкой, но и
-              <TypographyText type="span" id="tech"> back-end </TypographyText>
+              <TypographyText type="span" id="select-text"> back-end </TypographyText>
               К моим хобби также могу отнести
-              <TypographyText type="span" id="tech"> историю </TypographyText>,
-              <TypographyText type="span" id="tech"> географию </TypographyText>,
-              <TypographyText type="span" id="tech"> политологию </TypographyText>,
-              <TypographyText type="span" id="tech"> музыка (я ей живу)</TypographyText>,
-              <TypographyText type="span" id="tech"> аниме. </TypographyText>
+              <TypographyText type="span" id="select-text"> историю </TypographyText>,
+              <TypographyText type="span" id="select-text"> географию </TypographyText>,
+              <TypographyText type="span" id="select-text"> политологию </TypographyText>,
+              <TypographyText type="span" id="select-text"> музыка (я ей живу)</TypographyText>,
+              <TypographyText type="span" id="select-text"> аниме. </TypographyText>
             </TypographyText>
             <TypographyText type="p">
               На данный момент активно изучаю направление разработки в сфере веба. Если есть
               какие-либо вопросы, их можно мне написать в
-              <TypographyText type="a" href="#" id="tech">Telegram</TypographyText>
+              <TypographyText type="a" href="#" id="select-text">Telegram</TypographyText>
             </TypographyText>
           </div>
           <div>

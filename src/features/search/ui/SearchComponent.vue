@@ -4,7 +4,7 @@ import type { Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import { ArticleCard } from '@/widgets/article-card'
-import { type SearchProps } from '@/widgets/search'
+import { type SearchProps } from '@/features/search'
 
 import { LinkElementWidget, TypographyText } from '@/shared/ui'
 import { type Pagination, type SharedResultKeyElements } from '@/shared/types'
@@ -43,13 +43,9 @@ onMounted(async () => {
   await findElements()
 })
 
-watch(
-  () => route.query,
-  () => {
-    findElements()
-  },
-)
-
+watch([route, valueRef], () => {
+  findElements()
+})
 
 const handleClickPagination = () => {
   router.push({ path: route.path, query: { ...route.query, page: currentPage.value } })

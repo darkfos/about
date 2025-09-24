@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { provide } from 'vue'
 
-import { SearchComponent } from '@/widgets/search'
+import { SearchComponent } from '@/features/search'
 
 import { getBlogs, SEARCH_TITLE_SEARCH_VALUE, SEARCH_TITLE_SEARCH_KEY } from '@/entities/blog'
 

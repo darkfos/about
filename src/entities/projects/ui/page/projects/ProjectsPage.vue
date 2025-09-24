@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { provide } from 'vue'
 
-import { SearchComponent } from '@/widgets/search'
+import { SearchComponent } from '@/features/search'
 import { SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE } from '@/entities/blog'
 
 const randomTitles = [

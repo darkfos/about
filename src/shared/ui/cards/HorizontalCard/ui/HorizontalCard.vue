@@ -2,22 +2,37 @@
 import { defineProps } from 'vue'
 import type { HorizontalCardProps } from '@/shared/ui'
 
-const { titleText, titleIcon, descriptionText } = defineProps<HorizontalCardProps>()
+const { titleText, titleIcon } = defineProps<HorizontalCardProps>()
 </script>
 
 <template>
   <article class="h-card">
     <div class="h-card__header">
-      <img :src="titleIcon" :alt="titleIconAlt ?? 'Иконка заголовка карточки'" />
+      <template v-if="titleIcon">
+        <img :src="titleIcon" :alt="titleIconAlt ?? 'Иконка заголовка карточки'" />
+      </template>
+      <div class="h-card-header__icon" v-else>
+        <slot name="icon" />
+      </div>
       {{ titleText }}
     </div>
     <div class="h-card__content">
-      {{ descriptionText }}
+      <slot name="description" />
     </div>
   </article>
 </template>
 
 <style scoped>
+.h-card-header__icon {
+  padding-top: 5px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .h-card {
   max-width: 519px;
   border-radius: 20px;
@@ -30,7 +45,6 @@ const { titleText, titleIcon, descriptionText } = defineProps<HorizontalCardProp
   padding: 5px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   row-gap: 24px;
   font-size: var(--font-size);
 }
