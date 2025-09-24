@@ -1,3 +1,6 @@
+import type { BlocksContent } from 'vue-strapi-blocks-renderer'
+import type { Image } from '@/shared/types/strapi.ts'
+
 interface Component {
   id: number
   __component: string
@@ -51,13 +54,14 @@ export interface ImageBlock extends Component {
 
 export interface TextBlock extends Component {
   header?: string | null
-  text: Array<{
-    type: string
-    children?: Array<{
-      type: string
-      text: string
-    }>
-  }>
+  text: BlocksContent
+}
+
+export interface LinkBlock extends Component {
+  alt?: string
+  href?: string
+  icon?: Image
+  text?: string
 }
 
 export type Components = ImageBlock | TextBlock
