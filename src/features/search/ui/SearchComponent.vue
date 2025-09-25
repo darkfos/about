@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ArticleCard } from '@/widgets/article-card'
 import { type SearchProps } from '@/features/search'
 
-import { LinkElementWidget, TypographyText } from '@/shared/ui'
+import { LinkElementWidget } from '@/shared/ui'
 import { type Pagination, type SharedResultKeyElements } from '@/shared/types'
 import { FormInput, TitleText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
@@ -17,8 +17,7 @@ const mainStore = useMainStore()
 const route = useRoute()
 const router = useRouter()
 
-const { funcToFindElements, className, title, notFoundText, keyRefProvide } =
-  defineProps<SearchProps>()
+const { funcToFindElements, className, title, keyRefProvide } = defineProps<SearchProps>()
 
 const currentPage: Ref<number> = ref<number>(convertStringToNumber(route.query?.page as string))
 const themes: Ref<Array<string>> = computed(
@@ -30,13 +29,15 @@ const paginationResult = ref<Pagination>({ page: 1, pageSize: 10, total: 0 })
 const valueRef = inject(keyRefProvide, ref())
 
 const findElements = async () => {
-  const req = await funcToFindElements(valueRef.value as string, themes.value, {
-    page: currentPage.value,
-    pageSize: 10,
-  })
+  setTimeout(async () => {
+    const req = await funcToFindElements(valueRef.value as string, themes.value, {
+      page: currentPage.value,
+      pageSize: 10,
+    })
 
-  elements.value = req[route.path.split('/')[1] as SharedResultKeyElements] as Blog[]
-  paginationResult.value = req.pagination
+    elements.value = req[route.path.split('/')[1] as SharedResultKeyElements] as Blog[]
+    paginationResult.value = req.pagination
+  }, 500)
 }
 
 onMounted(async () => {
@@ -91,7 +92,9 @@ const url = import.meta.env.VITE_BACKEND_SHORT_URL
       </div>
     </template>
     <template v-else>
-      <TypographyText type="p" id="not-found-text"> {{ notFoundText }} </TypographyText>
+      <div class="search-content flex">
+        <a-spin tip="Загрузка..." />
+      </div>
     </template>
   </div>
 </template>

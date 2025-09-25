@@ -67,3 +67,13 @@
 .ant-input-group-addon * {
   border: none !important;
 }
+
+.ant-spin {
+  color: var(--main-text-color) !important;
+  font-weight: bold;
+  font-size: var(--h5-size) !important;
+}
+
+.ant-spin i {
+  background: linear-gradient(-43deg, #e02043 20%, #f527bb 100%) !important;
+}

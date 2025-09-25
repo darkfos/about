@@ -11,7 +11,6 @@ provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
 <template>
   <SearchComponent
     title="Давай-ка поищем..."
-    not-found-text="Не удалось найти блоги"
     :func-to-find-elements="getBlogs"
     :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
   />

@@ -19,7 +19,6 @@ provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
     :title="randomTitles[Math.floor(Math.random() * 5)]"
     :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
     :func-to-find-elements="() => {}"
-    not-found-text="Не удалось найти проекты"
   >
   </SearchComponent>
 </template>

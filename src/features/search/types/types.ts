@@ -3,5 +3,5 @@ export interface SearchProps {
   keyRefProvide: string
   funcToFindElements: CallableFunction
   title: string
-  notFoundText: string
+  notFoundText?: string
 }

@@ -45,6 +45,14 @@ a:hover {
     color 200ms ease-in-out;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
 #app {
   z-index: 100;
   position: relative;
