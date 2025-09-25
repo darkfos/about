@@ -3,6 +3,7 @@ import type { Image } from '@/shared/types/strapi.ts'
 
 interface Component {
   id: number
+  documentId: string
   __component: string
 }
 
@@ -64,7 +65,7 @@ export interface LinkBlock extends Component {
   text?: string
 }
 
-export interface BannerBlock extends Component {
+export interface BannerBlockI extends Component {
   image: Image
   text: string
 }
@@ -74,4 +75,4 @@ export interface CTABlock extends Component {
   url: string
 }
 
-export type Components = ImageBlock | TextBlock
+export type Components = ImageBlock & TextBlock & BannerBlockI & CTABlock & LinkBlock

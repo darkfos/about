@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
 
-import { type BannerBlock } from '@/shared/types'
+import type { BannerBlockI } from '@/shared/types'
 
-const props = defineProps<BannerBlock>()
+const props = defineProps<BannerBlockI>()
+const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + props.image.path
 </script>
 
 <template>
   <section class="banner-block">
-    <img
-      :src="import.meta.env.VITE_BACKEND_SHORT_URL + props.image.path"
-      :alt="props.image.caption"
-      width="500"
-      height="500"
-    />
+    <img :src="imgUrl" :alt="props.image.caption" width="500" height="500" />
     <h3>{{ props.text }}</h3>
   </section>
 </template>

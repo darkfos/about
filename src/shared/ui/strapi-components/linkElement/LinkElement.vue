@@ -4,17 +4,13 @@ import { defineProps } from 'vue'
 import { type LinkBlock } from '@/shared/types'
 
 const props = defineProps<LinkBlock>()
+const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + (props?.icon?.path ?? '')
 </script>
 
 <template>
   <template v-if="props.icon">
     <button class="link-block" type="button">
-      <img
-        :src="import.meta.env.VITE_BACKEND_SHORT_URL + props.icon.path"
-        :alt="props.alt"
-        width="40"
-        height="40"
-      />
+      <img :src="imgUrl" :alt="props.alt" width="40" height="40" />
       <p v-if="props.text">{{ text }}</p>
     </button>
   </template>
