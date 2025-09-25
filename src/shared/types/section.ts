@@ -64,4 +64,9 @@ export interface LinkBlock extends Component {
   text?: string
 }
 
+export interface BannerBlock extends Component {
+  image: Image
+  text: string
+}
+
 export type Components = ImageBlock | TextBlock
