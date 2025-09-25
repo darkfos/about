@@ -45,4 +45,9 @@
     Form colors
   */
   --form-element-bg-color: #242121;
+
+  /*
+    Gradient colors
+  */
+  --gradient-color-primary: linear-gradient(-43deg, #e02043 20%, #f527bb 100%) !important;
 }

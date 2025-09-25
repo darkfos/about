@@ -96,7 +96,7 @@ a:hover {
 }
 
 #router-link_active {
-  background: linear-gradient(-43deg, #e02043 20%, #f527bb 100%) !important;
+  background: var(--gradient-color-primary) !important;
   color: var(--text-on-white-bg-color);
   padding: 8px 10px;
   border-radius: 10px;
@@ -106,7 +106,7 @@ a:hover {
 
 #router-link_default {
   background: none;
-  background-image: linear-gradient(-43deg, #e02043 20%, #f527bb 100%) !important;
+  background-image: var(--gradient-color-primary) !important;
   background-clip: text;
   color: transparent;
 }

@@ -69,4 +69,9 @@ export interface BannerBlock extends Component {
   text: string
 }
 
+export interface CTABlock extends Component {
+  text: string
+  url: string
+}
+
 export type Components = ImageBlock | TextBlock
