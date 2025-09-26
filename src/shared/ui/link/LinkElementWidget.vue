@@ -6,7 +6,6 @@ import { convertJsonToArray } from '@/shared/utils'
 
 const { img, redirect, text, isPng, alt, active } = defineProps([
   'img',
-  'title',
   'redirect',
   'text',
   'isPng',

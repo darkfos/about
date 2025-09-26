@@ -1,5 +1,6 @@
 import type { BlocksContent } from 'vue-strapi-blocks-renderer'
 import type { Image } from '@/shared/types/strapi.ts'
+import type { Theme } from '@/entities/theme'
 
 interface Component {
   id: number
@@ -18,6 +19,16 @@ interface FormatImage {
   size: number
   sizeInBytes: number
   url: string
+}
+
+export interface DynamicSectionAdditionalData {
+  themes: Array<Theme>,
+  date: string,
+  account:
+    {
+      name: string,
+      avatar: Image
+    }
 }
 
 export interface ImageBlock extends Component {
