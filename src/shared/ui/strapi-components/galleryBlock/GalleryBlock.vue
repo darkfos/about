@@ -21,7 +21,12 @@ const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
           <right-circle-outlined />
         </div>
       </template>
-      <img v-for="image in props.images" :src="imgUrl + image.url" :alt="image.caption" :key="image.id" />
+      <img
+        v-for="image in props.images"
+        :src="imgUrl + image.url"
+        :alt="image.caption"
+        :key="image.id"
+      />
     </a-carousel>
   </section>
 </template>

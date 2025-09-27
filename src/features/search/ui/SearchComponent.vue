@@ -40,7 +40,7 @@ const findElements = async () => {
   setTimeout(async () => {
     const req = await funcToFindElements(valueRef.value as string, themes.value, {
       page: currentPage.value,
-      pageSize: 10,
+      pageSize: 6,
     })
     const reqData = req[route.path.split('/')[1] as SharedResultKeyElements]
     if (reqData.length < 1) {
@@ -102,7 +102,8 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
         />
         <a-pagination
           v-model:current="currentPage"
-          :total="(paginationResult.total as number) ?? 0"
+          :total="(paginationResult.total as number) ?? 20"
+          :page-size="paginationResult.pageSize"
           :show-size-changer="false"
           @change="() => handleClickPagination()"
           style="padding-top: 80px"
@@ -157,8 +158,13 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
 }
 
 .search-content {
-  width: 70%;
+  width: 90%;
   margin: auto;
   margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  row-gap: 45px;
+  flex-wrap: wrap;
 }
 </style>

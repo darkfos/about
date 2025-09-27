@@ -60,7 +60,7 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
   gap: 10px;
   word-break: break-word;
   overflow: hidden;
-  box-shadow: 2px 4px 4px 3px rgba(244, 247, 249, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .card-avatar {

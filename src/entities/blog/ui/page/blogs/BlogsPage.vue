@@ -9,7 +9,7 @@ import { SEARCH_TITLE_SEARCH_VALUE, SEARCH_TITLE_SEARCH_KEY } from '@/shared/uti
 const randomTitles = [
   'Давай-ка поищем...',
   'Что тут у нас...',
-  'Поиск по проектам',
+  'Поиск по блогам',
   'Давай-же нажми на поиск!',
 ]
 
@@ -18,7 +18,7 @@ provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
 
 <template>
   <SearchComponent
-    :title="randomTitles[Math.floor(Math.random() * 5)]"
+    :title="randomTitles[Math.floor(Math.random() * randomTitles.length)]"
     :func-to-find-elements="getBlogs"
     :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
   />

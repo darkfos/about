@@ -18,7 +18,7 @@ provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
 
 <template>
   <SearchComponent
-    :title="randomTitles[Math.floor(Math.random() * 5)]"
+    :title="randomTitles[Math.floor(Math.random() * randomTitles.length)]"
     :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
     :func-to-find-elements="getProjects"
   >
