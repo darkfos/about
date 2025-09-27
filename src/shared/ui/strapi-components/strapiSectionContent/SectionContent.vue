@@ -1,14 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { BackgroundLayout } from '@/shared/ui'
+</script>
 
 <template>
   <div class="section-content">
-    <slot name="content"></slot>
+    <BackgroundLayout id="background">
+      <slot name="content"></slot>
+    </BackgroundLayout>
   </div>
 </template>
 
 <style scoped>
 .section-content {
-  width: 80%;
+  width: 75%;
   margin: auto;
 }
 </style>

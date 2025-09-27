@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
+import { useRouter } from 'vue-router'
 
 import { LinkElementWidget } from '@/shared/ui'
 
-const { image, imageAlt, title, shortDescription, themes } = defineProps([
+const { id, image, imageAlt, title, shortDescription, themes } = defineProps([
   'image',
+  'id',
   'imageAlt',
   'title',
   'shortDescription',
@@ -12,6 +14,11 @@ const { image, imageAlt, title, shortDescription, themes } = defineProps([
   'avatarName',
   'avatarImage',
 ])
+const router = useRouter()
+
+const handleContinueClick = (): void => {
+  router.push({ name: 'blogs', params: { id: id } })
+}
 
 const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
 </script>
@@ -20,7 +27,7 @@ const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
   <a-card hoverable style="width: 370px" class="blog-card">
     <template #cover>
       <img :src="image" :alt="imageAlt" class="card-avatar" />
-      <div id="continue-icon">
+      <div id="continue-icon" @click="handleContinueClick">
         <img src="/img/continue-icon.png" alt="Перейти" />
       </div>
     </template>
@@ -30,7 +37,12 @@ const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
       </template>
     </a-card-meta>
     <div class="blog-card__footer">
-      <LinkElementWidget v-for="(linkElement, key) in themes" :text="linkElement" :key="key" />
+      <LinkElementWidget
+        v-for="(linkElement, key) in themes"
+        :text="linkElement"
+        :key="key"
+        id="link-theme"
+      />
     </div>
     <div class="blog-card__avatar">
       <p>{{ avatarName }}</p>

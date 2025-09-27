@@ -110,3 +110,16 @@ a:hover {
   background-clip: text;
   color: transparent;
 }
+
+#banner-link p {
+  padding: 5px;
+  font-size: 10pt;
+}
+
+#background {
+  background-color: var(--bg-element-extra-bold-color);
+}
+
+#link-theme {
+  padding: 5px 8px;
+}

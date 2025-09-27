@@ -22,13 +22,12 @@ interface FormatImage {
 }
 
 export interface DynamicSectionAdditionalData {
-  themes: Array<Theme>,
-  date: string,
-  account:
-    {
-      name: string,
-      avatar: Image
-    }
+  themes: Array<Theme>
+  date: string
+  author: {
+    username: string
+    avatar: Image
+  }
 }
 
 export interface ImageBlock extends Component {
@@ -77,7 +76,9 @@ export interface LinkBlock extends Component {
 }
 
 export interface BannerBlockI extends Component {
-  image: Image
+  image: {
+    img: Image
+  }
   text: string
 }
 

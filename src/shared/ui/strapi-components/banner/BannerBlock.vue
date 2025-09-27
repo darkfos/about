@@ -5,22 +5,34 @@ import type { BannerBlockI, DynamicSectionAdditionalData } from '@/shared/types'
 import { LinkElementWidget } from '@/shared/ui'
 
 const props = defineProps<BannerBlockI & DynamicSectionAdditionalData>()
-const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + props.image.path
+const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + props.image.img.url
 
-const urlAvatarUser = import.meta.env.VITE_BACKEND_SHORT_URL + props.account.avatar.path
+const urlAvatarUser = import.meta.env.VITE_BACKEND_SHORT_URL + props.author.avatar.url
 </script>
 
 <template>
   <section class="banner-block">
     <header>
-      <img :src="imgUrl" :alt="props.image.caption" width="500" height="500" />
+      <img :src="imgUrl" :alt="props.image.img.caption" />
       <h3>{{ props.text }}</h3>
-      <LinkElementWidget v-for="theme in props.themes" :key="theme.documentId" :alt="theme.name" :active="false" />
     </header>
     <main>
       <div class="banner-block__content">
-        <img :src="urlAvatarUser"/>
-        <p>{{ props.account.name }}</p>
+        <LinkElementWidget
+          id="banner-link"
+          v-for="theme in props.themes"
+          :key="theme.documentId"
+          :text="theme.name"
+          :active="false"
+        />
+        <div class="content__avatar">
+          <a-avatar size="large" shape="square">
+            <template #icon>
+              <img :src="urlAvatarUser" />
+            </template>
+          </a-avatar>
+          <p>{{ props.author.username }}</p>
+        </div>
       </div>
     </main>
   </section>
@@ -35,16 +47,37 @@ const urlAvatarUser = import.meta.env.VITE_BACKEND_SHORT_URL + props.account.ava
 }
 
 .banner-block img {
-  border-radius: 25%;
+  border-radius: 25px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .banner-block__content {
   display: flex;
   flex-direction: row;
-  row-gap: 15px;
-  justify-content: left;
-  align-items: flex-start;
-  align-content: flex-start;
+  column-gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.content__avatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+h3 {
+  font-size: var(--h3-size);
+}
+
+header div {
+  width: 8%;
+  text-align: center;
+}
+
+header img {
+  width: 100%;
 }
 </style>

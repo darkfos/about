@@ -12,6 +12,7 @@ import { FormInput, TitleText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
 import { convertJsonToArray, convertStringToNumber } from '@/shared/utils'
 import type { Blog } from '@/entities/blog'
+import NotFound from '@/shared/ui/notFound/NotFound.vue'
 
 const mainStore = useMainStore()
 const route = useRoute()
@@ -24,6 +25,7 @@ const themes: Ref<Array<string>> = computed(
   () => convertJsonToArray<string>(route.query.themes as string) ?? [],
 )
 const elements = ref<Array<Blog>>([])
+const notLoaded = ref<boolean>(false)
 const paginationResult = ref<Pagination>({ page: 1, pageSize: 10, total: 0 })
 
 const valueRef = inject(keyRefProvide, ref())
@@ -34,8 +36,16 @@ const findElements = async () => {
       page: currentPage.value,
       pageSize: 10,
     })
+    const reqData = req[route.path.split('/')[1] as SharedResultKeyElements] as Blog[]
+    if (reqData.length < 1) {
+      notLoaded.value = true
+      elements.value = []
+      return
+    }
 
-    elements.value = req[route.path.split('/')[1] as SharedResultKeyElements] as Blog[]
+    elements.value = []
+    notLoaded.value = false
+    elements.value = reqData
     paginationResult.value = req.pagination
   }, 500)
 }
@@ -62,6 +72,7 @@ const url = import.meta.env.VITE_BACKEND_SHORT_URL
       <TitleText align="left" title="Темы" type-title="h5" style="margin-top: 20px" />
       <div class="search-themes__content">
         <LinkElementWidget
+          id="link-theme"
           :active="true"
           v-for="theme in mainStore.getThemes()"
           :key="theme.id"
@@ -74,6 +85,7 @@ const url = import.meta.env.VITE_BACKEND_SHORT_URL
         <ArticleCard
           :key="blog.id"
           v-for="blog in elements"
+          :id="blog.id"
           :title="blog.title"
           :short-description="blog.shortDescription.slice(0, 99) + '...'"
           :image="url + blog.image.url"
@@ -92,9 +104,14 @@ const url = import.meta.env.VITE_BACKEND_SHORT_URL
       </div>
     </template>
     <template v-else>
-      <div class="search-content flex">
-        <a-spin tip="Загрузка..." />
-      </div>
+      <template v-if="notLoaded">
+        <NotFound />
+      </template>
+      <template v-else>
+        <div class="search-content flex">
+          <a-spin tip="Загрузка..." />
+        </div>
+      </template>
     </template>
   </div>
 </template>
