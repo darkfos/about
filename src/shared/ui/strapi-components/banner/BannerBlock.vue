@@ -14,7 +14,7 @@ const urlAvatarUser = import.meta.env.VITE_BACKEND_SHORT_URL + props.author.avat
   <section class="banner-block">
     <header>
       <img :src="imgUrl" :alt="props.image.img.caption" />
-      <h3>{{ props.text }}</h3>
+      <h2>{{ props.text }}</h2>
     </header>
     <main>
       <div class="banner-block__content">
@@ -68,8 +68,9 @@ const urlAvatarUser = import.meta.env.VITE_BACKEND_SHORT_URL + props.author.avat
   gap: 15px;
 }
 
-h3 {
-  font-size: var(--h3-size);
+h2 {
+  font-size: var(--h2-size);
+  font-weight: 700;
 }
 
 header div {

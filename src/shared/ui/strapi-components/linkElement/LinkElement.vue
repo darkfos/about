@@ -8,37 +8,46 @@ const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + (props?.icon?.path ?? ''
 </script>
 
 <template>
-  <template v-if="props.icon">
-    <button class="link-block" type="button">
-      <img :src="imgUrl" :alt="props.alt" width="40" height="40" />
-      <p v-if="props.text">{{ text }}</p>
-    </button>
-  </template>
-  <template v-else>
-    <button type="button" class="link-block">
-      <a :href="props.href">{{ props.text }}</a>
-    </button>
-  </template>
+  <div class="link-block">
+    <template v-if="props.icon">
+      <a-button type="primary" shape="round" class="link-block__content" id="purple-btn">
+        <img :src="imgUrl" :alt="props.alt" width="40" height="40" />
+        <p v-if="props.text">{{ text }}</p>
+      </a-button>
+    </template>
+    <template v-else>
+      <a-button shape="default" type="primary" class="link-block__content" id="purple-btn">
+        <a :href="props.href">{{ props.text }}</a>
+      </a-button>
+    </template>
+  </div>
 </template>
 
 <style scoped>
 img {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 
 .link-block {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  row-gap: 5px;
+  margin: 50px 0;
 }
 
-.link-block button {
-  padding: 5px 8px;
-  border-radius: 25px;
-  background: var(--gradient-color-primary);
+.link-block__content {
+  flex-direction: row;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  row-gap: 5px;
+  text-align: center;
+}
+
+a {
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover {
   color: var(--main-text-color);
 }
 </style>

@@ -35,7 +35,7 @@ watch(
 
 <template>
   <header id="header">
-    <TypographyText type="p" id="select-text-header">darkfos.io</TypographyText>
+    <TypographyText type="a" id="select-text-header" href="/" class-name="hover-link">darkfos.io</TypographyText>
     <div class="header__items">
       <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
@@ -60,6 +60,7 @@ watch(
   align-items: center;
   grid-template-columns: 3fr 1fr;
   justify-content: space-between;
+  margin-top: 20px;
 }
 
 #select-text-header {
