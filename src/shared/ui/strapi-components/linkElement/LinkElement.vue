@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, inject, ref } from 'vue'
 
 import { type LinkBlock } from '@/shared/types'
+import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const props = defineProps<LinkBlock>()
-const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + (props?.icon?.path ?? '')
+const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>('')) + (props?.icon?.path ?? '')
 </script>
 
 <template>

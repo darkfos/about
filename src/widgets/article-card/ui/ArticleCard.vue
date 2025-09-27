@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, inject, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { LinkElementWidget } from '@/shared/ui'
+import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const { id, image, imageAlt, title, shortDescription, themes } = defineProps([
   'image',
@@ -20,7 +21,7 @@ const handleContinueClick = (): void => {
   router.push({ name: 'blogs', params: { id: id } })
 }
 
-const urlBack = import.meta.env.VITE_BACKEND_SHORT_URL
+const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
 </script>
 
 <template>

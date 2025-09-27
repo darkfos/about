@@ -3,15 +3,21 @@ import { onMounted, ref, defineProps, computed, inject, watch } from 'vue'
 import type { Ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { ArticleCard } from '@/widgets/article-card'
 import { type SearchProps } from '@/features/search'
+
+import { ArticleCard } from '@/widgets/article-card'
+
+import type { Blog } from '@/entities/blog'
 
 import { LinkElementWidget } from '@/shared/ui'
 import { type Pagination, type SharedResultKeyElements } from '@/shared/types'
 import { FormInput, TitleText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
-import { convertJsonToArray, convertStringToNumber } from '@/shared/utils'
-import type { Blog } from '@/entities/blog'
+import {
+  convertJsonToArray,
+  convertStringToNumber,
+  KEY_GENERAL_SHORT_BACKEND_URL,
+} from '@/shared/utils'
 import NotFound from '@/shared/ui/notFound/NotFound.vue'
 
 const mainStore = useMainStore()
@@ -61,7 +67,7 @@ watch([route, valueRef], () => {
 const handleClickPagination = () => {
   router.push({ path: route.path, query: { ...route.query, page: currentPage.value } })
 }
-const url = import.meta.env.VITE_BACKEND_SHORT_URL
+const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
 </script>
 
 <template>

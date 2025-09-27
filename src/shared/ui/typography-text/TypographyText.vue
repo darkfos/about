@@ -12,7 +12,7 @@ defineProps<TypographyProps>()
 
 <template>
   <template v-if="isRouteLink">
-    <slot :id="id" :class="className"/>
+    <slot :id="id" :class="className" />
   </template>
   <template v-else>
     <template v-if="type === 'a'">

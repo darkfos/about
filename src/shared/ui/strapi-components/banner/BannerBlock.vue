@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { ref, defineProps, inject } from 'vue'
 
 import type { BannerBlockI, DynamicSectionAdditionalData } from '@/shared/types'
 import { LinkElementWidget } from '@/shared/ui'
+import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const props = defineProps<BannerBlockI & DynamicSectionAdditionalData>()
-const imgUrl = import.meta.env.VITE_BACKEND_SHORT_URL + props.image.img.url
+const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props.image.img.url
 
-const urlAvatarUser = import.meta.env.VITE_BACKEND_SHORT_URL + props.author.avatar.url
+const urlAvatarUser = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props.author.avatar.url
 </script>
 
 <template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { provide } from 'vue'
+
 import { HeaderWidget } from '@/widgets/header'
 import { FooterWidget } from '@/widgets/footer'
 
@@ -7,6 +9,8 @@ import type { Theme } from '@/entities/theme'
 
 import { useMainStore } from '@/shared/store'
 import { ToTop } from '@/shared/ui'
+
+import { KEY_GENERAL_SHORT_BACKEND_URL, GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const mainStore = useMainStore()
 
@@ -18,6 +22,8 @@ if (!mainStore.getThemes().length) {
 }
 
 document.body.classList.add(mainStore.appTheme)
+
+provide(KEY_GENERAL_SHORT_BACKEND_URL, GENERAL_SHORT_BACKEND_URL)
 </script>
 
 <template>

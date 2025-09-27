@@ -35,7 +35,9 @@ watch(
 
 <template>
   <header id="header">
-    <TypographyText type="a" id="select-text-header" href="/" class-name="hover-link">darkfos.io</TypographyText>
+    <TypographyText type="a" id="select-text-header" href="/" class-name="hover-link"
+      >darkfos.io</TypographyText
+    >
     <div class="header__items">
       <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
