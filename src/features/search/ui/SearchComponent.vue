@@ -7,7 +7,7 @@ import { type SearchProps } from '@/features/search'
 
 import { ArticleCard } from '@/widgets/article-card'
 
-import type { Blog } from '@/entities/blog'
+import type { Article } from '@/shared/types'
 
 import { LinkElementWidget } from '@/shared/ui'
 import { type Pagination, type SharedResultKeyElements } from '@/shared/types'
@@ -30,7 +30,7 @@ const currentPage: Ref<number> = ref<number>(convertStringToNumber(route.query?.
 const themes: Ref<Array<string>> = computed(
   () => convertJsonToArray<string>(route.query.themes as string) ?? [],
 )
-const elements = ref<Array<Blog>>([])
+const elements = ref<Array<Article>>([])
 const notLoaded = ref<boolean>(false)
 const paginationResult = ref<Pagination>({ page: 1, pageSize: 10, total: 0 })
 
@@ -42,7 +42,7 @@ const findElements = async () => {
       page: currentPage.value,
       pageSize: 10,
     })
-    const reqData = req[route.path.split('/')[1] as SharedResultKeyElements] as Blog[]
+    const reqData = req[route.path.split('/')[1] as SharedResultKeyElements]
     if (reqData.length < 1) {
       notLoaded.value = true
       elements.value = []
@@ -89,16 +89,16 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
     <template v-if="elements.length">
       <div class="search-content">
         <ArticleCard
-          :key="blog.id"
-          v-for="blog in elements"
-          :id="blog.id"
-          :title="blog.title"
-          :short-description="blog.shortDescription.slice(0, 99) + '...'"
-          :image="url + blog.image.url"
-          :image-alt="blog.image.caption"
-          :themes="blog.themes.map((theme) => theme.name)"
-          :avatar-image="blog.author.avatar.url"
-          :avatar-name="blog.author.username"
+          :key="article.id"
+          v-for="article in elements"
+          :id="article.id"
+          :title="article.title"
+          :short-description="article.shortDescription.slice(0, 99) + '...'"
+          :image="url + article.image.url"
+          :image-alt="article.image.caption"
+          :themes="article.themes.map((theme) => theme.name)"
+          :avatar-image="article.author.avatar.url"
+          :avatar-name="article.author.username"
         />
         <a-pagination
           v-model:current="currentPage"

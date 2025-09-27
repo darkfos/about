@@ -79,12 +79,19 @@ export interface BannerBlockI extends Component {
   image: {
     img: Image
   }
+  views: number
   text: string
 }
 
 export interface CTABlock extends Component {
   text: string
   url: string
+}
+
+export interface GalleryBlock extends Component {
+  title: string
+  description: BlocksContent
+  images: Array<Image>
 }
 
 export type Components = ImageBlock & TextBlock & BannerBlockI & CTABlock & LinkBlock

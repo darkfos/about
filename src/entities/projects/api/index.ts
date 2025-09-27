@@ -1,12 +1,12 @@
 import { instance } from '@/shared/api'
-import type { Pagination, ThemeFilter, Article, ArticleResultPagination } from '@/shared/types'
+import type { Pagination, ThemeFilter, ArticleResultPagination, Article } from '@/shared/types'
 
-export async function getBlogs(
+export async function getProjects(
   title: string,
   themes: ThemeFilter,
   pageData: Pagination,
 ): Promise<ArticleResultPagination> {
-  const req = await instance.get(`/findBlogs`, {
+  const req = await instance.get(`/findProjects`, {
     params: {
       title: title,
       themes: themes,
@@ -19,11 +19,11 @@ export async function getBlogs(
   return await req.data
 }
 
-export async function getBlog(id: string): Promise<Article> {
-  const req = await instance.get(`/findBlog/${id}`)
+export async function getProject(id: string): Promise<Article> {
+  const req = await instance.get(`/findProject/${id}`)
 
   if (req.status !== 200) {
-    throw new Error('Не удалось найти блог')
+    throw new Error('Не удалось найти проекты')
   }
   return await req.data
 }

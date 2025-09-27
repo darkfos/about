@@ -162,3 +162,7 @@ a:hover {
   transform-origin: right;
   transform: scaleX(0);
 }
+
+button {
+  border-radius: 10px !important;
+}

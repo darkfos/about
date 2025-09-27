@@ -7,13 +7,19 @@ const props = defineProps<CTABlock>()
 </script>
 
 <template>
-  <a :href="props.url" target="_blank" class="cta-element">{{ props.text }}</a>
+  <div class="cta-element">
+    <a :href="props.url" target="_blank" class="cta-element__btn">{{ props.text }}</a>
+  </div>
 </template>
 
 <style scoped>
 .cta-element {
+  margin-top: 20px;
+}
+
+.cta-element__btn {
   background: var(--gradient-color-primary);
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 5px 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   color: var(--main-text-color);

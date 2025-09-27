@@ -1,6 +1,3 @@
-import type { BlogResultRequest } from '@/entities/blog'
-import type { ProjectResultRequest } from '@/entities/projects'
-
 export interface FormatImage {
   name: string
   hash: string
@@ -48,7 +45,5 @@ export interface Image extends Entity, FormatImage {
     large: FormatImage
   }
 }
-
-export interface SearchResult extends BlogResultRequest, ProjectResultRequest {}
 
 export type SharedResultKeyElements = 'blogs' | 'projects'

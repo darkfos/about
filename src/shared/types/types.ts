@@ -2,7 +2,7 @@ import type { Theme } from '@/entities/theme'
 
 import type { Entity, Author, Components, Image, Pagination } from '@/shared/types'
 
-export interface Blog extends Entity {
+export interface Article extends Entity {
   title?: string
   shortDescription: string
   likes: number
@@ -13,7 +13,7 @@ export interface Blog extends Entity {
   author: Author
 }
 
-export interface BlogResultRequest {
-  blogs: Array<Blog>
+export interface ArticleResultPagination {
+  blogs: Array<Article>
   pagination: Pagination
 }

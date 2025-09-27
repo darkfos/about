@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { provide } from 'vue'
 
+import { getProjects } from '@/entities/projects/api'
+
 import { SearchComponent } from '@/features/search'
-import { SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE } from '@/entities/blog'
+import { SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE } from '@/shared/utils'
 
 const randomTitles = [
   'Давай-ка поищем...',
@@ -18,7 +20,7 @@ provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
   <SearchComponent
     :title="randomTitles[Math.floor(Math.random() * 5)]"
     :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
-    :func-to-find-elements="() => {}"
+    :func-to-find-elements="getProjects"
   >
   </SearchComponent>
 </template>

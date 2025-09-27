@@ -44,6 +44,7 @@ const handleClick = (): void => {
     @click="handleClick"
   >
     <template v-if="text">
+      <slot name="img" />
       <p>{{ text }}</p>
     </template>
     <template v-else>

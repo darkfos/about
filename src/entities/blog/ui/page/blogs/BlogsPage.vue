@@ -3,14 +3,22 @@ import { provide } from 'vue'
 
 import { SearchComponent } from '@/features/search'
 
-import { getBlogs, SEARCH_TITLE_SEARCH_VALUE, SEARCH_TITLE_SEARCH_KEY } from '@/entities/blog'
+import { getBlogs } from '@/entities/blog'
+import { SEARCH_TITLE_SEARCH_VALUE, SEARCH_TITLE_SEARCH_KEY } from '@/shared/utils'
+
+const randomTitles = [
+  'Давай-ка поищем...',
+  'Что тут у нас...',
+  'Поиск по проектам',
+  'Давай-же нажми на поиск!',
+]
 
 provide(SEARCH_TITLE_SEARCH_KEY, SEARCH_TITLE_SEARCH_VALUE)
 </script>
 
 <template>
   <SearchComponent
-    title="Давай-ка поищем..."
+    :title="randomTitles[Math.floor(Math.random() * 5)]"
     :func-to-find-elements="getBlogs"
     :key-ref-provide="SEARCH_TITLE_SEARCH_KEY"
   />

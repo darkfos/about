@@ -3,24 +3,27 @@ import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { ComponentStrapiFabric } from '@/widgets/components-fabric'
-import type { Blog } from '@/entities/blog'
+
 import { getBlog } from '@/entities/blog'
 
+import type { Article } from '@/shared/types'
+
 const route = useRoute()
-const blogData = ref<Blog>({} as Blog)
+const articleData = ref<Article>({} as Article)
 
 onMounted(() => {
   getBlog(route.params.id as string).then((data) => {
-    blogData.value = data
+    articleData.value = data
   })
 })
 </script>
 
 <template>
   <ComponentStrapiFabric
-    :sections="blogData.section"
-    :themes="blogData.themes"
-    :author="blogData.author"
+    :sections="articleData.section"
+    :views="articleData.views"
+    :themes="articleData.themes"
+    :author="articleData.author"
   />
 </template>
 

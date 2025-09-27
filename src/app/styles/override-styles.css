@@ -81,3 +81,12 @@
 .ant-avatar {
   background: none;
 }
+
+.slick-active button {
+  background-color: var(--pink-text-color) !important;
+}
+
+.slick-dots button {
+  background-color: var(--pink-text-color) !important;
+  opacity: 0.4;
+}

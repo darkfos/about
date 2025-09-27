@@ -7,7 +7,12 @@ import { SectionStrapiContent } from '@/shared/ui'
 import type { Author, Components } from '@/shared/types'
 import type { Theme } from '@/entities/theme'
 
-const props = defineProps<{ sections: Array<Components>; themes: Array<Theme>; author: Author }>()
+const props = defineProps<{
+  sections: Array<Components>
+  themes: Array<Theme>
+  author: Author
+  views: number
+}>()
 </script>
 
 <template>
@@ -18,7 +23,7 @@ const props = defineProps<{ sections: Array<Components>; themes: Array<Theme>; a
           :is="
             componentMap[(section.__component.split('.')[1] as ComponentsType) ?? componentMap['']]
           "
-          v-bind="{ ...section, themes: props.themes, author: props.author }"
+          v-bind="{ ...section, themes: props.themes, author: props.author, views: props.views }"
         />
       </template>
     </template>

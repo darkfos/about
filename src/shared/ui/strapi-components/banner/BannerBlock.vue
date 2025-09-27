@@ -33,6 +33,11 @@ const urlAvatarUser = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props
             </template>
           </a-avatar>
           <p>{{ props.author.username }}</p>
+          <LinkElementWidget :text="props.views" class="view">
+            <template #img>
+              <img src="/img/view.png" alt="Просмотр" />
+            </template>
+          </LinkElementWidget>
         </div>
       </div>
     </main>
@@ -81,5 +86,13 @@ header div {
 
 header img {
   width: 100%;
+}
+
+.view {
+  display: flex;
+  align-content: center;
+  column-gap: 8px;
+  border-radius: 10px;
+  padding: 8px;
 }
 </style>

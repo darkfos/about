@@ -2,7 +2,7 @@
 import { inject, ref } from 'vue'
 import { Input } from 'ant-design-vue'
 
-import { SEARCH_TITLE_SEARCH_KEY } from '@/entities/blog'
+import { SEARCH_TITLE_SEARCH_KEY } from '@/shared/utils'
 
 const formRef = inject(SEARCH_TITLE_SEARCH_KEY, ref())
 </script>
@@ -14,11 +14,7 @@ const formRef = inject(SEARCH_TITLE_SEARCH_KEY, ref())
         size="large"
         variant="outlined"
         v-model:value="formRef"
-        @search="
-          () => {
-            console.log(formRef)
-          }
-        "
+        @search="() => {}"
       >
       </Input.Search>
     </div>

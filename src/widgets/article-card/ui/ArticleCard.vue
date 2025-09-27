@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, inject, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 import { LinkElementWidget } from '@/shared/ui'
 import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
@@ -16,9 +16,10 @@ const { id, image, imageAlt, title, shortDescription, themes } = defineProps([
   'avatarImage',
 ])
 const router = useRouter()
+const route = useRoute()
 
 const handleContinueClick = (): void => {
-  router.push({ name: 'blogs', params: { id: id } })
+  router.push({ name: route.path.split('/')[1], params: { id: id } })
 }
 
 const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
