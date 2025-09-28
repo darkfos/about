@@ -52,7 +52,11 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
       </template>
     </LinkElementWidget>
     <template #cover>
-      <img :src="image ? urlBack + image : '/img/not_found.png'" :alt="imageAlt" class="card-avatar" />
+      <img
+        :src="image ? urlBack + image : '/img/not_found.png'"
+        :alt="imageAlt"
+        class="card-avatar"
+      />
       <div id="continue-icon" @click="handleContinueClick">
         <img src="/img/continue-icon.png" alt="Перейти" />
       </div>

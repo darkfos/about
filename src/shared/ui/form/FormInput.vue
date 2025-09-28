@@ -21,9 +21,12 @@ onUnmounted(() => {
   formRef.value = ''
 })
 
-watch(() => mainStore.lastArticles, () => {
-  options.value = mainStore.getLastArticles()
-})
+watch(
+  () => mainStore.lastArticles,
+  () => {
+    options.value = mainStore.getLastArticles()
+  },
+)
 </script>
 <template>
   <form class="form">
@@ -39,11 +42,12 @@ watch(() => mainStore.lastArticles, () => {
         <template #option="{ value, id }">
           <div class="option-label">
             <p>{{ value }}</p>
-            <TypographyText type="a" :href="pageType + `/${id}`" id="router-link_default">Перейти</TypographyText>
+            <TypographyText type="a" :href="pageType + `/${id}`" id="router-link_default"
+              >Перейти</TypographyText
+            >
           </div>
         </template>
       </a-auto-complete>
-
     </div>
   </form>
 </template>
@@ -68,7 +72,8 @@ watch(() => mainStore.lastArticles, () => {
   color: var(--main-text-color);
 }
 
-.option-label p, .option-label a{
+.option-label p,
+.option-label a {
   font-size: 12pt !important;
 }
 </style>

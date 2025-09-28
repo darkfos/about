@@ -13,11 +13,13 @@ const articleData = ref<Article>({} as Article)
 const notFoundArticles = ref(false)
 
 onMounted(() => {
-  getBlog(route.params.id as string).then((data) => {
-    articleData.value = data
-  }).catch(() => {
-    notFoundArticles.value = true
-  })
+  getBlog(route.params.id as string)
+    .then((data) => {
+      articleData.value = data
+    })
+    .catch(() => {
+      notFoundArticles.value = true
+    })
 })
 
 watch(

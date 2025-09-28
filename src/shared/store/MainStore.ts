@@ -119,7 +119,9 @@ export const useMainStore = defineStore('mainStore', {
       }
     },
     addArticles(articles: Array<Article>): void {
-      this.lastArticles = articles.map(article => Object.assign({value: article.title}, article))
-    }
+      this.lastArticles = articles.map((article) =>
+        Object.assign({ value: article.title }, article),
+      )
+    },
   },
 })
