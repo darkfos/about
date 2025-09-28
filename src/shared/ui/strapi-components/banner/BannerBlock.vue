@@ -91,6 +91,7 @@ header div {
 
 header img {
   width: 100%;
+  height: 70%;
   transform: scaleX(150%);
   border-radius: 0 !important;
 }
