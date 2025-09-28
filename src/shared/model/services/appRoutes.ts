@@ -39,7 +39,7 @@ export const appRoutes: Array<AppRoutesItem> = [
   },
   {
     path: '/:pathMatch(.*)*',
-    name: "other",
+    name: 'other',
     component: NotFound,
-  }
+  },
 ]

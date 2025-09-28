@@ -8,7 +8,10 @@ import { TypographyText } from '@/shared/ui'
       <h1>Не удалось найти контент</h1>
       <hr />
       <TypographyText type="p">
-        Возможна данная страница отсутсвует, попробуйте вернуться <TypographyText type="a" href="/" id="select-text" className="hover-link">обратно</TypographyText>
+        Возможна данная страница отсутсвует, попробуйте вернуться
+        <TypographyText type="a" href="/" id="select-text" className="hover-link"
+          >обратно</TypographyText
+        >
       </TypographyText>
       <br />
       <br />
@@ -34,7 +37,7 @@ import { TypographyText } from '@/shared/ui'
 }
 
 .not-found h1 {
-  font-size: var(--h1-size)
+  font-size: var(--h1-size);
 }
 
 .not-found__icon {
