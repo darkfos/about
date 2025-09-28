@@ -13,11 +13,7 @@ import { LinkElementWidget } from '@/shared/ui'
 import { type Pagination, type SharedResultKeyElements } from '@/shared/types'
 import { FormInput, TitleText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
-import {
-  convertJsonToArray,
-  convertStringToNumber,
-  KEY_GENERAL_SHORT_BACKEND_URL,
-} from '@/shared/utils'
+import { convertJsonToArray, convertStringToNumber } from '@/shared/utils'
 import NotFound from '@/shared/ui/notFound/NotFound.vue'
 
 const mainStore = useMainStore()
@@ -67,7 +63,6 @@ watch([route, valueRef], () => {
 const handleClickPagination = () => {
   router.push({ path: route.path, query: { ...route.query, page: currentPage.value } })
 }
-const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
 </script>
 
 <template>
@@ -88,19 +83,21 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
     </div>
     <template v-if="elements.length">
       <div class="search-content">
-        <ArticleCard
-          :key="article.id"
-          v-for="article in elements"
-          :id="article.id"
-          :title="article.title"
-          :views="article.views"
-          :short-description="article.shortDescription.slice(0, 99) + '...'"
-          :image="url + article.image.url"
-          :image-alt="article.image.caption"
-          :themes="article.themes.map((theme) => theme.name)"
-          :avatar-image="article.author.avatar.url"
-          :avatar-name="article.author.username"
-        />
+        <div class="search-content__articles">
+          <ArticleCard
+            :key="article.id"
+            v-for="article in elements"
+            :id="article.id"
+            :title="article.title"
+            :views="article.views"
+            :short-description="article.shortDescription.slice(0, 99) + '...'"
+            :image="article.image.url"
+            :image-alt="article.image.caption"
+            :themes="article.themes.map((theme) => theme.name)"
+            :avatar-image="article.author.avatar.url"
+            :avatar-name="article.author.username"
+          />
+        </div>
         <a-pagination
           v-model:current="currentPage"
           :total="(paginationResult.total as number) ?? 20"
@@ -159,9 +156,14 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
 }
 
 .search-content {
+  display: flex;
+  flex-direction: column;
   width: 90%;
   margin: auto;
   margin-top: 60px;
+}
+
+.search-content__articles {
   display: flex;
   flex-direction: row;
   column-gap: 20px;

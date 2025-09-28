@@ -5,7 +5,19 @@ import { useRouter, useRoute } from 'vue-router'
 import { LinkElementWidget } from '@/shared/ui'
 import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
-const { id, image, imageAlt, title, shortDescription, themes, views } = defineProps([
+const {
+  id,
+  image,
+  imageAlt,
+  title,
+  shortDescription,
+  themes,
+  views,
+  avatarImage,
+  avatarName,
+  isLink,
+  linkArticleName,
+} = defineProps([
   'image',
   'id',
   'imageAlt',
@@ -15,26 +27,31 @@ const { id, image, imageAlt, title, shortDescription, themes, views } = definePr
   'avatarName',
   'avatarImage',
   'views',
+  'isLink',
+  'linkArticleName',
 ])
 const router = useRouter()
 const route = useRoute()
 
 const handleContinueClick = (): void => {
-  router.push({ name: route.path.split('/')[1], params: { id: id } })
+  router.push({
+    name: linkArticleName ? linkArticleName : route.path.split('/')[1],
+    params: { id: id },
+  })
 }
 
 const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
 </script>
 
 <template>
-  <a-card hoverable style="width: 370px" class="blog-card">
-    <LinkElementWidget :text="views" class="view-article-card">
+  <a-card hoverable style="width: 370px" class="blog-card" :id="isLink ? 'blog-link' : ''">
+    <LinkElementWidget :text="views" class="view-article-card" v-if="!isLink">
       <template #img>
         <img src="/img/view.png" alt="Просмотр" />
       </template>
     </LinkElementWidget>
     <template #cover>
-      <img :src="image" :alt="imageAlt" class="card-avatar" />
+      <img :src="urlBack + image" :alt="imageAlt" class="card-avatar" />
       <div id="continue-icon" @click="handleContinueClick">
         <img src="/img/continue-icon.png" alt="Перейти" />
       </div>

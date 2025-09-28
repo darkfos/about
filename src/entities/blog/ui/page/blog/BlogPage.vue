@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { ComponentStrapiFabric } from '@/widgets/components-fabric'
@@ -16,6 +16,15 @@ onMounted(() => {
     articleData.value = data
   })
 })
+
+watch(
+  () => route.params.id,
+  () => {
+    getBlog(route.params.id as string).then((data) => {
+      articleData.value = data
+    })
+  },
+)
 </script>
 
 <template>

@@ -133,6 +133,21 @@ a:hover {
   font-size: 16pt;
 }
 
+#blog-link {
+  width: 200px !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#blog-link .ant-card-body {
+  padding: 10px 0 0 0 !important;
+}
+
+#blog-link .blog-card__footer {
+  padding-top: 10px;
+}
+
 .hover-link {
   position: relative;
 }

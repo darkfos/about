@@ -19,4 +19,10 @@ import { BackgroundLayout } from '@/shared/ui'
 .section-content > div {
   padding-bottom: 80px;
 }
+
+@media screen and (max-width: 1400px) {
+  .section-content {
+    width: 100%;
+  }
+}
 </style>

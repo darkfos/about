@@ -1,1 +1,1 @@
-export { default as BlurCursor } from './BlurCursor.vue';
+export { default as BlurCursor } from './BlurCursor.vue'

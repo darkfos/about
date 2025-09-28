@@ -1,6 +1,8 @@
 import type { BlocksContent } from 'vue-strapi-blocks-renderer'
-import type { Image } from '@/shared/types/strapi.ts'
+import type { Author, Image } from '@/shared/types/strapi.ts'
 import type { Theme } from '@/entities/theme'
+import Blog from '@/entities/blog'
+import type { Article } from '@/shared/types/types.ts'
 
 interface Component {
   id: number
@@ -94,4 +96,15 @@ export interface GalleryBlock extends Component {
   images: Array<Image>
 }
 
-export type Components = ImageBlock & TextBlock & BannerBlockI & CTABlock & LinkBlock
+export interface LinkArticleBlock extends Component {
+  blog: Article
+  project: Article
+  views: number
+}
+
+export type Components = ImageBlock &
+  TextBlock &
+  BannerBlockI &
+  CTABlock &
+  LinkBlock &
+  LinkArticleBlock
