@@ -1,1 +1,0 @@
-import{d as a,c,o as n,_ as s}from"./index-B6WIhYGn.js";const _=["src","alt"],l=a({__name:"ImageBlock",props:{alt:{},isHeader:{type:Boolean},img:{},id:{},documentId:{},__component:{}},setup(o){const e=o;return(m,r)=>{var t;return n(),c("img",{src:(t=e==null?void 0:e.img)==null?void 0:t.url,alt:e.alt},null,8,_)}}}),i=s(l,[["__scopeId","data-v-2e860f6d"]]);export{i as default};
