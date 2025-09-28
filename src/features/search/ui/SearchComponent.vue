@@ -167,4 +167,10 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
   row-gap: 45px;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 1170px) {
+  .search-themes {
+    width: 80% !important;
+  }
+}
 </style>

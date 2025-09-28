@@ -2,7 +2,7 @@
 import { ref, reactive, defineProps, defineExpose } from 'vue'
 
 import type { FormContactProps } from '@/widgets/formContact'
-import { TitleText } from '@/shared/ui'
+import { TitleText, TransitionComponent } from '@/shared/ui'
 
 const formRef = ref()
 const userData = reactive({
@@ -34,18 +34,22 @@ defineExpose({ formRef })
 </script>
 
 <template>
-  <a-form ref="formRef" :rules="rules" :model="userData" class="form-contact">
-    <TitleText align="left" title="Оставить комментарий" type-title="h4" />
-    <a-form-item name="username">
-      <a-input size="large" v-model:value="userData.username" placeholder="darkfos82" />
-    </a-form-item>
-    <a-form-item name="message">
-      <a-textarea size="large" v-model:value="userData.message" placeholder="Ваш текст" />
-    </a-form-item>
-    <a-form-item>
-      <a-button type="primary" @click="submitFunc">{{ submitText }}</a-button>
-    </a-form-item>
-  </a-form>
+  <TransitionComponent>
+    <template #component>
+      <a-form ref="formRef" :rules="rules" :model="userData" class="form-contact">
+        <TitleText align="left" title="Оставить комментарий" type-title="h4" />
+        <a-form-item name="username">
+          <a-input size="large" v-model:value="userData.username" placeholder="darkfos82" />
+        </a-form-item>
+        <a-form-item name="message">
+          <a-textarea size="large" v-model:value="userData.message" placeholder="Ваш текст" />
+        </a-form-item>
+        <a-form-item>
+          <a-button type="primary" @click="submitFunc">{{ submitText }}</a-button>
+        </a-form-item>
+      </a-form>
+    </template>
+  </TransitionComponent>
 </template>
 
 <style scoped>

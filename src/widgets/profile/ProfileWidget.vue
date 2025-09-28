@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { LinkElementWidget } from '../../shared/ui/link'
-import { TypographyText } from '@/shared/ui'
+import { useRouter } from 'vue-router'
+
+import { LinkElementWidget, TypographyText, TransitionComponent } from '@/shared/ui'
+
+const router = useRouter()
 
 const goToAboutMeBlock = () => {
   document.getElementById('my-way')?.scrollIntoView({
@@ -16,23 +19,27 @@ const imageLinks: Array<string[]> = [
 </script>
 
 <template>
-  <section class="profile" id="profile">
-    <img id="profile__avatar" src="/img/darkfos_profile.png" alt="Иконка darkfos" />
-    <img id="profile__bg-sakura" src="/img/sakura.png" alt="Задний фон сакура" />
-    <div class="profile__desc">
-      <TypographyText type="p">darkfos</TypographyText>
-      <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
-    </div>
-    <div class="profile__contacts">
-      <div v-for="(el, index) in imageLinks" v-bind:key="index">
-        <LinkElementWidget :img="el[0]" :redirect="el[1]" is-png="true" :alt="el[0]" />
-      </div>
-    </div>
-    <div class="profile__btns">
-      <a-button :size="20" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>
-      <a-button :size="20" type="primary">Блог</a-button>
-    </div>
-  </section>
+  <TransitionComponent>
+    <template #component>
+      <section class="profile" id="profile">
+        <img id="profile__avatar" src="/img/darkfos_profile.png" alt="Иконка darkfos" />
+        <img id="profile__bg-sakura" src="/img/sakura.png" alt="Задний фон сакура" />
+        <div class="profile__desc">
+          <TypographyText type="p">darkfos</TypographyText>
+          <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
+        </div>
+        <div class="profile__contacts">
+          <div v-for="(el, index) in imageLinks" v-bind:key="index">
+            <LinkElementWidget :img="el[0]" :redirect="el[1]" is-png="true" :alt="el[0]" />
+          </div>
+        </div>
+        <div class="profile__btns">
+          <a-button :size="20" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>
+          <a-button :size="20" type="primary" :onclick="() => router.push('/blogs')">Блог</a-button>
+        </div>
+      </section>
+    </template>
+  </TransitionComponent>
 </template>
 
 <style scoped>

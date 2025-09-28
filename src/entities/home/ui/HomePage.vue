@@ -5,19 +5,23 @@ import { TechnologyWidget } from '@/widgets/technology'
 import { MyWayWidget } from '@/widgets/my-way'
 import { SendUserContacts } from '@/features/send-user-contacts'
 
-import { TypographyText } from '@/shared/ui'
+import { TypographyText, TransitionComponent } from '@/shared/ui'
 </script>
 
 <template>
   <ProfileWidget />
-  <div class="quote">
-    <div id="bg">
-      <TypographyText type="p" id="content">
-        “Аналогично тому, как написание картины является искусством для души, так и написание
-        программы является искусством для разума.”
-      </TypographyText>
-    </div>
-  </div>
+  <TransitionComponent>
+    <template #component>
+      <div class="quote">
+        <div id="bg">
+          <TypographyText type="p" id="content">
+            “Аналогично тому, как написание картины является искусством для души, так и написание
+            программы является искусством для разума.”
+          </TypographyText>
+        </div>
+      </div>
+    </template>
+  </TransitionComponent>
   <AboutMeWidget />
   <TechnologyWidget />
   <MyWayWidget />
