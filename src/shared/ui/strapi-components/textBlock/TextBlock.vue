@@ -11,4 +11,5 @@ const { header, text } = defineProps<TextBlock>()
   <RichText :content="text" />
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

@@ -16,7 +16,11 @@ const { className, procentOpacity } = defineProps<BackgroundProps>()
 .background {
   background-color: var(--bg-element-color);
   border: 1px solid var(--black-border-color);
-  padding: 10px 25px;
+  padding: 0 25px 10px;
   border-radius: 10px;
+}
+
+.background {
+  overflow: hidden;
 }
 </style>

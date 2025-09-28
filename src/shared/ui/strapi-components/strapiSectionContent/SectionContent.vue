@@ -10,7 +10,7 @@ import { BackgroundLayout } from '@/shared/ui'
   </div>
 </template>
 
-<style scoped>
+<style>
 .section-content {
   width: 75%;
   margin: auto;

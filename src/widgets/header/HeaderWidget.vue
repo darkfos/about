@@ -94,4 +94,11 @@ nav {
     display: none;
   }
 }
+
+@media screen and (max-width: 450px) {
+  #header {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
 </style>

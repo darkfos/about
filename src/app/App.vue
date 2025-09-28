@@ -42,7 +42,7 @@ provide(SCREEN_WIDTH_KEY, SCREEN_WIDTH_VALUE)
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   width: 100%;
 }
@@ -55,5 +55,12 @@ body {
   gap: 100px;
   margin: auto;
   color: var(--main-text-color);
+}
+
+@media screen and (max-width: 450px) {
+  .bodyApp {
+    width: 95%;
+    max-width: 95%;
+  }
 }
 </style>

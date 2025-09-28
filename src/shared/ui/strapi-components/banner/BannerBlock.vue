@@ -86,6 +86,8 @@ header div {
 
 header img {
   width: 100%;
+  transform: scaleX(150%);
+  border-radius: 0 !important;
 }
 
 .view {
@@ -94,5 +96,20 @@ header img {
   column-gap: 8px;
   border-radius: 10px;
   padding: 8px;
+}
+
+@media screen and (max-width: 950px) {
+  .banner-block__content {
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  h2 {
+    font-size: var(--h3-size);
+  }
 }
 </style>
