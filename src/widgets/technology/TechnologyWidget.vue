@@ -121,5 +121,9 @@ h3 {
     justify-content: center;
     row-gap: 30px;
   }
+
+  .technology__body {
+    width: 100%;
+  }
 }
 </style>
