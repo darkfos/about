@@ -7,12 +7,24 @@ const { content } = defineProps(['content'])
 </script>
 
 <template>
-  <StrapiBlocks :content="content" />
+  <div class="rich-text">
+    <StrapiBlocks :content="content" />
+  </div>
 </template>
 
-<style scoped>
-h1, h2, h3, h4, h5, h6 {
+<style>
+.rich-text h1 {
   color: var(--pink-text-color);
   font-weight: 700;
+}
+
+.rich-text h2 {
+  color: var(--pink-text-color);
+  font-weight: 600;
+}
+
+.rich-text h3 {
+  color: var(--main-text-color);
+  font-weight: 500;
 }
 </style>
