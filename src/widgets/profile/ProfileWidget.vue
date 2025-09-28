@@ -10,28 +10,37 @@ const goToAboutMeBlock = () => {
     behavior: 'smooth',
   })
 }
-
-const imageLinks: Array<string[]> = [
-  ['github.png', 'https://github.com/darkfos'],
-  ['gitlab.png', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1'],
-  ['telegram.png', 'https://t.me/DarkFos99'],
-]
 </script>
 
 <template>
   <TransitionComponent>
     <template #component>
       <section class="profile" id="profile">
-        <img id="profile__avatar" src="/about/img/darkfos_profile.png" alt="Иконка darkfos" />
-        <img id="profile__bg-sakura" src="/about/img/sakura.png" alt="Задний фон сакура" />
+        <img id="profile__avatar" src="/img/darkfos_profile.png" alt="Иконка darkfos" />
+        <img id="profile__bg-sakura" src="/img/sakura.png" alt="Задний фон сакура" />
         <div class="profile__desc">
           <TypographyText type="p">darkfos</TypographyText>
           <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
         </div>
         <div class="profile__contacts">
-          <div v-for="(el, index) in imageLinks" v-bind:key="index">
-            <LinkElementWidget :img="el[0]" :redirect="el[1]" is-png="true" :alt="el[0]" />
-          </div>
+          <LinkElementWidget
+            :img="'github.png'"
+            :redirect="'https://github.com/darkfos'"
+            :is-png="true"
+            :alt="'github.png'"
+          />
+          <LinkElementWidget
+            :img="'gitlab.png'"
+            :redirect="'https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1'"
+            :is-png="true"
+            :alt="'gitlab.png'"
+          />
+          <LinkElementWidget
+            :img="'telegram.png'"
+            :redirect="'https://t.me/DarkFos99'"
+            :is-png="true"
+            :alt="'telegram.png'"
+          />
         </div>
         <div class="profile__btns">
           <a-button :size="20" type="primary" :onclick="goToAboutMeBlock">Обо мне</a-button>

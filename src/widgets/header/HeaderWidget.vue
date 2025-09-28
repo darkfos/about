@@ -35,7 +35,7 @@ watch(
 
 <template>
   <header id="header">
-    <TypographyText type="a" id="select-text-header" href="/" class-name="hover-link"
+    <TypographyText type="a" id="select-text-header" href="/about/" class-name="hover-link"
       >darkfos.io</TypographyText
     >
     <div class="header__items">
