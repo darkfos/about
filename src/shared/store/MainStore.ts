@@ -31,7 +31,7 @@ import {
   HtmlIcon,
   PythonIcon,
 } from '@/shared/ui'
-import type { flagTechnologies } from '@/shared/types'
+import type { Article, flagTechnologies } from '@/shared/types'
 
 export const useMainStore = defineStore('mainStore', {
   state: (): {
@@ -40,10 +40,12 @@ export const useMainStore = defineStore('mainStore', {
     backendTechnologies: Array<Array<DefineComponent<any, any, any>>>
     frontendTechnologies: Array<Array<DefineComponent<any, any, any>>>
     otherTechnologies: Array<Array<DefineComponent<any, any, any>>>
+    lastArticles: Array<Article>
   } => {
     return {
       activePage: '/',
       themes: [],
+      lastArticles: [],
       backendTechnologies: [
         [PythonIcon, NodejsIcon],
         [DjangoIcon, FastApiIcon, ExpressIcon],
@@ -65,6 +67,9 @@ export const useMainStore = defineStore('mainStore', {
     }
   },
   actions: {
+    getLastArticles(): Array<Article> {
+      return this.lastArticles
+    },
     getPageLink(): string {
       return this.activePage
     },
@@ -113,5 +118,8 @@ export const useMainStore = defineStore('mainStore', {
         technology.push(newTechnologies)
       }
     },
+    addArticles(articles: Array<Article>): void {
+      this.lastArticles = articles.map(article => Object.assign({value: article.title}, article))
+    }
   },
 })

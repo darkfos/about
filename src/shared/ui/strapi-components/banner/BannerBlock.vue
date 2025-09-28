@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { ref, defineProps, inject } from 'vue'
+import { UserOutlined } from '@ant-design/icons-vue'
 
 import type { BannerBlockI, DynamicSectionAdditionalData } from '@/shared/types'
 import { LinkElementWidget } from '@/shared/ui'
 import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const props = defineProps<BannerBlockI & DynamicSectionAdditionalData>()
-const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props.image.img.url
+const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props?.image?.img?.url
 
-const urlAvatarUser = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props.author.avatar.url
+const urlAvatarUser = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props?.author?.avatar?.url
 </script>
 
 <template>
@@ -29,10 +30,15 @@ const urlAvatarUser = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref()).value + props
         <div class="content__avatar">
           <a-avatar size="large" shape="square">
             <template #icon>
-              <img :src="urlAvatarUser" />
+              <template v-if="props?.author?.avatar?.url">
+                <img :src="urlAvatarUser" />
+              </template>
+              <template v-else>
+                <UserOutlined />
+              </template>
             </template>
           </a-avatar>
-          <p>{{ props.author.username }}</p>
+          <p>{{ props?.author?.username ?? 'Инкогнито' }}</p>
           <LinkElementWidget :text="props.views" class="view">
             <template #img>
               <img src="/img/view.png" alt="Просмотр" />

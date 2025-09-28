@@ -42,12 +42,14 @@ const findElements = async () => {
     if (reqData.length < 1) {
       notLoaded.value = true
       elements.value = []
+      mainStore.addArticles([])
       return
     }
 
     elements.value = []
     notLoaded.value = false
     elements.value = reqData
+    mainStore.addArticles(reqData)
     paginationResult.value = req.pagination
   }, 500)
 }
@@ -91,11 +93,11 @@ const handleClickPagination = () => {
             :title="article.title"
             :views="article.views"
             :short-description="article.shortDescription.slice(0, 99) + '...'"
-            :image="article.image.url"
-            :image-alt="article.image.caption"
+            :image="article.image?.url"
+            :image-alt="article.image?.caption"
             :themes="article.themes.map((theme) => theme.name)"
-            :avatar-image="article.author.avatar.url"
-            :avatar-name="article.author.username"
+            :avatar-image="article?.author?.avatar?.url"
+            :avatar-name="article?.author?.username ?? 'Инкогнито'"
           />
         </div>
         <a-pagination

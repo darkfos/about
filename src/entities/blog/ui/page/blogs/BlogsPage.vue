@@ -4,6 +4,7 @@ import { provide } from 'vue'
 import { SearchComponent } from '@/features/search'
 
 import { getBlogs } from '@/entities/blog'
+
 import { SEARCH_TITLE_SEARCH_VALUE, SEARCH_TITLE_SEARCH_KEY } from '@/shared/utils'
 
 const randomTitles = [

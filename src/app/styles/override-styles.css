@@ -90,3 +90,35 @@
   background-color: var(--pink-text-color) !important;
   opacity: 0.4;
 }
+
+.ant-select-selection-search-input {
+  color: var(--pink-text-color) !important;
+  font-size: 12pt !important;
+  text-align: left;
+  background-color: var(--bg-element-extra-bold-color) !important;
+  opacity: 1 !important;
+}
+
+.ant-select-selector {
+  padding: 20px !important;
+  background-color: var(--bg-element-extra-bold-color) !important;
+  border: 1px solid var(--black-border-color) !important;
+}
+
+.ant-select {
+  width: 100% !important;
+  color: var(--pink-text-color) !important;
+}
+
+.ant-select-selection-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-select-dropdown {
+  background-color: var(--bg-element-extra-bold-color);
+  border: 1px solid var(--black-border-color);
+  color: var(--pink-text-color) !important;
+}

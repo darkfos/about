@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineProps, inject, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { UserOutlined } from '@ant-design/icons-vue'
 
 import { LinkElementWidget } from '@/shared/ui'
 import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
@@ -51,7 +52,7 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
       </template>
     </LinkElementWidget>
     <template #cover>
-      <img :src="urlBack + image" :alt="imageAlt" class="card-avatar" />
+      <img :src="image ? urlBack + image : '/img/not_found.png'" :alt="imageAlt" class="card-avatar" />
       <div id="continue-icon" @click="handleContinueClick">
         <img src="/img/continue-icon.png" alt="Перейти" />
       </div>
@@ -71,7 +72,16 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
     </div>
     <div class="blog-card__avatar">
       <p>{{ avatarName }}</p>
-      <a-avatar :src="urlBack + avatarImage" />
+      <a-avatar>
+        <template #icon>
+          <template v-if="avatarImage">
+            <img :src="urlBack + avatarImage" />
+          </template>
+          <template v-else>
+            <UserOutlined />
+          </template>
+        </template>
+      </a-avatar>
     </div>
   </a-card>
 </template>
@@ -103,7 +113,7 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
 }
 
 .blog-card p {
-  font-size: 9pt !important;
+  font-size: 12pt !important;
 }
 
 .blog-card__footer {

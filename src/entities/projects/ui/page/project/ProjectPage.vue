@@ -10,10 +10,13 @@ import type { Article } from '@/shared/types'
 
 const route = useRoute()
 const articleData = ref<Article>({} as Article)
+const notFound = ref(false)
 
 onMounted(() => {
   getProject(route.params.id as string).then((data) => {
     articleData.value = data
+  }).catch(() => {
+    notFound.value = true
   })
 })
 </script>
@@ -24,6 +27,7 @@ onMounted(() => {
     :views="articleData.views"
     :themes="articleData.themes"
     :author="articleData.author"
+    :not-found="notFound"
   />
 </template>
 
