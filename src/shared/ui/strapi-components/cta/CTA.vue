@@ -14,7 +14,8 @@ const props = defineProps<CTABlock>()
 
 <style scoped>
 .cta-element {
-  margin-top: 20px;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
 .cta-element__btn {

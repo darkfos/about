@@ -49,11 +49,7 @@ const handleContinueClick = (): void => {
       </template>
     </LinkElementWidget>
     <template #cover>
-      <img
-        :src="image ? image : '/img/not_found.png'"
-        :alt="imageAlt"
-        class="card-avatar"
-      />
+      <img :src="image ? image : '/img/not_found.png'" :alt="imageAlt" class="card-avatar" />
       <div id="continue-icon" @click="handleContinueClick">
         <img src="/img/continue-icon.png" alt="Перейти" />
       </div>
