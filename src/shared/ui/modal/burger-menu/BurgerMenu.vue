@@ -149,7 +149,7 @@ a {
   #burger-menu > div span {
     width: 20px;
     height: 2px;
-    background-color: black;
+    background-color: white;
   }
 }
 </style>

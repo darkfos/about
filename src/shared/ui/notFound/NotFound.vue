@@ -9,7 +9,7 @@ import { TypographyText } from '@/shared/ui'
       <hr />
       <TypographyText type="p">
         Возможна данная страница отсутствует или пока нету нужны данных, попробуйте вернуться
-        <TypographyText type="a" href="/" id="select-text" className="hover-link"
+        <TypographyText type="a" href="/about/" id="select-text" className="hover-link"
           >обратно</TypographyText
         >
       </TypographyText>

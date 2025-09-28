@@ -49,7 +49,7 @@ const handleClick = (): void => {
     </template>
     <template v-else>
       <template v-if="isPng">
-        <img :src="`/img/${img}`" :alt="alt" @click="redirectPage" />
+        <img :src="`/about/img/${img}`" :alt="alt" @click="redirectPage" />
       </template>
       <component :is="img" @click="redirectPage"></component>
     </template>
