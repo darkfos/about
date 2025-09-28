@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { provide } from 'vue'
+
 import { HeaderWidget } from '@/widgets/header'
 import { FooterWidget } from '@/widgets/footer'
 
@@ -6,18 +8,28 @@ import { getThemes } from '@/entities/theme'
 import type { Theme } from '@/entities/theme'
 
 import { useMainStore } from '@/shared/store'
-import { ToTop } from '@/shared/ui'
+import { ToTop, BlurCursor } from '@/shared/ui'
+
+import {
+  KEY_GENERAL_SHORT_BACKEND_URL,
+  GENERAL_SHORT_BACKEND_URL,
+  END_ARTICLE,
+  END_ARTICLE_VALUE,
+  SCREEN_WIDTH_KEY,
+  SCREEN_WIDTH_VALUE,
+} from '@/shared/utils'
 
 const mainStore = useMainStore()
 
 if (!mainStore.getThemes().length) {
-  // Set themes
   getThemes().then((data) => {
     mainStore.addThemes(data as Theme[])
   })
 }
 
-document.body.classList.add(mainStore.appTheme)
+provide(KEY_GENERAL_SHORT_BACKEND_URL, GENERAL_SHORT_BACKEND_URL)
+provide(END_ARTICLE, END_ARTICLE_VALUE)
+provide(SCREEN_WIDTH_KEY, SCREEN_WIDTH_VALUE)
 </script>
 
 <template>
@@ -26,10 +38,11 @@ document.body.classList.add(mainStore.appTheme)
     <router-view />
     <FooterWidget />
     <ToTop />
+    <BlurCursor />
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   width: 100%;
 }
@@ -42,5 +55,12 @@ body {
   gap: 100px;
   margin: auto;
   color: var(--main-text-color);
+}
+
+@media screen and (max-width: 450px) {
+  .bodyApp {
+    width: 95%;
+    max-width: 95%;
+  }
 }
 </style>

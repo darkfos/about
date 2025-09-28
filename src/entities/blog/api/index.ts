@@ -1,21 +1,29 @@
-import type { Blog } from '@/entities/blog'
-
 import { instance } from '@/shared/api'
-import type { Pagination, ThemeFilter } from '@/shared/types'
+import type { Pagination, ThemeFilter, Article, ArticleResultPagination } from '@/shared/types'
 
-export async function getBlog(
+export async function getBlogs(
   title: string,
   themes: ThemeFilter,
   pageData: Pagination,
-): Promise<Blog | null> {
-  const req = await instance.get(`/api/findBlog`, {
+): Promise<ArticleResultPagination> {
+  const req = await instance.get(`/findBlogs`, {
     params: {
-      title: title,
-      themes: themes.themes,
+      title: title.toLowerCase(),
+      themes: themes,
       page: pageData.page,
       limit: pageData.pageSize,
     },
   })
-  if (req.status !== 200) return null
-  return await req.data()
+
+  if (req.status !== 200) return { blogs: [], pagination: { page: 1, total: 0, pageSize: 10 } }
+  return await req.data
+}
+
+export async function getBlog(id: string): Promise<Article> {
+  const req = await instance.get(`/findBlog/${id}`)
+
+  if (req.status !== 200) {
+    throw new Error('Не удалось найти блог')
+  }
+  return await req.data
 }

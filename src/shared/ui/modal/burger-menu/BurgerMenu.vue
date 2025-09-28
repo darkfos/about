@@ -41,9 +41,9 @@ watch(openBurgerMenu, (newValue) => {
               >{{ hLink.title }}</RouterLink
             >
           </template>
-          <TypographyText type="a" @click="handleClickBurgerMenu" style="padding-top: 20px"
-            >Закрыть</TypographyText
-          >
+          <div @click="handleClickBurgerMenu">
+            <TypographyText type="a" style="padding-top: 20px">Закрыть</TypographyText>
+          </div>
         </div>
       </template>
     </Transition>

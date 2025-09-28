@@ -1,3 +1,5 @@
-import ProjectsPage from '@/entities/projects/ui'
+import ProjectsPage from './ui'
+import { ProjectPage } from './ui'
 
+export { ProjectPage }
 export default ProjectsPage
