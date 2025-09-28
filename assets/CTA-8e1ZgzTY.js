@@ -1,0 +1,1 @@
+import{d as s,c as a,o,b as c,t as n,_}from"./index-C5j_kFk5.js";const r={class:"cta-element"},p=["href"],d=s({__name:"CTA",props:{text:{},url:{},id:{},documentId:{},__component:{}},setup(t){const e=t;return(l,m)=>(o(),a("div",r,[c("a",{href:e.url,target:"_blank",class:"cta-element__btn"},n(e.text),9,p)]))}}),f=_(d,[["__scopeId","data-v-e749babf"]]);export{f as default};
