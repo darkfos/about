@@ -16,7 +16,7 @@ import {
       <section class="technology">
         <div class="technology__body">
           <TitleText title="Технологии" align="left" :type-title="'h2'" />
-          <div>
+          <div style="width: 100%">
             <TitleText align="left" title="Список используемых мною технологий" type-title="h4" />
             <div class="my-technology-list">
               <HorizontalCard title-text="Backend" title-icon-alt="Иконка бекенда">
@@ -90,7 +90,7 @@ import {
 }
 
 .technology__body {
-  width: 80%;
+  width: 100%;
   color: var(--main-text-color);
   margin-top: 40px;
   word-break: break-all;
