@@ -22,8 +22,8 @@ const imageLinks: Array<string[]> = [
   <TransitionComponent>
     <template #component>
       <section class="profile" id="profile">
-        <img id="profile__avatar" src="/img/darkfos_profile.png" alt="Иконка darkfos" />
-        <img id="profile__bg-sakura" src="/img/sakura.png" alt="Задний фон сакура" />
+        <img id="profile__avatar" src="/about/img/darkfos_profile.png" alt="Иконка darkfos" />
+        <img id="profile__bg-sakura" src="/about/img/sakura.png" alt="Задний фон сакура" />
         <div class="profile__desc">
           <TypographyText type="p">darkfos</TypographyText>
           <TypographyText type="p" style="margin: 0; padding: 0">Full Stack dev.</TypographyText>
