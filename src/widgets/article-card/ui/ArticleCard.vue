@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { defineProps, inject, ref } from 'vue'
+import { defineProps } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { UserOutlined } from '@ant-design/icons-vue'
 
 import { LinkElementWidget } from '@/shared/ui'
-import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const {
   id,
@@ -40,8 +39,6 @@ const handleContinueClick = (): void => {
     params: { id: id },
   })
 }
-
-const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
 </script>
 
 <template>
@@ -53,7 +50,7 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
     </LinkElementWidget>
     <template #cover>
       <img
-        :src="image ? urlBack + image : '/img/not_found.png'"
+        :src="image ? image : '/img/not_found.png'"
         :alt="imageAlt"
         class="card-avatar"
       />
@@ -79,7 +76,7 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
       <a-avatar>
         <template #icon>
           <template v-if="avatarImage">
-            <img :src="urlBack + avatarImage" />
+            <img :src="avatarImage" />
           </template>
           <template v-else>
             <UserOutlined />
