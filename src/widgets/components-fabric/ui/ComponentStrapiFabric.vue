@@ -15,7 +15,7 @@ const props = defineProps<{
   sections: Array<Components>
   themes: Array<Theme>
   author: Author
-  views: number,
+  views: number
   notFound: boolean
 }>()
 
@@ -39,27 +39,32 @@ const articleLink = computed(() =>
             <template v-if="screenWidth > 1400">
               <component
                 :is="
-              componentMap[
-                (section.__component.split('.')[1] as ComponentsType) ?? componentMap['']
-              ]
-            "
-                v-bind="{ ...section, themes: props.themes, author: props.author, views: props.views }"
+                  componentMap[
+                    (section.__component.split('.')[1] as ComponentsType) ?? componentMap['']
+                  ]
+                "
+                v-bind="{
+                  ...section,
+                  themes: props.themes,
+                  author: props.author,
+                  views: props.views,
+                }"
               />
             </template>
             <template v-else>
               <template v-if="!section.__component.includes('link-article')">
                 <component
                   :is="
-                componentMap[
-                  (section.__component.split('.')[1] as ComponentsType) ?? componentMap['']
-                ]
-              "
+                    componentMap[
+                      (section.__component.split('.')[1] as ComponentsType) ?? componentMap['']
+                    ]
+                  "
                   v-bind="{
-                ...section,
-                themes: props.themes,
-                author: props.author,
-                views: props.views,
-              }"
+                    ...section,
+                    themes: props.themes,
+                    author: props.author,
+                    views: props.views,
+                  }"
                 />
               </template>
             </template>
@@ -72,10 +77,17 @@ const articleLink = computed(() =>
           <template v-for="section in articleLink" :key="section.documentId">
             <component
               :is="
-            componentMap[(section.__component.split('.')[1] as ComponentsType) ?? componentMap['']]
-          "
+                componentMap[
+                  (section.__component.split('.')[1] as ComponentsType) ?? componentMap['']
+                ]
+              "
               class="link-article__mobile"
-              v-bind="{ ...section, themes: props.themes, author: props.author, views: props.views }"
+              v-bind="{
+                ...section,
+                themes: props.themes,
+                author: props.author,
+                views: props.views,
+              }"
             />
           </template>
         </div>

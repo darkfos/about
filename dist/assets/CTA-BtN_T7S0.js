@@ -1,0 +1,1 @@
+import{d as s,a,o,b as c,t as n,_}from"./index-CS0AvtIe.js";const r={class:"cta-element"},d=["href"],p=s({__name:"CTA",props:{text:{},url:{},id:{},documentId:{},__component:{}},setup(t){const e=t;return(l,m)=>(o(),a("div",r,[c("a",{href:e.url,target:"_blank",class:"cta-element__btn"},n(e.text),9,d)]))}}),f=_(p,[["__scopeId","data-v-f3dbc220"]]);export{f as default};

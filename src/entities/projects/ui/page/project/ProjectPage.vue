@@ -13,11 +13,13 @@ const articleData = ref<Article>({} as Article)
 const notFound = ref(false)
 
 onMounted(() => {
-  getProject(route.params.id as string).then((data) => {
-    articleData.value = data
-  }).catch(() => {
-    notFound.value = true
-  })
+  getProject(route.params.id as string)
+    .then((data) => {
+      articleData.value = data
+    })
+    .catch(() => {
+      notFound.value = true
+    })
 })
 </script>
 
