@@ -49,7 +49,7 @@ const urlAvatarUser = props?.author?.avatar?.url
   </section>
 </template>
 
-<style>
+<style scoped>
 .banner-block {
   width: 100%;
   display: flex;
@@ -91,7 +91,7 @@ header div {
 
 header img {
   width: 100%;
-  height: 70% !important;
+  height: 500px !important;
   transform: scaleX(150%);
   border-radius: 0 !important;
 }

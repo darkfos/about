@@ -101,7 +101,7 @@ const articleLink = computed(() =>
 .articles-additional {
   width: 90%;
   margin: auto;
-  padding: 0px 0;
+  padding: 0 0;
 }
 
 .articles-additional__content {
