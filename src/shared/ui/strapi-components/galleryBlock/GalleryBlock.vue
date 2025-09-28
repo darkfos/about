@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { defineProps, inject, ref } from 'vue'
+import { defineProps } from 'vue'
 
 import type { GalleryBlock as GalleryBlockProps } from '@/shared/types'
-import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
 const props = defineProps<GalleryBlockProps>()
-const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
 </script>
 
 <template>
@@ -21,12 +19,7 @@ const imgUrl = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
           <right-circle-outlined />
         </div>
       </template>
-      <img
-        v-for="image in props.images"
-        :src="imgUrl + image.url"
-        :alt="image.caption"
-        :key="image.id"
-      />
+      <img v-for="image in props.images" :src="image.url" :alt="image.caption" :key="image.id" />
     </a-carousel>
   </section>
 </template>
