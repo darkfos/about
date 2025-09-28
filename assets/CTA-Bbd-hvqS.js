@@ -1,1 +1,0 @@
-import{d as a,a as s,o,b as n,t as c,_}from"./index-0xW_iDtv.js";const r={class:"cta-element"},p=["href"],d=a({__name:"CTA",props:{text:{},url:{},id:{},documentId:{},__component:{}},setup(t){const e=t;return(l,m)=>(o(),s("div",r,[n("a",{href:e.url,target:"_blank",class:"cta-element__btn"},c(e.text),9,p)]))}}),f=_(d,[["__scopeId","data-v-e749babf"]]);export{f as default};
