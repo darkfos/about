@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import { appRoutes } from '@/shared/model'
 
 const router = createRouter({
-  history: createWebHistory('/about/'),
+  history: createWebHashHistory('/about/'),
   routes: [...appRoutes],
 })
 
