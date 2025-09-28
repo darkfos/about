@@ -13,12 +13,14 @@
     "lint:eslint": "eslint src --fix",
     "lint": "run-s lint:*",
     "format": "prettier --write src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
     "ant-design-vue": "4.x",
     "axios": "^1.10.0",
+    "gh-pages": "^6.3.0",
     "pinia": "^3.0.1",
     "unplugin-vue-components": "^28.5.0",
     "vue": "^3.5.13",
