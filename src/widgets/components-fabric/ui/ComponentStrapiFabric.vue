@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, inject, ref } from 'vue'
+import { defineProps, inject, ref, computed } from 'vue'
 
 import { componentMap, type ComponentsType } from '@/widgets/components-fabric'
 
@@ -16,6 +16,10 @@ const props = defineProps<{
   author: Author
   views: number
 }>()
+
+const articleLink = computed(() =>
+  props.sections.filter((section) => section.__component.includes('link-article')),
+)
 </script>
 
 <template>
@@ -52,22 +56,17 @@ const props = defineProps<{
       </template>
     </template>
   </SectionStrapiContent>
-  <div class="articles-additional" v-if="screenWidth <= 1400">
+  <div class="articles-additional" v-if="screenWidth <= 1400 && articleLink.length > 0">
     <h2>Читать также</h2>
     <div class="articles-additional__content">
-      <template v-for="section in props.sections">
-        <template v-if="section.__component.includes('link-article')">
-          <component
-            :is="
-              componentMap[
-                (section.__component.split('.')[1] as ComponentsType) ?? componentMap['']
-              ]
-            "
-            class="link-article__mobile"
-            :key="section.documentId"
-            v-bind="{ ...section, themes: props.themes, author: props.author, views: props.views }"
-          />
-        </template>
+      <template v-for="section in articleLink" :key="section.documentId">
+        <component
+          :is="
+            componentMap[(section.__component.split('.')[1] as ComponentsType) ?? componentMap['']]
+          "
+          class="link-article__mobile"
+          v-bind="{ ...section, themes: props.themes, author: props.author, views: props.views }"
+        />
       </template>
     </div>
   </div>

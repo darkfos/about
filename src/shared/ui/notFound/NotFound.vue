@@ -8,7 +8,7 @@ import { TypographyText } from '@/shared/ui'
       <h1>Не удалось найти контент</h1>
       <hr />
       <TypographyText type="p">
-        Возможна данная страница отсутсвует, попробуйте вернуться
+        Возможна данная страница отсутствует или пока нету нужны данных, попробуйте вернуться
         <TypographyText type="a" href="/" id="select-text" className="hover-link"
           >обратно</TypographyText
         >
