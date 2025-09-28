@@ -85,7 +85,7 @@ import {
 </template>
 <style scoped>
 .technology {
-  width: 100vw;
+  width: 100%;
   margin: auto;
 }
 
