@@ -1,3 +1,124 @@
 .ant-btn span {
   color: var(--button-text-color);
 }
+
+.ant-message {
+  color: var(--main-color) !important;
+}
+
+.ant-message-notice-content {
+  background-color: var(--bg-element-bold-color) !important;
+}
+
+.ant-card {
+  background-color: var(--bg-element-bold-color);
+  border: 1px solid var(--black-border-color);
+}
+
+.ant-card-meta-title,
+.ant-card-meta-description {
+  color: white !important;
+}
+
+.ant-pagination {
+  margin: auto !important;
+  text-align: center !important;
+  width: 70%;
+}
+
+.ant-pagination svg {
+  fill: var(--pink-text-color);
+}
+
+.ant-pagination-item a {
+  color: var(--select-text) !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item {
+  background-color: transparent !important;
+  border: 1px solid var(--black-border-color);
+}
+
+.ant-pagination-item a {
+  color: white !important;
+}
+
+.ant-pagination-item-active {
+  border-color: var(--pink-text-color) !important;
+  font-weight: bold;
+}
+
+.ant-pagination-item-link {
+  font-weight: bold;
+}
+
+.h-card__content p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ant-input-wrapper * {
+  background-color: var(--bg-element-bold-color) !important;
+  border: 1px solid var(--black-border-color) !important;
+  color: var(--pink-text-color) !important;
+}
+
+.ant-input-group-addon * {
+  border: none !important;
+}
+
+.ant-spin {
+  color: var(--main-text-color) !important;
+  font-weight: bold;
+  font-size: var(--h5-size) !important;
+}
+
+.ant-spin i {
+  background: linear-gradient(-43deg, #e02043 20%, #f527bb 100%) !important;
+}
+
+.ant-avatar {
+  background: none;
+}
+
+.slick-active button {
+  background-color: var(--pink-text-color) !important;
+}
+
+.slick-dots button {
+  background-color: var(--pink-text-color) !important;
+  opacity: 0.4;
+}
+
+.ant-select-selection-search-input {
+  color: var(--pink-text-color) !important;
+  font-size: 12pt !important;
+  text-align: left;
+  background-color: var(--bg-element-extra-bold-color) !important;
+  opacity: 1 !important;
+}
+
+.ant-select-selector {
+  padding: 20px !important;
+  background-color: var(--bg-element-extra-bold-color) !important;
+  border: 1px solid var(--black-border-color) !important;
+}
+
+.ant-select {
+  width: 100% !important;
+  color: var(--pink-text-color) !important;
+}
+
+.ant-select-selection-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-select-dropdown {
+  background-color: var(--bg-element-extra-bold-color);
+  border: 1px solid var(--black-border-color);
+  color: var(--pink-text-color) !important;
+}

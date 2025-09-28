@@ -6,3 +6,11 @@ export const isJson = (jsonData: string): boolean => {
     return false
   }
 }
+
+export const convertJsonToArray = <T>(jsonData: string): Array<T> => {
+  try {
+    return JSON.parse(jsonData)
+  } catch {
+    return []
+  }
+}

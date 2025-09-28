@@ -1,8 +1,9 @@
 import type { Component } from 'vue'
 
 import HomePage from '@/entities/home'
-import ProjectsPage from '@/entities/projects'
-import BlogPage from '@/entities/blog'
+import ProjectsPage, { ProjectPage } from '@/entities/projects'
+import BlogsPage, { BlogPage } from '@/entities/blog'
+import NotFound from '@/shared/ui/notFound/NotFound.vue'
 
 export interface AppRoutesItem {
   path: string
@@ -22,8 +23,23 @@ export const appRoutes: Array<AppRoutesItem> = [
     component: ProjectsPage,
   },
   {
-    path: '/blog',
-    name: 'Блог',
+    path: '/projects/:id',
+    name: 'projects',
+    component: ProjectPage,
+  },
+  {
+    path: '/blogs/:id',
+    name: 'blogs',
     component: BlogPage,
+  },
+  {
+    path: '/blogs',
+    name: 'Блог',
+    component: BlogsPage,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'other',
+    component: NotFound,
   },
 ]

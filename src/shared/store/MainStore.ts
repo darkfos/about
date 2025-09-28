@@ -31,24 +31,21 @@ import {
   HtmlIcon,
   PythonIcon,
 } from '@/shared/ui'
-import type { themeColor, flagTechnologies } from '@/shared/types'
-import { getFromLocalStorage } from '@/shared/utils/storage/localStorage.ts'
+import type { Article, flagTechnologies } from '@/shared/types'
 
 export const useMainStore = defineStore('mainStore', {
   state: (): {
-    appTheme: themeColor
     activePage: string
     themes: Array<Theme>
     backendTechnologies: Array<Array<DefineComponent<any, any, any>>>
     frontendTechnologies: Array<Array<DefineComponent<any, any, any>>>
     otherTechnologies: Array<Array<DefineComponent<any, any, any>>>
+    lastArticles: Array<Article>
   } => {
     return {
-      appTheme: (getFromLocalStorage('theme') as themeColor)
-        ? (getFromLocalStorage('theme') as themeColor)
-        : 'dark',
       activePage: '/',
       themes: [],
+      lastArticles: [],
       backendTechnologies: [
         [PythonIcon, NodejsIcon],
         [DjangoIcon, FastApiIcon, ExpressIcon],
@@ -70,8 +67,8 @@ export const useMainStore = defineStore('mainStore', {
     }
   },
   actions: {
-    changeColor(themeColor: themeColor) {
-      this.appTheme = themeColor
+    getLastArticles(): Array<Article> {
+      return this.lastArticles
     },
     getPageLink(): string {
       return this.activePage
@@ -120,6 +117,11 @@ export const useMainStore = defineStore('mainStore', {
       } else {
         technology.push(newTechnologies)
       }
+    },
+    addArticles(articles: Array<Article>): void {
+      this.lastArticles = articles.map((article) =>
+        Object.assign({ value: article.title }, article),
+      )
     },
   },
 })

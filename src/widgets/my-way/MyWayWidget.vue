@@ -3,7 +3,7 @@ import { ref, h, type VNode } from 'vue'
 import type { Ref } from 'vue'
 import { FireOutlined } from '@ant-design/icons-vue'
 
-import { TitleText, TypographyText } from '@/shared/ui'
+import { TitleText, TypographyText, BackgroundLayout, TransitionComponent } from '@/shared/ui'
 
 const current: Ref<number> = ref(0)
 const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode }>> = ref([
@@ -35,15 +35,21 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
 </script>
 
 <template>
-  <section class="my-way" id="my-way">
-    <TitleText title="Мой путь" type-title="h1" align="center" :close-figure="true" />
-    <div class="my-way__body">
-      <a-steps v-model:current="current" :items="items" class="steps" type="navigation" />
-      <TypographyText type="p">
-        {{ items[current].text }}
-      </TypographyText>
-    </div>
-  </section>
+  <TransitionComponent>
+    <template #component>
+      <section class="my-way" id="my-way">
+        <TitleText title="Мой путь" type-title="h1" align="center" :close-figure="true" />
+        <div class="my-way__body">
+          <a-steps v-model:current="current" :items="items" class="steps" type="navigation" />
+          <BackgroundLayout>
+            <TypographyText type="p">
+              {{ items[current].text }}
+            </TypographyText>
+          </BackgroundLayout>
+        </div>
+      </section>
+    </template>
+  </TransitionComponent>
 </template>
 
 <style>
@@ -62,7 +68,6 @@ const items: Ref<Array<{ key: string; title: string; text?: string; icon?: VNode
   display: grid;
   grid-template-rows: auto;
   gap: 90px;
-  margin-top: 80px;
   padding-bottom: 80px;
 }
 

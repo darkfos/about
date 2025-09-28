@@ -2,7 +2,7 @@
 import { watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
-import { BurgerMenu, ThemeSwitcher } from '@/shared/ui'
+import { BurgerMenu } from '@/shared/ui'
 
 import { TypographyText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
@@ -16,7 +16,7 @@ const headerLink: Array<{ href: string; title: string }> = [
     title: 'Главная',
   },
   {
-    href: '/blog',
+    href: '/blogs',
     title: 'Блог',
   },
   {
@@ -35,16 +35,17 @@ watch(
 
 <template>
   <header id="header">
-    <TypographyText type="p" id="select-text">darkfos</TypographyText>
+    <TypographyText type="a" id="select-text-header" href="/" class-name="hover-link"
+      >darkfos.io</TypographyText
+    >
     <div class="header__items">
-      <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
       <nav id="native-menu">
         <div v-for="(hLink, index) in headerLink" :key="index">
           <TypographyText :is-route-link="true">
             <RouterLink
               :to="hLink.href"
-              :class="mainStore.getPageLink() === hLink.href ? 'active' : null"
+              :id="route.path === hLink.href ? 'router-link_active' : 'router-link_default'"
               >{{ hLink.title }}</RouterLink
             >
           </TypographyText>
@@ -60,6 +61,12 @@ watch(
   align-items: center;
   grid-template-columns: 3fr 1fr;
   justify-content: space-between;
+  margin-top: 20px;
+}
+
+#select-text-header {
+  color: var(--main-text-color);
+  font-weight: 800;
 }
 
 .header__items {
@@ -85,6 +92,13 @@ nav {
 @media screen and (max-width: 850px) {
   #native-menu {
     display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #header {
+    width: 90%;
+    margin: 20px auto;
   }
 }
 </style>

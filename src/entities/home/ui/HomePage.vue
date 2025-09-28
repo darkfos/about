@@ -3,23 +3,29 @@ import { ProfileWidget } from '@/widgets/profile'
 import { AboutMeWidget } from '@/widgets/about-me'
 import { TechnologyWidget } from '@/widgets/technology'
 import { MyWayWidget } from '@/widgets/my-way'
+import { SendUserContacts } from '@/features/send-user-contacts'
 
-import { TypographyText } from '@/shared/ui'
+import { TypographyText, TransitionComponent } from '@/shared/ui'
 </script>
 
 <template>
   <ProfileWidget />
-  <div class="quote">
-    <div id="bg">
-      <TypographyText type="p" id="content">
-        “Аналогично тому, как написание картины является искусством для души, так и написание
-        программы является искусством для разума.”
-      </TypographyText>
-    </div>
-  </div>
+  <TransitionComponent>
+    <template #component>
+      <div class="quote">
+        <div id="bg">
+          <TypographyText type="p" id="content">
+            “Аналогично тому, как написание картины является искусством для души, так и написание
+            программы является искусством для разума.”
+          </TypographyText>
+        </div>
+      </div>
+    </template>
+  </TransitionComponent>
   <AboutMeWidget />
   <TechnologyWidget />
   <MyWayWidget />
+  <SendUserContacts />
 </template>
 
 <style>
@@ -48,9 +54,10 @@ import { TypographyText } from '@/shared/ui'
 }
 
 #content {
+  position: absolute;
   text-align: center;
   text-wrap: wrap;
-  width: calc(100vw - 20px);
+  width: 100%;
   margin: auto;
   margin-top: 25%;
   color: var(--text-on-white-bg-color);
@@ -94,20 +101,25 @@ import { TypographyText } from '@/shared/ui'
   }
 
   #bg {
-    width: 800px;
     margin: auto;
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 550px) {
   #content {
-    margin-top: 55%;
+    margin-top: 85%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  #content {
+    margin-top: 95%;
   }
 }
 
 @media screen and (max-width: 230px) {
   #content {
-    margin-top: 50%;
+    top: 200px;
   }
 }
 </style>

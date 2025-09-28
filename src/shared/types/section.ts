@@ -1,5 +1,12 @@
+import type { BlocksContent } from 'vue-strapi-blocks-renderer'
+import type { Author, Image } from '@/shared/types/strapi.ts'
+import type { Theme } from '@/entities/theme'
+import Blog from '@/entities/blog'
+import type { Article } from '@/shared/types/types.ts'
+
 interface Component {
   id: number
+  documentId: string
   __component: string
 }
 
@@ -14,6 +21,15 @@ interface FormatImage {
   size: number
   sizeInBytes: number
   url: string
+}
+
+export interface DynamicSectionAdditionalData {
+  themes: Array<Theme>
+  date: string
+  author: {
+    username: string
+    avatar: Image
+  }
 }
 
 export interface ImageBlock extends Component {
@@ -51,13 +67,44 @@ export interface ImageBlock extends Component {
 
 export interface TextBlock extends Component {
   header?: string | null
-  text: Array<{
-    type: string
-    children?: Array<{
-      type: string
-      text: string
-    }>
-  }>
+  text: BlocksContent
 }
 
-export type Components = ImageBlock | TextBlock
+export interface LinkBlock extends Component {
+  alt?: string
+  href?: string
+  icon?: Image
+  text?: string
+}
+
+export interface BannerBlockI extends Component {
+  image: {
+    img: Image
+  }
+  views: number
+  text: string
+}
+
+export interface CTABlock extends Component {
+  text: string
+  url: string
+}
+
+export interface GalleryBlock extends Component {
+  title: string
+  description: BlocksContent
+  images: Array<Image>
+}
+
+export interface LinkArticleBlock extends Component {
+  blog: Article
+  project: Article
+  views: number
+}
+
+export type Components = ImageBlock &
+  TextBlock &
+  BannerBlockI &
+  CTABlock &
+  LinkBlock &
+  LinkArticleBlock

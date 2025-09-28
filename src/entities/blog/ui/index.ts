@@ -1,3 +1,5 @@
-import BlogPage from '@/entities/blog/ui/BlogPage.vue'
+import BlogsPage from '@/entities/blog/ui/page/blogs/BlogsPage.vue'
+import BlogPage from './page/blog/BlogPage.vue'
 
-export default BlogPage
+export { BlogPage }
+export default BlogsPage
