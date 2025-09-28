@@ -8,7 +8,7 @@ export async function getBlogs(
 ): Promise<ArticleResultPagination> {
   const req = await instance.get(`/findBlogs`, {
     params: {
-      title: title,
+      title: title.toLowerCase(),
       themes: themes,
       page: pageData.page,
       limit: pageData.pageSize,

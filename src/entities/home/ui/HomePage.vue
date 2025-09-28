@@ -54,9 +54,10 @@ import { TypographyText, TransitionComponent } from '@/shared/ui'
 }
 
 #content {
+  position: absolute;
   text-align: center;
   text-wrap: wrap;
-  width: calc(100vw - 20px);
+  width: 100%;
   margin: auto;
   margin-top: 25%;
   color: var(--text-on-white-bg-color);
@@ -100,20 +101,25 @@ import { TypographyText, TransitionComponent } from '@/shared/ui'
   }
 
   #bg {
-    width: 800px;
     margin: auto;
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 550px) {
   #content {
-    margin-top: 55%;
+    margin-top: 85%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  #content {
+    margin-top: 95%;
   }
 }
 
 @media screen and (max-width: 230px) {
   #content {
-    margin-top: 50%;
+    top: 200px;
   }
 }
 </style>

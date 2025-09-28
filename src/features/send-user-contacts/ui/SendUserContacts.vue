@@ -61,6 +61,10 @@ const handleSubmit = async () => {
   gap: 40px;
 }
 
+.send-user-contacts__content section {
+  width: 100%;
+}
+
 img {
   width: 70%;
 }
@@ -68,6 +72,12 @@ img {
 @media screen and (max-width: 1150px) {
   img {
     display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .send-user-contacts {
+    width: 80vw;
   }
 }
 </style>

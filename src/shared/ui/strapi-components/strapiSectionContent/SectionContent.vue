@@ -15,4 +15,8 @@ import { BackgroundLayout } from '@/shared/ui'
   width: 75%;
   margin: auto;
 }
+
+.section-content > div {
+  padding-bottom: 80px;
+}
 </style>

@@ -8,7 +8,7 @@ export async function getProjects(
 ): Promise<ArticleResultPagination> {
   const req = await instance.get(`/findProjects`, {
     params: {
-      title: title,
+      title: title.toLowerCase(),
       themes: themes,
       page: pageData.page,
       limit: pageData.pageSize,

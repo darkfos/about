@@ -8,7 +8,7 @@ import { getThemes } from '@/entities/theme'
 import type { Theme } from '@/entities/theme'
 
 import { useMainStore } from '@/shared/store'
-import { ToTop } from '@/shared/ui'
+import { ToTop, BlurCursor } from '@/shared/ui'
 
 import {
   KEY_GENERAL_SHORT_BACKEND_URL,
@@ -26,8 +26,6 @@ if (!mainStore.getThemes().length) {
   })
 }
 
-document.body.classList.add(mainStore.appTheme)
-
 provide(KEY_GENERAL_SHORT_BACKEND_URL, GENERAL_SHORT_BACKEND_URL)
 provide(END_ARTICLE, END_ARTICLE_VALUE)
 </script>
@@ -38,6 +36,7 @@ provide(END_ARTICLE, END_ARTICLE_VALUE)
     <router-view />
     <FooterWidget />
     <ToTop />
+    <BlurCursor />
   </div>
 </template>
 

@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { inject, ref } from 'vue'
+import { inject, ref, onUnmounted } from 'vue'
 import { Input } from 'ant-design-vue'
 
 import { SEARCH_TITLE_SEARCH_KEY } from '@/shared/utils'
 
 const formRef = inject(SEARCH_TITLE_SEARCH_KEY, ref())
+
+onUnmounted(() => {
+  formRef.value = ''
+})
 </script>
 <template>
   <form class="form">

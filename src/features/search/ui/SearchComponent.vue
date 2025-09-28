@@ -93,6 +93,7 @@ const url = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref())
           v-for="article in elements"
           :id="article.id"
           :title="article.title"
+          :views="article.views"
           :short-description="article.shortDescription.slice(0, 99) + '...'"
           :image="url + article.image.url"
           :image-alt="article.image.caption"

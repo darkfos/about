@@ -5,7 +5,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { LinkElementWidget } from '@/shared/ui'
 import { KEY_GENERAL_SHORT_BACKEND_URL } from '@/shared/utils'
 
-const { id, image, imageAlt, title, shortDescription, themes } = defineProps([
+const { id, image, imageAlt, title, shortDescription, themes, views } = defineProps([
   'image',
   'id',
   'imageAlt',
@@ -14,6 +14,7 @@ const { id, image, imageAlt, title, shortDescription, themes } = defineProps([
   'themes',
   'avatarName',
   'avatarImage',
+  'views',
 ])
 const router = useRouter()
 const route = useRoute()
@@ -27,6 +28,11 @@ const urlBack = inject(KEY_GENERAL_SHORT_BACKEND_URL, ref<string>(''))
 
 <template>
   <a-card hoverable style="width: 370px" class="blog-card">
+    <LinkElementWidget :text="views" class="view-article-card">
+      <template #img>
+        <img src="/img/view.png" alt="Просмотр" />
+      </template>
+    </LinkElementWidget>
     <template #cover>
       <img :src="image" :alt="imageAlt" class="card-avatar" />
       <div id="continue-icon" @click="handleContinueClick">

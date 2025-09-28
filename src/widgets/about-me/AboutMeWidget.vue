@@ -37,9 +37,11 @@ import {
                   <TypographyText type="span" id="select-text">WorkSolutions</TypographyText>
                   . Мне нравится разрабатывать удобные и красивые интерфейсы.
                 </TypographyText>
+                <br />
                 <TypographyText type="p">
                   Обожаю процесс разработки, изучение нового, выполнение поставленных задач.
                 </TypographyText>
+                <br />
                 <TypographyText type="p">
                   Увлекаюсь не только
                   <TypographyText type="span" id="select-text"> front-end </TypographyText>
@@ -52,13 +54,14 @@ import {
                   <TypographyText type="span" id="select-text"> музыка (я ей живу)</TypographyText>,
                   <TypographyText type="span" id="select-text"> аниме. </TypographyText>
                 </TypographyText>
+                <br />
                 <TypographyText type="p">
                   На данный момент активно изучаю направление разработки в сфере веба. Если есть
                   какие-либо вопросы, их можно мне написать в
                   <TypographyText type="a" href="#" id="select-text">Telegram</TypographyText>
                 </TypographyText>
               </div>
-              <div>
+              <div style="padding-top: 20px">
                 <LinkElementWidget
                   img="telegram.png"
                   title="Телеграм"
@@ -125,7 +128,6 @@ h2::before {
   .about-me div:nth-child(2) {
     text-align: justify;
     text-wrap: wrap;
-    width: 100%;
   }
 }
 </style>

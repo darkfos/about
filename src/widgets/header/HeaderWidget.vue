@@ -2,7 +2,7 @@
 import { watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 
-import { BurgerMenu, ThemeSwitcher } from '@/shared/ui'
+import { BurgerMenu } from '@/shared/ui'
 
 import { TypographyText } from '@/shared/ui'
 import { useMainStore } from '@/shared/store'
@@ -39,7 +39,6 @@ watch(
       >darkfos.io</TypographyText
     >
     <div class="header__items">
-      <ThemeSwitcher />
       <BurgerMenu :header-link="headerLink" />
       <nav id="native-menu">
         <div v-for="(hLink, index) in headerLink" :key="index">
